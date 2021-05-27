@@ -25,21 +25,21 @@ public class GetGitInfo {
 	
 	//Con questa funzione prendo una lista di commit (Oggetto Commit con id e data )dalla directory del progetto
 	
-	public static List<Commit> commitList(List<Date> date, String param) throws IOException, ParseException{
+	public static List<Commit> commitList() throws IOException, ParseException{
 		BufferedReader is;  // reader for output of process
 	    String line;
 	    List<Commit> CommitList = new ArrayList<>();
 	    List<String> idList = new ArrayList<>();
 	    List<Date> dateList = new ArrayList<>();
-	    List<String> Classnamelist = new ArrayList<>();
+	    List<String> ClassnameList = new ArrayList<>();
 	    File dir = new File("/Users/mirko/git/bookkeeper/");
 	    final Process p = Runtime.getRuntime().exec(PROGRAM, null, dir);
 	    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	    int countLines = 0;
 	    while (!done && ((line = is.readLine()) != null)) {
 	    	
 	    	if (line.startsWith("commit")) {
-	    		String s = line.substring(6, 14);
-	    		Classnamelist.clear();
+	    		String s = line.substring(6);
 	    		idList.add(s);
 	    	}
 	    	else if (line.startsWith("Date:")) {
@@ -50,21 +50,40 @@ public class GetGitInfo {
 	    		dateList.add(CommitDate);
 	    	}
 	
-	    	else if (line.endsWith(".java")) {
-	    		String Classname = line.substring(2);
-	    		Classnamelist.add(Classname);	
-	    	}
+	    	countLines++;
 	    	
 	    }
+	    
 	    if (idList.size() == dateList.size()) {
 	    	for (int i = 0; i < idList.size(); i++) {
 			    Commit commit = new Commit();
-			   	Commit.setId(commit,idList.get(i));
-			   	Commit.setDate(commit,dateList.get(i));
-			   	Commit.setClassName(commit, Classnamelist);
+			   	commit.setId(idList.get(i));
+			   	commit.setDate(dateList.get(i));
 			   	CommitList.add(commit);
 			    }	    
 	    }
+	    
+	    
+	    final Process p2 = Runtime.getRuntime().exec(PROGRAM, null, dir);
+	    BufferedReader is2 = new BufferedReader(new InputStreamReader(p2.getInputStream()));
+
+	    for (int i = 0; i < countLines; i++) {
+	    	line = is2.readLine();
+	    	System.out.println(line);
+	    	if (line != null && line.endsWith(".java")) {
+	    		ClassnameList.add(line.substring(2));
+	    	} else if (line != null && line.startsWith("commit") && i != 0 && !ClassnameList.isEmpty()) {
+	    		CommitList.get(idList.indexOf(line.substring(6)) - 1).setClassName(ClassnameList);
+	    		ClassnameList = new ArrayList<>();	
+	    	}
+	    }
+	    
+	    
+	    /*for (Commit elem: CommitList) {
+		    System.out.println(elem.getId());
+		    System.out.println(elem.getDate());
+		    System.out.println(elem.getClassName());
+	    }*/
 	    //System.out.println(CommitList.get(0).getDate());
 	    return CommitList;
 

@@ -111,7 +111,7 @@ public class CsvWriter {
 		List <String> version = main.getReleaseInfo.VersionArray(url, i ,1000, "name");
 		List<String> id = main.GetJsonFromUrl.IdArray(url, i , j );
 		List<Release> releases = getReleaseInfo.getReleaseList();
-		DateComparator(releases,GetGitInfo.commitList(resolutionarray,""));
+		DateComparator(releases,GetGitInfo.commitList());
 		CsvWriteArray(createdarray,resolutionarray,version, id);
 		CsvVersionArray(releases);
 		

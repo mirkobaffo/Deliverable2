@@ -21,32 +21,32 @@ public class Commit {
 	
 	
 	public String getId() {
-		return id;
+		return this.id;
 	}
 	
 	
 	public Date getDate() {
-		return date;
+		return this.date;
 	}
 	
 	
 	public List<String> getClassName(){
-		return classname;
+		return this.classname;
 	}
 	
 	
-	public static void setId(Commit commit, String id) {
-		commit.id = id;
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	
-	public static void setDate(Commit commit, Date date) {
-		commit.date = date;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	
-	public static void setClassName(Commit commit, List<String> classname) {
-		commit.classname = classname;
+	public void setClassName(List<String> classname) {
+		this.classname = classname;
 	}
 	
 }
