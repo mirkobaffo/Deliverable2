@@ -57,6 +57,7 @@ public class GetGitInfo {
 	    if (idList.size() == dateList.size()) {
 	    	for (int i = 0; i < idList.size(); i++) {
 			    Commit commit = new Commit();
+			    commit.setSequenceNumber(i);
 			   	commit.setId(idList.get(i));
 			   	commit.setDate(dateList.get(i));
 			   	CommitList.add(commit);
