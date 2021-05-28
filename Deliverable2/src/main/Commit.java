@@ -8,7 +8,8 @@ public class Commit {
 	private String id;
 	private Date date;
 	private List<String> classname;
-	private Integer sequenceNumber;
+	private List<Class> classes;
+  	private Integer sequenceNumber;
 
 	public Commit(String id, Date date, List<String> classname) throws Exception {
 		    this.id = id; 
@@ -20,6 +21,9 @@ public class Commit {
 		
 	}
 	
+	public List<Class> getClassList() {
+		return this.classes;
+	}
 	
 	public String getId() {
 		return this.id;
@@ -44,6 +48,10 @@ public class Commit {
 		this.id = id;
 	}
 	
+	
+	public void setClassList(List<Class> classes) {
+		this.classes = classes;
+	}
 	
 	public void setSequenceNumber(Integer sqn) {
 		this.sequenceNumber = sqn;

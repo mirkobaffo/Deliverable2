@@ -26,6 +26,7 @@ import org.json.JSONException;
 
 
 
+
 public class GetJsonFromUrl {
 static String projName = "Bookkeeper";
 static Integer max = 1;
@@ -75,6 +76,22 @@ public static List<Date> DateArray(String url, int i, int j, String getter) thro
 	return array;
 }
 
+public static List<String> keyArray(String url, int i, int j, String getter) throws IOException, JSONException, ParseException {
+
+	JSONObject json = readJsonFromUrl(url);
+	JSONArray issues = json.getJSONArray("issues");
+	ArrayList<String> array = new ArrayList<>();
+	max = json.getInt("total");
+	for (; i < max && i < j; i++) {
+		JSONObject field = issues.getJSONObject(i % 1000);
+		String fieldobject = field.getString("key");
+		System.out.println(fieldobject);
+		array.add(fieldobject);
+	}
+	index = i;
+	return array;
+}
+
 
 public static List<String> IdArray(String url, int i, int j) throws IOException, JSONException, ParseException {
 
@@ -91,7 +108,23 @@ public static List<String> IdArray(String url, int i, int j) throws IOException,
 	return array;
 }
 
+
+
+
+
+public static List<Ticket> setTicket(List<Date> cDate, List<Date> rDate, List<String> name, List<String> id){
+	List<Ticket> ticketList = new ArrayList<>();
+	for(int i = 0; i< cDate.size(); i++) {
+		Ticket t = new Ticket(name.get(i), cDate.get(i), rDate.get(i), id.get(i));
+		ticketList.add(t);
+	}
+	return ticketList;
 }
+
+
+
+
+
 
 
 
@@ -107,8 +140,8 @@ public static List<String> IdArray(String url, int i, int j) throws IOException,
 			+ i.toString() + "&maxResults=" + j.toString();
 	List<Date> createdarray = DateArray(url, i , j , "created");
 	List<Date> resolutionarray = DateArray(url, i , j , "resolutiondate");
-	List <String> version = VersionArray(url, i ,j, "key");
-	
-	}
-*/
+	keyArray(url,i,j,"key");
+} */
+}
+
 

@@ -1,25 +1,31 @@
-package deliverable;
+package main;
+
+import java.util.Date;
 
 public class Class {
 	
 	private String name;
-	private String IV;
-	private String OV;
-	private String FV;
+	private Date IV;
+	private Date OV;
+	private Date FV;
+	
+	public Class(String name) {
+		this.name = name;
+	}
 	
 	public String getName() {
 		return this.name;
 	}
 	
-	public String geIV() {
+	public Date geIV() {
 		return this.IV;
 	}
 	
-	public String getOV() {
+	public Date getOV() {
 		return this.OV;
 	}
 	
-	public String getFV() {
+	public Date getFV() {
 		return this.FV;
 	}
 	
@@ -27,15 +33,15 @@ public class Class {
 		this.name = name;
 	}
  
-	public void setIV(String IV) {
+	public void setIV(Date IV) {
 		this.IV = IV;
 	}
 	
-	public void setOV(String OV) {
+	public void setOV(Date OV) {
 		this.OV = OV;
 	}
 	
-	public void setFV(String FV) {
+	public void setFV(Date FV) {
 		this.FV = FV;
 	}
 }

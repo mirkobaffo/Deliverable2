@@ -32,6 +32,7 @@ public class GetGitInfo {
 	    List<String> idList = new ArrayList<>();
 	    List<Date> dateList = new ArrayList<>();
 	    List<String> ClassnameList = new ArrayList<>();
+	    List<Class> classes = new ArrayList<>();
 	    File dir = new File("/Users/mirko/git/bookkeeper/");
 	    final Process p = Runtime.getRuntime().exec(PROGRAM, null, dir);
 	    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -70,7 +71,6 @@ public class GetGitInfo {
 
 	    for (int i = 0; i < countLines; i++) {
 	    	line = is2.readLine();
-	    	System.out.println(line);
 	    	if (line != null && line.endsWith(".java")) {
 	    		ClassnameList.add(line.substring(2));
 	    	} else if (line != null && line.startsWith("commit") && i != 0 && !ClassnameList.isEmpty()) {
@@ -79,16 +79,68 @@ public class GetGitInfo {
 	    	}
 	    }
 	    
+	    if (!CommitList.isEmpty()) {
+	    	for (Commit commit: CommitList) {
+	    		List<Class> cList = new ArrayList<>();
+	    		if (commit.getClassName() != null) {
+		    		List<String> sList = commit.getClassName();
+		    		for (String s: sList) {
+		    			Class c = new Class(s);
+		    			cList.add(c);
+		    		}
+	    		}
+	    		commit.setClassList(cList);
+	    	}	
+	    }
 	    
 	    /*for (Commit elem: CommitList) {
 		    System.out.println(elem.getId());
 		    System.out.println(elem.getDate());
-		    System.out.println(elem.getClassName());
-	    }*/
+		    System.out.println(elem.getClassList());
+	    } */
 	    //System.out.println(CommitList.get(0).getDate());
 	    return CommitList;
 
 	}
+	
+	
+	public static void setClassVersion(Ticket ticket, List <Commit> commitList) throws IOException{
+		BufferedReader is;  // reader for output of process
+	    String line;
+	    List<String> idList = new ArrayList<>();
+		File dir = new File("/Users/mirko/git/bookkeeper/");
+		String ticketId = ticket.getId();
+	    final Process p = Runtime.getRuntime().exec("git log --grep=" + ticketId + " --date=iso-strict --name-status --stat HEAD --abbrev-commit --date-order --reverse", null, dir);
+	    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	    while (!done && ((line = is.readLine()) != null)) {
+	    	if (line.startsWith("commit")) {
+	    		String s = line.substring(6);
+	    		idList.add(s);
+	    	}
+	    	
+	    }
+	    Integer contatore = 0;
+	    for(String e: idList) {
+	    	for(Commit c: commitList) {
+	    		if(c.getId().equals(e)) {
+	    			contatore = contatore +1;
+	    			Date creationDate = ticket.getCreationDate();
+	    			ticket.setCommit(c);
+	    			List <Class> classes = c.getClassList();
+	    			for(Class cl: classes) {
+	    				cl.setFV(c.getDate());
+	    				cl.setOV(ticket.getCreationDate());
+	    			}
+	    			//setto la fixed version nelle classi della commit
+	    		}
+	    	}
+	    }
+	}
+	
+	
+	
+	
+	
 }
 
 //--pretty=format:%H --grep " + param + "--date=iso-strict --name-status  --stat HEAD --abbrev-commit --date-order
