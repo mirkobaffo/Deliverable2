@@ -66,7 +66,7 @@ public class CsvWriter {
 			sb.append("Commit");
 			sb.append("\n");
 			br.write(sb.toString());
-			int size = releases.size();
+			int size = releases.size()/2;
 			for (int i = 0 ; i < size; i++) {
 				StringBuilder sb2 = new StringBuilder();
 				sb2.append(releases.get(i).getInt());
@@ -85,7 +85,7 @@ public class CsvWriter {
 	}
 	
 	public static void DateComparator(List<Release> release, List<Commit> commit) {
-		for (int i = 0; i < release.size(); i++) {
+		for (int i = 0; i < release.size()/2; i++) {
 			for(int k = 0; k< commit.size(); k++) {		
 				//System.out.println("commit: " + release.get(i).getDate());
 				if(release.get(i).getDate().after(commit.get(k).getDate()))  {
@@ -117,21 +117,29 @@ public class CsvWriter {
 		List <String> version = main.getReleaseInfo.VersionArray(url, i ,1000, "name");
 		List<String> id = main.GetJsonFromUrl.IdArray(url, i , j );
 		List<Ticket> ticket = new ArrayList<>();
+		List<Ticket> ticketConCommit = new ArrayList<>();
 		List <Commit> commit = GetGitInfo.commitList();
-		List<Release> releases = getReleaseInfo.getReleaseList();
+		int size = getReleaseInfo.getReleaseList().size();
+		List<Release> releases = getReleaseInfo.getReleaseList();//.subList(0, size/2);
 		ticket = GetJsonFromUrl.setTicket(createdarray,resolutionarray,version,keyArray);
 		DateComparator(releases,commit);
-		for(Ticket t : ticket.subList(0, 50)) {
+		System.out.println("sistemati i ticket");
+		int counter = 0;
+		for(Ticket t : ticket) {
 			GetJsonFromUrl.returnAffectedVersion(t, releases);
-			GetGitInfo.setClassVersion(t,commit);
-			if(t.getCommit() == null) {
-				continue;
-			}
-			GetJsonFromUrl.setFVOV(t, releases);
+			ticketConCommit.add(GetGitInfo.setClassVersion(t,commit,releases));
+			System.out.println("ticket: " + ticketConCommit.get(counter).getId() + "ticket FV: " + ticketConCommit.get(counter).getFV() + "ticket IV: " + ticketConCommit.get(counter).getIV()+ "Ticket OV: " +ticketConCommit.get(counter).getOV());
+
+			counter = counter + 1;
 		}
-		
-		System.out.println("fatto");
-		Proportion.checkIV(ticket);
+		System.out.println("Assegnate le Commit e le conseguenti FV, OV");
+		Proportion.checkIV(ticketConCommit);
+		System.out.println("da qui");
+		for (int k = 0; i < ticketConCommit.size(); i++) {
+			System.out.println("ticket: " + ticketConCommit.get(k).getId() + "ticket FV: " + ticketConCommit.get(k).getFV() + "ticket IV: " + ticketConCommit.get(k).getIV()+ "Ticket OV: " +ticketConCommit.get(k).getOV());
+		}
+		System.out.println("a qui");
+	
 		getReleaseInfo.setClassToRelease(releases, commit);
 		CsvWriteArray(createdarray,resolutionarray,keyArray, id, commit);
 		CsvVersionArray(releases); 

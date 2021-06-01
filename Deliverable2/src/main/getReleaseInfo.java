@@ -110,7 +110,6 @@ public class getReleaseInfo {
 		               e.printStackTrace();
 		            }
 		         }
-			 System.out.println(ReleaseList);
 		         return;
 		   }
 	
@@ -151,7 +150,6 @@ public class getReleaseInfo {
 		       releaseNames.get(releases.get(i)),releaseID.get(releases.get(i))));
 		       
 		   }
-		   System.out.println("data release: " + ReleaseList.get(0).getDate().toString());
 		   return ReleaseList;
       }
 
@@ -249,7 +247,7 @@ public class getReleaseInfo {
 		    	  List<Class> auxList = new ArrayList<>();
 
 		    	  //List<String> releaseClassListWithoutDuplicates = new ArrayList<>();
-		    	  for (int i = 0; i<releaseList.size(); i++) {
+		    	  for (int i = 0; i<releaseList.size()/2; i++) {
 		    		  int lastRef = releaseList.get(i).getCommit().getSequenceNumber();
 		    		  //System.out.println(firstRef);
 		    		  //System.out.println(lastRef);

@@ -91,7 +91,6 @@ public static List<String> keyArray(String url, int i, int j, String getter) thr
 	for (; i < max && i < j; i++) {
 		JSONObject field = issues.getJSONObject(i % 1000);
 		String fieldobject = field.getString("key");
-		System.out.println(fieldobject);
 		array.add(fieldobject);
 	}
 	index = i;
@@ -127,16 +126,17 @@ public static List<Ticket> setTicket(List<Date> cDate, List<Date> rDate, List<St
 	return ticketList;
 }
 
-public static void setFVOV(Ticket ticket, List<Release> releases){
+public static Boolean setFVOV(Ticket ticket, List<Release> releases){
 	for (Release r: releases) {
-		if(ticket.getCreationDate().before(r.getDate())) {
+		if(ticket.getCreationDate().before(r.getDate()) && ticket.getOV() == null) {
 			ticket.setOV(r.getInt());
 		}
 		if(ticket.getCommit().getDate().before(r.getDate())) {
 			ticket.setFV(r.getInt());
-			break;
+			return true;
 		}
 	}
+	return true;
 }
 
 
@@ -150,12 +150,14 @@ public static void returnAffectedVersion(Ticket ticket, List<Release> releases) 
     JSONArray versions = fields.getJSONArray("versions");
     if(versions.length() != 0 ) {
     	if(versions.getJSONObject(i).has("releaseDate")){
+    		
     		String date = versions.getJSONObject(i).get("releaseDate").toString();
     		Date IV = parseStringToAffectedDate(date);
     		if(IV.before(ticket.getCreationDate())) {
+    			
     			for(Release r: releases) {
     				if(IV.before(r.getDate())) {
-    					ticket.setFV(r.getInt());
+    					ticket.setIV(r.getInt());
     					break;
     				}
     			}

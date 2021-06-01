@@ -12,21 +12,25 @@ public class Proportion {
 			if(ticketList.get(i).getCommit() == null) {
 				continue;
 			}
-			//se IV � null viene settato a -1
-			if (ticketList.get(i).getIV() == -1) {
-				iV = computeInconsistentIV(i, ticketList);
-				ticketList.get(i).setIV(iV);
-				p = ticketList.get(i).getP();
-			} else {
-				p = computeP(ticketList.get(i));
+			if (ticketList.get(i).getFV() != null && ticketList.get(i).getOV() != null) {
+				//se IV � null viene settato a -1
+				if (ticketList.get(i).getIV() == -1) {
+					iV = computeInconsistentIV(i, ticketList);
+					ticketList.get(i).setIV(iV);
+					p = ticketList.get(i).getP();
+				} else {
+					p = computeP(ticketList.get(i));
+				}
+				System.out.println("Proportion: " + p);
+				
 			}
-			System.out.println("Proportion: " + p);
 			
 		}
 	}
 	
 	public static int computeP(Ticket ticket) {
 		int top = ticket.getFV() - ticket.getIV();
+		System.out.println("ticket: " + ticket.getId() + "ticket FV: " + ticket.getFV() + "ticket IV: " + ticket.getIV()+ "Ticket OV: " +ticket.getOV());
 		int bottom = ticket.getFV() - ticket.getOV();
 		if (bottom == 0) {
 			bottom = 1;
@@ -55,10 +59,14 @@ public class Proportion {
 		int size = l.size(); 
 		int sum = 0;
 		int divide = 0;
-		for (int i = size-(size/100); i < size; i++) {
-			//System.out.println(l.get(i));
-			sum += l.get(i);
-			divide++;
+		if (!l.isEmpty()) {
+			for (int i = size-(size/100); i < size; i++) {
+				if(l.get(i) != null)  {
+					System.out.println(l.get(i));
+					sum += l.get(i);
+				}
+				divide++;
+			}
 		}
 		if (divide == 0) {
 			divide = 1;

@@ -104,7 +104,7 @@ public class GetGitInfo {
 	}
 	
 	
-	public static void setClassVersion(Ticket ticket, List <Commit> commitList) throws IOException{
+	public static Ticket setClassVersion(Ticket ticket, List <Commit> commitList, List<Release> releases) throws IOException{
 		BufferedReader is;  // reader for output of process
 	    String line;
 	    List<String> idList = new ArrayList<>();
@@ -123,15 +123,17 @@ public class GetGitInfo {
 	    	for(Commit c: commitList) {
 	    		if(c.getId().equals(e)) {
 	    			ticket.setCommit(c);
+	    			GetJsonFromUrl.setFVOV(ticket, releases);
 	    			List <Class> classes = c.getClassList();
 	    			for(Class cl: classes) {
-	    				cl.setFV(c.getDate());
-	    				cl.setOV(ticket.getCreationDate());
+	    				cl.setFV(ticket.getFV());
+	    				cl.setOV(ticket.getOV());
 	    			}
 	    			//setto la fixed version nelle classi della commit
 	    		}
 	    	}
 	    }
+	    return ticket;
 	}
 	
 	
