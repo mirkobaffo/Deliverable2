@@ -119,12 +119,9 @@ public class GetGitInfo {
 	    	}
 	    	
 	    }
-	    Integer contatore = 0;
 	    for(String e: idList) {
 	    	for(Commit c: commitList) {
 	    		if(c.getId().equals(e)) {
-	    			contatore = contatore +1;
-	    			Date creationDate = ticket.getCreationDate();
 	    			ticket.setCommit(c);
 	    			List <Class> classes = c.getClassList();
 	    			for(Class cl: classes) {

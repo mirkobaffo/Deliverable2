@@ -121,12 +121,20 @@ public class CsvWriter {
 		List<Release> releases = getReleaseInfo.getReleaseList();
 		ticket = GetJsonFromUrl.setTicket(createdarray,resolutionarray,version,keyArray);
 		DateComparator(releases,commit);
-		System.out.println("ticket: " + ticket.size() + " commit: " + commit.size() );
-		for(Ticket t : ticket) {
+		for(Ticket t : ticket.subList(0, 50)) {
+			GetJsonFromUrl.returnAffectedVersion(t, releases);
 			GetGitInfo.setClassVersion(t,commit);
+			if(t.getCommit() == null) {
+				continue;
+			}
+			GetJsonFromUrl.setFVOV(t, releases);
 		}
+		
+		System.out.println("fatto");
+		Proportion.checkIV(ticket);
+		getReleaseInfo.setClassToRelease(releases, commit);
 		CsvWriteArray(createdarray,resolutionarray,keyArray, id, commit);
-		CsvVersionArray(releases);
+		CsvVersionArray(releases); 
 		
 		
 	}

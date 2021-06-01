@@ -9,6 +9,11 @@ public class Ticket {
 	private Date resolutionDate;
 	private String id;
 	private Commit commit;
+	private int sequenceNumber;
+	private Integer IV;
+	private Integer OV;
+	private Integer FV;
+	private Integer P;
 	
 	
 	public Ticket (String name, Date creationDate, Date resolutionDate, String id) {
@@ -32,6 +37,10 @@ public class Ticket {
 		return creationDate;
 	}
 	
+	public Integer getSequenceNumber() {
+		return sequenceNumber;
+	}
+	
 	
 	public Date getResolutionDate() {
 		return resolutionDate;
@@ -45,6 +54,23 @@ public class Ticket {
 	
 	public Commit getCommit() {
 		return commit;
+	}
+	
+	public Integer getIV() {
+		return IV;
+	}
+	
+	public Integer getOV() {
+		return OV;
+	}
+	
+	public Integer getFV() {
+		return FV;
+	}
+	
+	
+	public Integer getP() {
+		return FV;
 	}
 	
 
@@ -70,6 +96,27 @@ public class Ticket {
 	
 	public void setCommit(Commit commit) {
 		this.commit = commit;
+	}
+	
+	
+	public void setIV(Integer IV) {
+		this.IV = IV;
+	}
+	
+	public void setOV(Integer OV) {
+		this.OV = OV;
+	}
+	
+	public void setFV(Integer FV) {
+		this.FV = FV;
+	}
+	
+	public void setP(Integer P) {
+		this.P = P;
+	}
+	
+	public void setSequenceNumber(Integer sequenceNumber) {
+		this.sequenceNumber = sequenceNumber;
 	}
 }
 

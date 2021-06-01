@@ -61,6 +61,12 @@ public static Date parseStringToDate(String string) throws ParseException {
 	return new SimpleDateFormat(format).parse(string);
 }
 
+public static Date parseStringToAffectedDate(String string) throws ParseException {
+
+	String format = "yyyy-MM-dd";
+	return new SimpleDateFormat(format).parse(string);
+}
+
 public static List<Date> DateArray(String url, int i, int j, String getter) throws IOException, JSONException, ParseException {
 
 	JSONObject json = readJsonFromUrl(url);
@@ -120,6 +126,52 @@ public static List<Ticket> setTicket(List<Date> cDate, List<Date> rDate, List<St
 	}
 	return ticketList;
 }
+
+public static void setFVOV(Ticket ticket, List<Release> releases){
+	for (Release r: releases) {
+		if(ticket.getCreationDate().before(r.getDate())) {
+			ticket.setOV(r.getInt());
+		}
+		if(ticket.getCommit().getDate().before(r.getDate())) {
+			ticket.setFV(r.getInt());
+			break;
+		}
+	}
+}
+
+
+public static void returnAffectedVersion(Ticket ticket, List<Release> releases) throws IOException, JSONException, ParseException {
+	ticket.setIV(-1);
+	Integer i = 0;
+	String ticketName = ticket.getId();
+	String url = "https://issues.apache.org/jira/rest/api/latest/issue/"+ ticketName;
+    JSONObject json = readJsonFromUrl(url);
+    JSONObject fields = json.getJSONObject("fields");
+    JSONArray versions = fields.getJSONArray("versions");
+    if(versions.length() != 0 ) {
+    	if(versions.getJSONObject(i).has("releaseDate")){
+    		String date = versions.getJSONObject(i).get("releaseDate").toString();
+    		Date IV = parseStringToAffectedDate(date);
+    		if(IV.before(ticket.getCreationDate())) {
+    			for(Release r: releases) {
+    				if(IV.before(r.getDate())) {
+    					ticket.setFV(r.getInt());
+    					break;
+    				}
+    			}
+    		}
+    	
+    		
+    	}
+    	
+    }
+      		
+   }
+     
+    
+ 
+	
+
 
 
 

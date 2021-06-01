@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Date;
+import java.util.List;
 
 public class Release {
 	
@@ -8,7 +9,8 @@ public class Release {
 	private String name;
 	private Date date;
 	private Integer number;
-	private Commit commit;	
+	private Commit commit;
+	private List <Class> classes;
 	
 	
 	
@@ -45,6 +47,12 @@ public class Release {
 		return commit;
 	}
 	
+	
+	public List<Class> getClasses(){
+		return classes;
+	}
+	
+	
 	public static void setId(Release release, String id) {
 		release.id = id;
 	}
@@ -63,5 +71,9 @@ public class Release {
 	
 	public void setCommit(Commit commit) {
 		this.commit = commit;
+	}
+	
+	public void setClasses(List<Class> classes) {
+		this.classes = classes;
 	}
 }

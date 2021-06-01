@@ -15,6 +15,9 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+
+import org.json.JSONException;
+
 import java.util.Map;
 import java.util.List;
 import java.util.Collections;
@@ -22,10 +25,10 @@ import java.util.Comparator;
 import java.util.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
+
 
 
 public class getReleaseInfo {
@@ -222,6 +225,61 @@ public class getReleaseInfo {
 			index = i;
 			return array;
 		}
+	   
+	   
+	   public static boolean containsName(List<Class> list, String name){
+	   	    //return list.stream().map(Class::getName).filter(name::equals).findFirst().isPresent();
+		   	  boolean q = false;
+		   	  
+		   	  int counter = 0;
+		   	  for (Class e: list) {
+		   		  if (e.getName().equals(name)) {
+		   			  q = true;
+		   			  
+		   		  }  
+		   		  counter = counter +1;
+					  //System.out.println(counter);
+		   	  }
+		   	  return q;
+		   }
+			   
+		   public static void setClassToRelease(List<Release> releaseList, List<Commit> commitList) throws ParseException, IOException {
+		    	  int firstRef = 0;
+		    	  List<Class> releaseClassList = new ArrayList<>();
+		    	  List<Class> auxList = new ArrayList<>();
+
+		    	  //List<String> releaseClassListWithoutDuplicates = new ArrayList<>();
+		    	  for (int i = 0; i<releaseList.size(); i++) {
+		    		  int lastRef = releaseList.get(i).getCommit().getSequenceNumber();
+		    		  //System.out.println(firstRef);
+		    		  //System.out.println(lastRef);
+		    		  for (Commit commit: commitList) {
+		    			  //System.out.println(item.getId() + item.getClasses());
+		    			  if (commit.getSequenceNumber() > firstRef && commit.getSequenceNumber() <= lastRef && commit.getClassList() != null) {
+		    				  for (Class c: commit.getClassList()) {
+		    						 if (auxList.isEmpty() || !containsName(auxList, c.getName())) {
+		    							 auxList.add(c);
+		    					  }
+		    				  }
+		    				  //releaseClassList.addAll(item.getClasses());
+		    				  //releaseClassListWithoutDuplicates = releaseClassList.stream().distinct().collect(Collectors.toList());
+		    			  }  
+		    		  }
+		    		  firstRef = lastRef;
+		    		  for (Class e: auxList) {
+		    			  releaseClassList.add(e);
+		    		  }
+		    		  releaseList.get(i).setClasses(releaseClassList);
+		    		  releaseClassList = new ArrayList();
+		    		  //releaseClassList = new ArrayList<>();	  
+		    	  }
+		    	 
+		    	  
+	    		  System.out.println(releaseList.get(0).getClasses().size());
+		    	  
+		   }
+
+	      
 		
  }
 
