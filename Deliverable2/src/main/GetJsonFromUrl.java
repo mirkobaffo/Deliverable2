@@ -153,8 +153,7 @@ public static void returnAffectedVersion(Ticket ticket, List<Release> releases) 
     		
     		String date = versions.getJSONObject(i).get("releaseDate").toString();
     		Date IV = parseStringToAffectedDate(date);
-    		if(IV.before(ticket.getCreationDate())) {
-    			
+    		if(IV.before(ticket.getCreationDate())) {			
     			for(Release r: releases) {
     				if(IV.before(r.getDate())) {
     					ticket.setIV(r.getInt());

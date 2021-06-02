@@ -126,13 +126,13 @@ public class GetGitInfo {
 		    		if(c.getId().equals(e)) {
 		    			t.setCommit(c);
 		    			GetJsonFromUrl.setFVOV(t, releases);
-		    			if(!t.getFV().equals(t.getOV())) {
-		    				ticketList.add(t);
+		    			if(t.getOV()!= null && t.getFV() >= t.getOV()) {
+		    				if(!ticketList.contains(t)) {
+		    					ticketList.add(t);
+		    				}
 		    			}
 		    			List <Class> classes = c.getClassList();
 		    			for(Class cl: classes) {
-		    				cl.setFV(t.getFV());
-		    				cl.setOV(t.getOV());
 		    				cl.setSingleTicket(t);
 		    			}
 		    			//setto la fixed version nelle classi della commit

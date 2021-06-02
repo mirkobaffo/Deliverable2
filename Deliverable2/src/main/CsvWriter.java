@@ -128,11 +128,11 @@ public class CsvWriter {
 			sb.append("Buggy");
 			sb.append("\n");
 			br.write(sb.toString());
-			int size = releases.size()/2;
+			int size = releases.size();
 			for (int i = 0 ; i < size; i++) {
 				for (Class c : releases.get(i).getClasses()) {
 					StringBuilder sb2 = new StringBuilder();
-					sb2.append(releases.get(i).getId());
+					sb2.append(releases.get(i).getInt());
 					sb2.append(",");
 					sb2.append(c.getName());
 					sb2.append(",");
@@ -172,9 +172,9 @@ public class CsvWriter {
 		}
 		ticketConCommit = GetGitInfo.setClassVersion(ticket,commit,releases);
 		Proportion.checkIV(ticketConCommit);
-		for (int k = 0; k < ticketConCommit.size(); k++) {
-			System.out.println("ticket: " + ticketConCommit.get(k).getId() + "ticket FV: " + ticketConCommit.get(k).getFV() + "ticket IV: " + ticketConCommit.get(k).getIV()+ "Ticket OV: " +ticketConCommit.get(k).getOV());
-		}	
+		//for (int k = 0; k < ticketConCommit.size(); k++) {
+			//System.out.println("ticket: " + ticketConCommit.get(k).getId() + "ticket FV: " + ticketConCommit.get(k).getFV() + "ticket IV: " + ticketConCommit.get(k).getIV()+ "Ticket OV: " +ticketConCommit.get(k).getOV());
+		//}	
 		getReleaseInfo.setClassToRelease(releases, commit);
 		computeBuggyness(releases.subList(0, size/2));
 		//CsvWriteArray(createdarray,resolutionarray,keyArray, id, commit);
