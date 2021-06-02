@@ -1,6 +1,8 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Class {
 	
@@ -9,7 +11,7 @@ public class Class {
 	private Integer OV;
 	private Integer FV;
 	private Boolean buggy;
-	private Ticket ticket;
+	private List<Ticket> ticket;
 	
 	public Class(String name) {
 		this.name = name;
@@ -35,7 +37,7 @@ public class Class {
 		return this.buggy;
 	}
 	
-	public Ticket getTicket() {
+	public List<Ticket> getTicket() {
 		return this.ticket;
 	}
 	
@@ -59,7 +61,18 @@ public class Class {
 		this.buggy = buggy;
 	}
 	
-	public void setTicket(Ticket ticket) {
+	public void setTicket(List <Ticket> ticket) {
 		this.ticket = ticket;
+	}
+	
+	public void setSingleTicket(Ticket ticket) {
+		if(this.ticket == null) {
+			List<Ticket> ticketList = new ArrayList();
+			this.ticket = ticketList;
+			this.ticket.add(ticket);
+		}
+		else {
+		this.ticket.add(ticket);
+		}
 	}
 }

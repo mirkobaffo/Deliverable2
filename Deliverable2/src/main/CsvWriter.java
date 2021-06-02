@@ -105,12 +105,14 @@ public class CsvWriter {
 	public  static void computeBuggyness(List <Release> releases) {
 		for (Release r : releases) {
 			for (Class c : r.getClasses()) {
-				if(c.geIV() <= r.getInt() && c.getTicket().getFV() >= r.getInt()) {
-					c.setBuggy(true);
-				}
-				else {
-					c.setBuggy(false);
-				}
+				c.setBuggy(false);
+				if(c.getTicket()!= null) {
+					for(Ticket t: c.getTicket())
+						if(t.getIV() <= r.getInt() && t.getFV() > r.getInt()) {
+						c.setBuggy(true);
+						break;
+						}
+					}
 			}
 		}
 	}
@@ -143,6 +145,7 @@ public class CsvWriter {
 	}
 	
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
+		long inizio = System.currentTimeMillis();
 		Integer i = 0;
 		Integer j = 0;
 		j = i + 1000;
@@ -164,26 +167,20 @@ public class CsvWriter {
 		List<Release> releases = getReleaseInfo.getReleaseList();//.subList(0, size/2);
 		ticket = GetJsonFromUrl.setTicket(createdarray,resolutionarray,version,keyArray);
 		DateComparator(releases,commit);
-		System.out.println("sistemati i ticket");
 		for(Ticket t : ticket) {
 			GetJsonFromUrl.returnAffectedVersion(t, releases);
 		}
 		ticketConCommit = GetGitInfo.setClassVersion(ticket,commit,releases);
-		System.out.println("Assegnate le Commit e le conseguenti FV, OV");
 		Proportion.checkIV(ticketConCommit);
-		System.out.println("ticket con commit:" + ticketConCommit);
 		for (int k = 0; k < ticketConCommit.size(); k++) {
 			System.out.println("ticket: " + ticketConCommit.get(k).getId() + "ticket FV: " + ticketConCommit.get(k).getFV() + "ticket IV: " + ticketConCommit.get(k).getIV()+ "Ticket OV: " +ticketConCommit.get(k).getOV());
-		}
-		System.out.println("a qui");
-	
+		}	
 		getReleaseInfo.setClassToRelease(releases, commit);
 		computeBuggyness(releases.subList(0, size/2));
 		//CsvWriteArray(createdarray,resolutionarray,keyArray, id, commit);
 		//CsvVersionArray(releases);
-		csvFinal(releases.subList(size, releases.size()/2));
-		
-		
-		
+		csvFinal(releases.subList(0,size/2));
+		long fine = System.currentTimeMillis();
+		System.out.println((fine-inizio)/1000);	
 	}
 }

@@ -133,7 +133,7 @@ public class GetGitInfo {
 		    			for(Class cl: classes) {
 		    				cl.setFV(t.getFV());
 		    				cl.setOV(t.getOV());
-		    				cl.setTicket(t);
+		    				cl.setSingleTicket(t);
 		    			}
 		    			//setto la fixed version nelle classi della commit
 		    		}

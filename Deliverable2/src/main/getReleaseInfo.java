@@ -204,7 +204,6 @@ public class getReleaseInfo {
 
 			JSONObject json = readJsonFromUrl(url);
 			JSONArray issues = json.getJSONArray("issues");
-			System.out.println(issues);
 			int counter = 0;
 			ArrayList<String> array = new ArrayList<>();
 			max = json.getInt("total");
@@ -273,7 +272,6 @@ public class getReleaseInfo {
 		    	  }
 		    	 
 		    	  
-	    		  System.out.println(releaseList.get(0).getClasses().size());
 		    	  
 		   }
 
