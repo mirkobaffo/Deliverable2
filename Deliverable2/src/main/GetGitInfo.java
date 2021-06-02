@@ -126,7 +126,7 @@ public class GetGitInfo {
 		    		if(c.getId().equals(e)) {
 		    			t.setCommit(c);
 		    			GetJsonFromUrl.setFVOV(t, releases);
-		    			if(t.getFV().equals(t.getOV())) {
+		    			if(!t.getFV().equals(t.getOV())) {
 		    				ticketList.add(t);
 		    			}
 		    			List <Class> classes = c.getClassList();

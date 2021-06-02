@@ -178,7 +178,7 @@ public class CsvWriter {
 		System.out.println("a qui");
 	
 		getReleaseInfo.setClassToRelease(releases, commit);
-		computeBuggyness(releases.subList(size, releases.size()/2));
+		computeBuggyness(releases.subList(0, size/2));
 		//CsvWriteArray(createdarray,resolutionarray,keyArray, id, commit);
 		//CsvVersionArray(releases);
 		csvFinal(releases.subList(size, releases.size()/2));
