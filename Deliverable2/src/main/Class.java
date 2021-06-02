@@ -8,6 +8,7 @@ public class Class {
 	private Integer IV;
 	private Integer OV;
 	private Integer FV;
+	private Boolean buggy;
 	
 	public Class(String name) {
 		this.name = name;
@@ -29,6 +30,10 @@ public class Class {
 		return this.FV;
 	}
 	
+	public Boolean getBuggy() {
+		return this.buggy;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -43,5 +48,9 @@ public class Class {
 	
 	public void setFV(Integer FV) {
 		this.FV = FV;
+	}
+	
+	public void setBuggy(Boolean buggy) {
+		this.buggy = buggy;
 	}
 }

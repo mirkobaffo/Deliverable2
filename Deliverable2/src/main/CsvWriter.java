@@ -134,8 +134,8 @@ public class CsvWriter {
 		}
 		System.out.println("Assegnate le Commit e le conseguenti FV, OV");
 		Proportion.checkIV(ticketConCommit);
-		System.out.println("da qui");
-		for (int k = 0; i < ticketConCommit.size(); i++) {
+		System.out.println("ticket con commit:" + ticketConCommit);
+		for (int k = 0; k < ticketConCommit.size(); k++) {
 			System.out.println("ticket: " + ticketConCommit.get(k).getId() + "ticket FV: " + ticketConCommit.get(k).getFV() + "ticket IV: " + ticketConCommit.get(k).getIV()+ "Ticket OV: " +ticketConCommit.get(k).getOV());
 		}
 		System.out.println("a qui");
