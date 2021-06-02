@@ -9,6 +9,7 @@ public class Class {
 	private Integer OV;
 	private Integer FV;
 	private Boolean buggy;
+	private Ticket ticket;
 	
 	public Class(String name) {
 		this.name = name;
@@ -34,6 +35,10 @@ public class Class {
 		return this.buggy;
 	}
 	
+	public Ticket getTicket() {
+		return this.ticket;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -52,5 +57,9 @@ public class Class {
 	
 	public void setBuggy(Boolean buggy) {
 		this.buggy = buggy;
+	}
+	
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
 	}
 }

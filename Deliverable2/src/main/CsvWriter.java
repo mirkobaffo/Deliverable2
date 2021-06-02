@@ -101,6 +101,47 @@ public class CsvWriter {
 		}
 	}
 	
+	
+	public  static void computeBuggyness(List <Release> releases) {
+		for (Release r : releases) {
+			for (Class c : r.getClasses()) {
+				if(c.geIV() <= r.getInt() && c.getTicket().getFV() >= r.getInt()) {
+					c.setBuggy(true);
+				}
+				else {
+					c.setBuggy(false);
+				}
+			}
+		}
+	}
+	
+	
+	public static void csvFinal(List <Release> releases) throws IOException {
+		try (BufferedWriter br = new BufferedWriter(new FileWriter("/Users/mirko/Desktop/Releases.csv"))) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("Release");
+			sb.append(",");
+			sb.append("Name");
+			sb.append(",");
+			sb.append("Buggy");
+			sb.append("\n");
+			br.write(sb.toString());
+			int size = releases.size()/2;
+			for (int i = 0 ; i < size; i++) {
+				for (Class c : releases.get(i).getClasses()) {
+					StringBuilder sb2 = new StringBuilder();
+					sb2.append(releases.get(i).getId());
+					sb2.append(",");
+					sb2.append(c.getName());
+					sb2.append(",");
+					sb2.append(c.getBuggy());
+					sb2.append("\n");
+					br.write(sb2.toString());
+				}
+			}	
+		}
+	}
+	
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
 		Integer i = 0;
 		Integer j = 0;
@@ -124,14 +165,10 @@ public class CsvWriter {
 		ticket = GetJsonFromUrl.setTicket(createdarray,resolutionarray,version,keyArray);
 		DateComparator(releases,commit);
 		System.out.println("sistemati i ticket");
-		int counter = 0;
 		for(Ticket t : ticket) {
 			GetJsonFromUrl.returnAffectedVersion(t, releases);
-			ticketConCommit.add(GetGitInfo.setClassVersion(t,commit,releases));
-			System.out.println("ticket: " + ticketConCommit.get(counter).getId() + "ticket FV: " + ticketConCommit.get(counter).getFV() + "ticket IV: " + ticketConCommit.get(counter).getIV()+ "Ticket OV: " +ticketConCommit.get(counter).getOV());
-
-			counter = counter + 1;
 		}
+		ticketConCommit = GetGitInfo.setClassVersion(ticket,commit,releases);
 		System.out.println("Assegnate le Commit e le conseguenti FV, OV");
 		Proportion.checkIV(ticketConCommit);
 		System.out.println("ticket con commit:" + ticketConCommit);
@@ -141,8 +178,11 @@ public class CsvWriter {
 		System.out.println("a qui");
 	
 		getReleaseInfo.setClassToRelease(releases, commit);
-		CsvWriteArray(createdarray,resolutionarray,keyArray, id, commit);
-		CsvVersionArray(releases); 
+		computeBuggyness(releases.subList(size, releases.size()/2));
+		//CsvWriteArray(createdarray,resolutionarray,keyArray, id, commit);
+		//CsvVersionArray(releases);
+		csvFinal(releases.subList(size, releases.size()/2));
+		
 		
 		
 	}

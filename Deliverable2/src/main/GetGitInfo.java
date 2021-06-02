@@ -104,36 +104,43 @@ public class GetGitInfo {
 	}
 	
 	
-	public static Ticket setClassVersion(Ticket ticket, List <Commit> commitList, List<Release> releases) throws IOException{
-		BufferedReader is;  // reader for output of process
-	    String line;
-	    List<String> idList = new ArrayList<>();
-		File dir = new File("/Users/mirko/git/bookkeeper/");
-		String ticketId = ticket.getId();
-	    final Process p = Runtime.getRuntime().exec("git log --grep=" + ticketId + " --date=iso-strict --name-status --stat HEAD --abbrev-commit --date-order --reverse", null, dir);
-	    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
-	    while (!done && ((line = is.readLine()) != null)) {
-	    	if (line.startsWith("commit")) {
-	    		String s = line.substring(6);
-	    		idList.add(s);
-	    	}
-	    	
-	    }
-	    for(String e: idList) {
-	    	for(Commit c: commitList) {
-	    		if(c.getId().equals(e)) {
-	    			ticket.setCommit(c);
-	    			GetJsonFromUrl.setFVOV(ticket, releases);
-	    			List <Class> classes = c.getClassList();
-	    			for(Class cl: classes) {
-	    				cl.setFV(ticket.getFV());
-	    				cl.setOV(ticket.getOV());
-	    			}
-	    			//setto la fixed version nelle classi della commit
-	    		}
-	    	}
-	    }
-	    return ticket;
+	public static List<Ticket> setClassVersion(List <Ticket> ticket, List <Commit> commitList, List<Release> releases) throws IOException{
+		List <Ticket> ticketList = new ArrayList();
+		for(Ticket t : ticket) {
+			BufferedReader is;  // reader for output of process
+		    String line;
+		    List<String> idList = new ArrayList<>();
+			File dir = new File("/Users/mirko/git/bookkeeper/");
+			String ticketId = t.getId();
+		    final Process p = Runtime.getRuntime().exec("git log --grep=" + ticketId + " --date=iso-strict --name-status --stat HEAD --abbrev-commit --date-order --reverse", null, dir);
+		    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		    while (!done && ((line = is.readLine()) != null)) {
+		    	if (line.startsWith("commit")) {
+		    		String s = line.substring(6);
+		    		idList.add(s);
+		    	}
+		    	
+		    }
+		    for(String e: idList) {
+		    	for(Commit c: commitList) {
+		    		if(c.getId().equals(e)) {
+		    			t.setCommit(c);
+		    			GetJsonFromUrl.setFVOV(t, releases);
+		    			if(t.getFV().equals(t.getOV())) {
+		    				ticketList.add(t);
+		    			}
+		    			List <Class> classes = c.getClassList();
+		    			for(Class cl: classes) {
+		    				cl.setFV(t.getFV());
+		    				cl.setOV(t.getOV());
+		    				cl.setTicket(t);
+		    			}
+		    			//setto la fixed version nelle classi della commit
+		    		}
+		    	}
+		    }
+		}
+	    return ticketList;
 	}
 	
 	
