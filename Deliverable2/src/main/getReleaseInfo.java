@@ -224,16 +224,28 @@ public class getReleaseInfo {
 		}
 	   
 	   
-	   public static boolean containsName(List<Class> list, String name){
+	   public static boolean containsName(List<Class> list, Class c){
 	   	    //return list.stream().map(Class::getName).filter(name::equals).findFirst().isPresent();
 		   	  boolean q = false;
 		   	  
 		   	  int counter = 0;
 		   	  for (Class e: list) {
-		   		  if (e.getName().equals(name)) {
+		   		  if (e.getName().equals(c.getName())) {
 		   			  q = true;
+		   			  e.setRecurrence(e.getRecurrence() + 1);
+	   				  e.setSumChg(e.getSumChg() + c.getChg());
+		   			  if(e.getMaxChg() < c.getChg()) {
+		   				  e.setMaxChg(c.getChg());
+		   				  
+		   			  }
 		   			  
-		   		  }  
+		   		  }
+		   		  else 
+		   		  {
+		   			  c.setMaxChg(c.getChg());
+		   			  c.setRecurrence(c.getRecurrence() + 1);
+	   				  c.setSumChg(c.getSumChg() + c.getChg());
+		   		  }
 		   		  counter = counter +1;
 					  //System.out.println(counter);
 		   	  }
@@ -254,7 +266,7 @@ public class getReleaseInfo {
 		    			  //System.out.println(item.getId() + item.getClasses());
 		    			  if (commit.getSequenceNumber() > firstRef && commit.getSequenceNumber() <= lastRef && commit.getClassList() != null) {
 		    				  for (Class c: commit.getClassList()) {
-		    						 if (auxList.isEmpty() || !containsName(auxList, c.getName())) {
+		    						 if (auxList.isEmpty() || !containsName(auxList, c)) {
 		    							 auxList.add(c);
 		    					  }
 		    				  }

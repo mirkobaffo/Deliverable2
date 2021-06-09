@@ -70,7 +70,7 @@ public class Ticket {
 	
 	
 	public Integer getP() {
-		return FV;
+		return P;
 	}
 	
 

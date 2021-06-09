@@ -125,6 +125,26 @@ public class CsvWriter {
 			sb.append(",");
 			sb.append("Name");
 			sb.append(",");
+			sb.append("LOC");
+			sb.append(",");
+			sb.append("Age");
+			sb.append(",");
+			sb.append("CHG");
+			sb.append(",");
+			sb.append("MAX_CHG");
+			sb.append(",");
+			sb.append("AVG_CHG");
+			sb.append(",");
+			sb.append("Bug Fixed");
+			sb.append(",");
+			sb.append("?");
+			sb.append(",");
+			sb.append("?");
+			sb.append(",");
+			sb.append("?");
+			sb.append(",");
+			sb.append("?");
+			sb.append(",");
 			sb.append("Buggy");
 			sb.append("\n");
 			br.write(sb.toString());
@@ -135,6 +155,14 @@ public class CsvWriter {
 					sb2.append(releases.get(i).getInt());
 					sb2.append(",");
 					sb2.append(c.getName());
+					sb2.append(",");
+					sb2.append(Metrics.classAge(c));
+					sb2.append(",");
+					sb2.append(c.getChg());
+					sb2.append(",");
+					sb2.append(c.getMaxChg());
+					sb2.append(",");
+					sb2.append(Metrics.getAVGChg(c));
 					sb2.append(",");
 					sb2.append(c.getBuggy());
 					sb2.append("\n");
@@ -179,7 +207,12 @@ public class CsvWriter {
 		computeBuggyness(releases.subList(0, size/2));
 		//CsvWriteArray(createdarray,resolutionarray,keyArray, id, commit);
 		//CsvVersionArray(releases);
-		csvFinal(releases.subList(0,size/2));
+		//csvFinal(releases.subList(0,size/2));
+		/*for(Release r : releases.subList(0, size/2)) {
+			for(Class c: r.getClasses()) {
+				System.out.println("Release: " + r.getInt() + " numberOfBugFixedForRelease: " + Metrics.numberOfBugFixedForRelease(r,c) + " classAge: " + Metrics.classAge(c) + " Chg: " + c.getChg() + " maxChg: " + c.getMaxChg() + " avgChg: " + Metrics.getAVGChg(c));
+			}
+		}*/
 		long fine = System.currentTimeMillis();
 		System.out.println((fine-inizio)/1000);	
 	}
