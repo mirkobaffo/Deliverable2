@@ -18,7 +18,7 @@ import java.util.List;
 public class GetGitInfo {
 	
 	
-	public static final String PROGRAM = "git log --date=iso-strict --name-status --stat HEAD --abbrev-commit --date-order --reverse";
+	public static final String PROGRAM = "git log --date=iso-strict --name-status --stat HEAD --date-order --reverse";
 	static boolean done = false;
 	
 		
@@ -38,9 +38,9 @@ public class GetGitInfo {
 	    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
 	    int countLines = 0;
 	    while (!done && ((line = is.readLine()) != null)) {
-	    	
+	    	//System.out.println(line);
 	    	if (line.startsWith("commit")) {
-	    		String s = line.substring(6);
+	    		String s = line.substring(7);
 	    		idList.add(s);
 	    	}
 	    	else if (line.startsWith("Date:")) {
@@ -74,7 +74,7 @@ public class GetGitInfo {
 	    	if (line != null && line.endsWith(".java")) {
 	    		ClassnameList.add(line.substring(2));
 	    	} else if (line != null && line.startsWith("commit") && i != 0 && !ClassnameList.isEmpty()) {
-	    		CommitList.get(idList.indexOf(line.substring(6)) - 1).setClassName(ClassnameList);
+	    		CommitList.get(idList.indexOf(line.substring(7)) - 1).setClassName(ClassnameList);
 	    		ClassnameList = new ArrayList<>();	
 	    	}
 	    }
@@ -114,11 +114,11 @@ public class GetGitInfo {
 		    List<String> idList = new ArrayList<>();
 			File dir = new File("/Users/mirko/git/bookkeeper/");
 			String ticketId = t.getId();
-		    final Process p = Runtime.getRuntime().exec("git log --grep=" + ticketId + " --date=iso-strict --name-status --stat HEAD --abbrev-commit --date-order --reverse", null, dir);
+		    final Process p = Runtime.getRuntime().exec("git log --grep=" + ticketId + " --date=iso-strict --name-status --stat HEAD  --date-order --reverse", null, dir);
 		    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		    while (!done && ((line = is.readLine()) != null)) {
 		    	if (line.startsWith("commit")) {
-		    		String s = line.substring(6);
+		    		String s = line.substring(7);
 		    		idList.add(s);
 		    	}
 		    	

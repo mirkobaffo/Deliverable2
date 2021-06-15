@@ -7,6 +7,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/mirko/Desktop/java-json.jar"/>
-	<classpathentry kind="lib" path="/Users/mirko/Downloads/org-eclipse-jgit.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/Desktop/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/Desktop/slf4j-simple-1.7.30.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/Desktop/org.eclipse.jgit-5.11.1.202105131744-r.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/Desktop/weka-3-8-5/weka.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -11,6 +11,7 @@ public class Release {
 	private Integer number;
 	private Commit commit;
 	private List <Class> classes;
+	private List <Commit> commitList;
 	
 	
 	
@@ -52,6 +53,10 @@ public class Release {
 		return classes;
 	}
 	
+	public List<Commit> getCommitList(){
+		return commitList;
+	}
+	
 	
 	public static void setId(Release release, String id) {
 		release.id = id;
@@ -75,5 +80,10 @@ public class Release {
 	
 	public void setClasses(List<Class> classes) {
 		this.classes = classes;
+	}
+	
+	
+	public void setCommitList(List<Commit> commitList) {
+		this.commitList = commitList;
 	}
 }

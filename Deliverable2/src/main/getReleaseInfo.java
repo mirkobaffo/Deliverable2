@@ -15,9 +15,9 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-
 import org.json.JSONException;
-
+import org.json.JSONObject;
+import org.json.JSONArray;
 import java.util.Map;
 import java.util.List;
 import java.util.Collections;
@@ -25,9 +25,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONArray;
+
 
 
 
@@ -285,6 +283,25 @@ public class getReleaseInfo {
 		    	 
 		    	  
 		    	  
+		   }
+		   
+		   public static void assignCommitListToRelease(List<Release> releaseList, List<Commit> commitList) throws ParseException, IOException {
+		    	  int firstRef = 0;
+		    	  int lastRef = 0;
+		    	  List<Commit> temp = new ArrayList<>();
+		    	  //List<Class> releaseClassList = new ArrayList<>();
+		    	  for (Release release: releaseList) {
+		    		  lastRef = release.getCommit().getSequenceNumber();
+		    		  for(Commit c: commitList) {
+		    			  if (c.getSequenceNumber() > firstRef && c.getSequenceNumber() <= lastRef) {
+		    				  temp.add(c);
+		    			  }  
+		    		  }
+		    		  firstRef = lastRef;
+		    		  release.setCommitList(temp);
+		    		  temp = new ArrayList<>();
+		    	  }
+	    		  
 		   }
 
 	      
