@@ -173,6 +173,7 @@ public class TestWekaEasy{
 			Resample resample = new Resample();
 			resample.setInputFormat(training);
 			int num = 100*(training.numInstances() - 2*defectiveInTraining)/defectiveInTraining;
+			System.out.println("num: " + num);
 			String percentage = String.valueOf(num);
 			opts = new String[]{ "-B", "0","-S","1", "-Z", percentage};
 			resample.setOptions(opts);

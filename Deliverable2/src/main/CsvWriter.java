@@ -245,34 +245,36 @@ public class CsvWriter {
 			int size = releases.size();
 			for (int i = 0 ; i < size; i++) {
 				for (Class c : releases.get(i).getClasses()) {
-					StringBuilder sb2 = new StringBuilder();
-					//sb2.append(c.getName());
-					//sb2.append(",");
-					sb2.append(c.getLOC());
-					sb2.append(",");
-					sb2.append(Metrics.classAge(c));
-					sb2.append(",");
-					sb2.append(c.getChg());
-					sb2.append(",");
-					sb2.append(c.getMaxChg());
-					sb2.append(",");
-					sb2.append(Metrics.getAVGChg(c));
-					sb2.append(",");
-					sb2.append(Metrics.numberOfBugFixedForRelease(releases.get(i), c));
-					sb2.append(",");
-					sb2.append(c.getNauth());
-					sb2.append(",");
-					sb2.append(c.getNR());
-					sb2.append(",");
-					sb2.append(c.getLOCAdded());
-					sb2.append(",");
-					sb2.append(c.getMAXLOCAdded());
-					sb2.append(",");
-					sb2.append(c.getAVGLOCAdded());
-					sb2.append(",");
-					sb2.append(c.getBuggy());
-					sb2.append("\n");
-					br.write(sb2.toString());
+					if(c.getLOC()!=0) {
+						StringBuilder sb2 = new StringBuilder();
+						//sb2.append(c.getName());
+						//sb2.append(",");
+						sb2.append(c.getLOC());
+						sb2.append(",");
+						sb2.append(Metrics.classAge(c));
+						sb2.append(",");
+						sb2.append(c.getChg());
+						sb2.append(",");
+						sb2.append(c.getMaxChg());
+						sb2.append(",");
+						sb2.append(Metrics.getAVGChg(c));
+						sb2.append(",");
+						sb2.append(Metrics.numberOfBugFixedForRelease(releases.get(i), c));
+						sb2.append(",");
+						sb2.append(c.getNauth());
+						sb2.append(",");
+						sb2.append(c.getNR());
+						sb2.append(",");
+						sb2.append(c.getLOCAdded());
+						sb2.append(",");
+						sb2.append(c.getMAXLOCAdded());
+						sb2.append(",");
+						sb2.append(c.getAVGLOCAdded());
+						sb2.append(",");
+						sb2.append(c.getBuggy());
+						sb2.append("\n");
+						br.write(sb2.toString());
+					}
 				}
 			}	
 		}
@@ -282,7 +284,7 @@ public class CsvWriter {
 	
 	public static int getPercentageDefectiveInTraining(List<Release> releases, int z) {
 		int counter = 0;
-		int releaseCounter = 0;
+		int releaseCounter = 1;
 		for(int i = 0; i < z; i ++) {
 			counter = counter + releases.get(i).getNumOfBuggyClass();
 			releaseCounter = releaseCounter + releases.get(i).getClasses().size();
@@ -293,8 +295,14 @@ public class CsvWriter {
 	public static int getDefectiveInTraining(List<Release> releases, int z) {
 		int counter = 0;
 		for(int i = 0; i < z; i ++) {
-			counter = counter + releases.get(i).getNumOfBuggyClass();
+			//counter = counter + releases.get(i).getNumOfBuggyClass();
+			for(Class c: releases.get(i).getClasses()) {
+				if(c.getLOC()!=0 && c.getBuggy() == true) {
+					counter = counter + 1;
+				}
+			}
 		}
+		
 		return counter;
 	}
 
@@ -303,6 +311,10 @@ public class CsvWriter {
 		String name = "/Users/mirko/Desktop/Releases" + counter + ".csv";
 		try (BufferedWriter br = new BufferedWriter(new FileWriter(name))) {
 			StringBuilder sb = new StringBuilder();
+			sb.append("Release");
+			sb.append(",");
+			sb.append("className");
+			sb.append(",");
 			sb.append("LOC");
 			sb.append(",");
 			sb.append("Age");
@@ -332,8 +344,10 @@ public class CsvWriter {
 			for (int i = 0 ; i < size; i++) {
 				for (Class c : releases.get(i).getClasses()) {
 					StringBuilder sb2 = new StringBuilder();
-					//sb2.append(c.getName());
-					//sb2.append(",");
+					sb2.append(releases.get(i).getInt());
+					sb2.append(",");
+					sb2.append(c.getName());
+					sb2.append(",");
 					sb2.append(c.getLOC());
 					sb2.append(",");
 					sb2.append(Metrics.classAge(c));
@@ -352,9 +366,9 @@ public class CsvWriter {
 					sb2.append(",");
 					sb2.append(c.getLOCAdded());
 					sb2.append(",");
-					sb2.append(c.getMAXLOCAdded());
-					sb2.append(",");
 					sb2.append(c.getAVGLOCAdded());
+					sb2.append(",");
+					sb2.append(c.getMAXLOCAdded());
 					sb2.append(",");
 					sb2.append(c.getBuggy());
 					sb2.append("\n");
@@ -425,7 +439,8 @@ public class CsvWriter {
 			}
 		}*/
 		for (Release r: halfReleases) {
-			GetDiffFromGit.setMetric(r.getClasses(), jsonArray);
+			//System.out.println("RID: " + r.getId() + "CLASSES:" + r.getClasses());
+			GetDiffFromGit.setMetric(r, jsonArray);
 		}
 		csvFinal(halfReleases, 0);
 		List<WekaData> wekaList = new ArrayList<>();

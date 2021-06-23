@@ -15,7 +15,6 @@ public class CsvToArff {
 	private static String path = "/Users/mirko/Desktop/Releases3";
 	
 	public static String arffCreation(String path) throws Exception {
-		System.out.println(path);
 		File projectClasses = new File(path);
 		String newPath = new String();
 		if (projectClasses.exists()) {

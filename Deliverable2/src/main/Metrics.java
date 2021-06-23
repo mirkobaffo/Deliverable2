@@ -128,7 +128,7 @@ public class Metrics {
                 }
         }
         for(Release release: releaseList) {
-        	GetDiffFromGit.setMetric(release.getClasses(), array);
+        	GetDiffFromGit.setMetric(release, array);
         }
         /*for(Release r: releaseList) {
             GetDiffFromGit.getAddedDeleted(repository, r, jsonDataset);
