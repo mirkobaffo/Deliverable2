@@ -67,7 +67,7 @@ public class Proportion {
 		if (!l.isEmpty()) {
 			for (int i = size-(size/100); i < size; i++) {
 				if(l.get(i) != null)  {
-					System.out.println("questo è il valore " + i + " della lista: " + l.get(i));
+					//System.out.println("questo è il valore " + i + " della lista: " + l.get(i));
 					sum += l.get(i);
 				}
 				divide++;

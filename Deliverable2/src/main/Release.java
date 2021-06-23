@@ -12,6 +12,7 @@ public class Release {
 	private Commit commit;
 	private List <Class> classes;
 	private List <Commit> commitList;
+	private Integer numOfBuggyClass;
 	
 	
 	
@@ -21,6 +22,7 @@ public class Release {
 	    this.date = date;
 	    this.number = number;
 	    this.commit = commit;
+	    this.numOfBuggyClass = 0;
 	  }
 
 	Release() {
@@ -58,6 +60,10 @@ public class Release {
 	}
 	
 	
+	public Integer getNumOfBuggyClass() {
+		return this.numOfBuggyClass;
+	}
+	
 	public static void setId(Release release, String id) {
 		release.id = id;
 	}
@@ -85,5 +91,9 @@ public class Release {
 	
 	public void setCommitList(List<Commit> commitList) {
 		this.commitList = commitList;
+	}
+	
+	public void setNumOfBuggyClass(Integer numOfBuggyClass) {
+		this.numOfBuggyClass = numOfBuggyClass;
 	}
 }

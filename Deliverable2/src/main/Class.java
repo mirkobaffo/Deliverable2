@@ -20,6 +20,7 @@ public class Class {
 	private int LOCAdded; //righe di codice aggiunte
 	private int MAXLOCAdded; // massimo numero di righe di codice aggiunte per release
 	private int sumLOCAdded; //somma totale righe di codice aggiunte per ottenere la media
+	private float AVGLOCAdded;
 	private Release release; 
 	
 	public Class(String name) {
@@ -104,6 +105,11 @@ public class Class {
 	}
 	
 	
+	public float getAVGLOCAdded() {
+		return this.AVGLOCAdded;
+	}
+	
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -185,6 +191,11 @@ public class Class {
 	
 	public void setRelease(Release release) {
 		this.release = release;
+	}
+	
+	
+	public void setAVGLOCAdded(float AVGLOCAdded) {
+		this.AVGLOCAdded = AVGLOCAdded;
 	}
 	
 	
