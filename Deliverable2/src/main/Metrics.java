@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Metrics {
+	static String projName2 = "ranger";
 	
 	
 	public static int numberOfBugFixedForRelease(Release release, Class c) {
@@ -69,11 +70,11 @@ public class Metrics {
 		//List<RevCommit> commitList = new ArrayList<>();
 		int countDevs;
 		int countAdded;
-		Git git = Git.open(new File("/Users/mirko/git/bookkeeper/.git"));
+		Git git = Git.open(new File("/Users/mirko/git/" + projName2 + "/.git"));
 
 		
 		FileRepositoryBuilder builder = new FileRepositoryBuilder();
-		Repository repository = builder.setGitDir(new File("/Users/mirko/git/bookkeeper/.git"))
+		Repository repository = builder.setGitDir(new File("/Users/mirko/git/" + projName2 + "/.git"))
 		  .readEnvironment() // scan environment GIT_* variables
 		  .findGitDir() // scan up the file system tree
 		  .build();
@@ -91,7 +92,7 @@ public class Metrics {
         treeWalk.setRecursive(true);
         while (treeWalk.next()) {
             //System.out.println("found: " + treeWalk.getPathString());
-            if (treeWalk.getPathString().endsWith(".java")) {
+            if (treeWalk.getPathString().endsWith(".java") || treeWalk.getPathString().endsWith(".scala") || treeWalk.getPathString().endsWith(".js")) {
                 jsonDataset = new JSONObject();
                 countDevelopers = new HashSet<String>();
                 countDevs = 0;

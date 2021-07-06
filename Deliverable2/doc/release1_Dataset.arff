@@ -1,0 +1,16 @@
+@relation release1
+
+@attribute LOC string
+@attribute Age string
+@attribute CHG string
+@attribute MAX_CHG string
+@attribute AVG_CHG string
+@attribute 'Bug Fixed' string
+@attribute NAuth string
+@attribute 'Number of Commit' string
+@attribute 'LOC Added' string
+@attribute 'AVG_LOC Added' string
+@attribute 'MAX_LOC Added' string
+@attribute Buggy string
+
+@data

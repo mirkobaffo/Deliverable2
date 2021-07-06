@@ -11,8 +11,8 @@ import weka.filters.unsupervised.instance.RemoveDuplicates;
 
 public class CsvToArff {
 	
-	private static String[] proj = {"Bookkeeper","Storm"};
-	private static String path = "/Users/mirko/Desktop/Releases3";
+	private static String[] proj = {"Bookkeeper","LIBCLOUD"};
+	private static String path = "/Users/mirko/git/Deliverable2/Deliverable2/release3";
 	
 	public static String arffCreation(String path) throws Exception {
 		File projectClasses = new File(path);
@@ -22,7 +22,11 @@ public class CsvToArff {
 			loader.setFieldSeparator(",");
 		    loader.setSource(projectClasses);
 		    Instances data = loader.getDataSet();//get instances object
-
+		    //System.out.println("path e data: " + data.enumerateAttributes());
+		    /*for(int i = 0; i< data.numAttributes(); i ++) {
+		    	System.out.println("l'attributo " + data.attribute(i).name() + "booleano: " + data.attribute(i).isNumeric());
+		    }*/
+		    
 		    //data.deleteAttributeAt(0);//delete number of revision
 		    //data.deleteAttributeAt(1);//delete class name
 		    

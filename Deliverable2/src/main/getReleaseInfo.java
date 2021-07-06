@@ -15,7 +15,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -44,11 +43,14 @@ public class getReleaseInfo {
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
 		   
 		   String projName ="BOOKKEEPER";
+		   String projName2 = "RANGER";
+
 		 //Fills the arraylist with releases dates and orders them
 		   //Ignores releases with missing dates
 		   releases = new ArrayList<LocalDateTime>();
 		         Integer i;
 		         String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName;
+		         //System.out.println(url);
 		         JSONObject json = readJsonFromUrl(url);
 		         List<Release> ReleaseList = new ArrayList<>();
 		         JSONArray versions = json.getJSONArray("versions");
@@ -78,7 +80,7 @@ public class getReleaseInfo {
 		         FileWriter fileWriter = null;
 			 try {
 		            fileWriter = null;
-		            String outname = projName + "VersionInfo.csv";
+		            String outname = projName2 + "VersionInfo.csv";
 						    //Name of CSV for output
 						    fileWriter = new FileWriter(outname);
 		            fileWriter.append("Index,Version ID,Version Name,Date");
@@ -116,11 +118,13 @@ public class getReleaseInfo {
 	
       public static List<Release> getReleaseList() throws ParseException, JSONException, IOException {
 		   String projName = "BOOKKEEPER";
+		   String projName2 = "MAHOUT";
+
 		 //Fills the arraylist with releases dates and orders them
 		   //Ignores releases with missing dates
 		   releases = new ArrayList<LocalDateTime>();
 		   Integer i;
-		   String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName;
+		   String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName2;
 		   JSONObject json = readJsonFromUrl(url);
 		   List<Release> ReleaseList = new ArrayList<>();
 		   JSONArray versions = json.getJSONArray("versions");
@@ -256,7 +260,7 @@ public class getReleaseInfo {
 		    	  int firstRef = 0;
 		    	  List<Class> releaseClassList = new ArrayList<>();
 		    	  List<Class> auxList = new ArrayList<>();
-
+		  		  //System.out.println("commitlist size: " + commitList.size());
 		    	  //List<String> releaseClassListWithoutDuplicates = new ArrayList<>();
 		    	  for (int i = 0; i<releaseList.size()/2; i++) {
 		    		  int lastRef = releaseList.get(i).getCommit().getSequenceNumber();
@@ -293,10 +297,18 @@ public class getReleaseInfo {
 		    	  List<Commit> temp = new ArrayList<>();
 		    	  //List<Class> releaseClassList = new ArrayList<>();
 		    	  for (Release release: releaseList) {
+		    		  //System.out.println("sto inserendo una commit");
 		    		  lastRef = release.getCommit().getSequenceNumber();
+		    		  //System.out.println("release commit sequence: " + release.getCommit().getSequenceNumber() + "la commit è: " + release.getCommit().getId() + " la release è: " + release.getName());
+
 		    		  for(Commit c: commitList) {
+			    		 // System.out.println("commitlist size " + commitList.size());
+			    		  //System.out.println("sequence: " + c.getSequenceNumber() + "first " + firstRef + "last " + lastRef);
+
 		    			  if (c.getSequenceNumber() > firstRef && c.getSequenceNumber() <= lastRef) {
 		    				  temp.add(c);
+				    		  //System.out.println("sto inserendo una commit davvero");
+
 		    			  }  
 		    		  }
 		    		  firstRef = lastRef;

@@ -15,8 +15,8 @@ import java.util.Date;
 import java.util.List;
 
 public class GetGitInfo {
-	
-	
+	static String projName = "bookkeeper";
+	static String projName2 = "ranger";
 	public static final String PROGRAM = "git log --date=iso-strict --name-status --stat HEAD --date-order --reverse";
 	static boolean done = false;
 	
@@ -32,7 +32,7 @@ public class GetGitInfo {
 	    List<Date> dateList = new ArrayList<>();
 	    List<String> ClassnameList = new ArrayList<>();
 	    List<Class> classes = new ArrayList<>();
-	    File dir = new File("/Users/mirko/git/bookkeeper/");
+	    File dir = new File("/Users/mirko/git/" + projName2 + "/");
 	    final Process p = Runtime.getRuntime().exec(PROGRAM, null, dir);
 	    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
 	    int countLines = 0;
@@ -70,6 +70,7 @@ public class GetGitInfo {
 
 	    for (int i = 0; i < countLines; i++) {
 	    	line = is2.readLine();
+
 	    	if (line != null && line.endsWith(".java")) {
 	    		ClassnameList.add(line.substring(2));
 	    	} else if (line != null && line.startsWith("commit") && i != 0 && !ClassnameList.isEmpty()) {
@@ -82,8 +83,10 @@ public class GetGitInfo {
 	    	for (Commit commit: CommitList) {
 	    		List<Class> cList = new ArrayList<>();
 	    		if (commit.getClassName() != null) {
+
 		    		List<String> sList = commit.getClassName();
 		    		for (String s: sList) {
+
 		    			Class c = new Class(s);
 		    			c.setDate(commit.getDate());
 		    			c.setChg(commit.getClassName().size());
@@ -107,15 +110,20 @@ public class GetGitInfo {
 	
 	public static List<Ticket> setClassVersion(List <Ticket> ticket, List <Commit> commitList, List<Release> releases) throws IOException{
 		List <Ticket> ticketList = new ArrayList();
+		//System.out.println(ticket.size());
 		for(Ticket t : ticket) {
 			BufferedReader is;  // reader for output of process
 		    String line;
 		    List<String> idList = new ArrayList<>();
-			File dir = new File("/Users/mirko/git/bookkeeper/");
+			File dir = new File("/Users/mirko/git/" + projName2 + "/");
 			String ticketId = t.getId();
+	    	//System.out.println("ticket: " + ticketId);
+
 		    final Process p = Runtime.getRuntime().exec("git log --grep=" + ticketId + " --date=iso-strict --name-status --stat HEAD  --date-order --reverse", null, dir);
 		    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		    while (!done && ((line = is.readLine()) != null)) {
+		    	//System.out.println("line: " + line);
+
 		    	if (line.startsWith("commit")) {
 		    		String s = line.substring(7);
 		    		idList.add(s);
@@ -124,9 +132,12 @@ public class GetGitInfo {
 		    }
 		    for(String e: idList) {
 		    	for(Commit c: commitList) {
+		    		//System.out.println("E: " + e + "c: " + c);
 		    		if(c.getId().equals(e)) {
+		    			//System.out.println("settiamo la commit al ticket");
 		    			t.setCommit(c);
 		    			GetJsonFromUrl.setFVOV(t, releases);
+		    			//System.out.println("Ticket OV: " + t.getOV() + "ticketFV: " + t.getFV());
 		    			if(t.getOV()!= null && t.getFV() >= t.getOV()) {
 		    				if(!ticketList.contains(t)) {
 		    					ticketList.add(t);
@@ -134,6 +145,7 @@ public class GetGitInfo {
 		    			}
 		    			List <Class> classes = c.getClassList();
 		    			for(Class cl: classes) {
+		    				//System.out.println(cl.getName());
 		    				cl.setSingleTicket(t);
 		    			}
 		    			//setto la fixed version nelle classi della commit

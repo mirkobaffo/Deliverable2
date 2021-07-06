@@ -138,7 +138,11 @@ public class TestWekaEasy{
 			fc.setClassifier(c);
 			SMOTE smote = new SMOTE();
 			smote.setInputFormat(training);
+			System.out.println("defectiveInTraining: " + defectiveInTraining);
 			int num = 100*(training.numInstances() - 2*defectiveInTraining)/defectiveInTraining;
+			if(num >500) {
+				num = 500;
+			}
 			String percentage = String.valueOf(num);
 			opts = new String[] {"-P", percentage,"-K","1","-C","0"};
 			smote.setOptions(opts);
@@ -174,6 +178,9 @@ public class TestWekaEasy{
 			resample.setInputFormat(training);
 			int num = 100*(training.numInstances() - 2*defectiveInTraining)/defectiveInTraining;
 			System.out.println("num: " + num);
+			if(num >500) {
+				num = 500;
+			}
 			String percentage = String.valueOf(num);
 			opts = new String[]{ "-B", "0","-S","1", "-Z", percentage};
 			resample.setOptions(opts);
@@ -307,6 +314,11 @@ public class TestWekaEasy{
 		Instances training = source1.getDataSet();
 		DataSource source2 = new DataSource(testingSet);
 		Instances testing = source2.getDataSet();
+		if(!training.attribute(0).isNumeric()) {
+			WekaData fake = new WekaData();
+			wekaList.add(fake);
+			return wekaList;
+		}
 		int numAttrNoFilter = training.numAttributes();
 		System.out.println("attributi non filtrati: " + numAttrNoFilter);
 		training.setClassIndex(numAttrNoFilter - 1);

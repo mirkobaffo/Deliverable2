@@ -16,7 +16,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,8 +32,11 @@ import org.json.JSONException;
 
 
 
+
+
 public class GetJsonFromUrl {
 static String projName = "Bookkeeper";
+static String projName2 = "ranger";
 static Integer max = 1;
 static Integer index;
 public static HashMap<LocalDateTime, String> releaseNames;
@@ -134,12 +136,16 @@ public static List<Ticket> setTicket(List<Date> cDate, List<Date> rDate, List<St
 
 public static Boolean setFVOV(Ticket ticket, List<Release> releases){
 	for (Release r: releases) {
+		//System.out.println("release int: " + r.getInt() + "releaseDate: " + r.getDate() + "ticketDate: " + ticket.getCreationDate());
 		if(ticket.getCreationDate().before(r.getDate()) && ticket.getOV() == null) {
 			ticket.setOV(r.getInt());
 		}
 		if(ticket.getCommit().getDate().before(r.getDate())) {
 			ticket.setFV(r.getInt());
 			return true;
+		}
+		else if (ticket.getFV() == null) {
+			ticket.setFV(releases.size());
 		}
 	}
 	return true;
