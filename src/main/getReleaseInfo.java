@@ -43,7 +43,7 @@ public class getReleaseInfo {
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
 		   
 		   String projName ="BOOKKEEPER";
-		   String projName2 = "RANGER";
+		   String projName2 = "LIBCLOUD";
 
 		 //Fills the arraylist with releases dates and orders them
 		   //Ignores releases with missing dates
@@ -79,7 +79,7 @@ public class getReleaseInfo {
 		         FileWriter fileWriter = null;
 			 try {
 		            fileWriter = null;
-		            String outname = projName2 + "VersionInfo.csv";
+		            String outname = projName + "VersionInfo.csv";
 						    //Name of CSV for output
 						    fileWriter = new FileWriter(outname);
 		            fileWriter.append("Index,Version ID,Version Name,Date");
@@ -123,7 +123,7 @@ public class getReleaseInfo {
 		   //Ignores releases with missing dates
 		   releases = new ArrayList<LocalDateTime>();
 		   Integer i;
-		   String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName2;
+		   String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName;
 		   JSONObject json = readJsonFromUrl(url);
 		   List<Release> ReleaseList = new ArrayList<>();
 		   JSONArray versions = json.getJSONArray("versions");

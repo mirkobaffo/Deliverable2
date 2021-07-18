@@ -16,7 +16,7 @@ import java.util.List;
 
 public class GetGitInfo {
 	static String projName = "bookkeeper";
-	static String projName2 = "ranger";
+	static String projName2 = "libcloud";
 	public static final String PROGRAM = "git log --date=iso-strict --name-status --stat HEAD --date-order --reverse";
 	static boolean done = false;
 	
@@ -32,7 +32,7 @@ public class GetGitInfo {
 	    List<Date> dateList = new ArrayList<>();
 	    List<String> ClassnameList = new ArrayList<>();
 	    List<Class> classes = new ArrayList<>();
-	    File dir = new File("/Users/mirko/git/" + projName2 + "/");
+	    File dir = new File("/Users/mirko/git/" + projName + "/");
 	    final Process p = Runtime.getRuntime().exec(PROGRAM, null, dir);
 	    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
 	    int countLines = 0;
@@ -114,7 +114,7 @@ public class GetGitInfo {
 			BufferedReader is;  // reader for output of process
 		    String line;
 		    List<String> idList = new ArrayList<>();
-			File dir = new File("/Users/mirko/git/" + projName2 + "/");
+			File dir = new File("/Users/mirko/git/" + projName + "/");
 			String ticketId = t.getId();
 
 		    final Process p = Runtime.getRuntime().exec("git log --grep=" + ticketId + " --date=iso-strict --name-status --stat HEAD  --date-order --reverse", null, dir);

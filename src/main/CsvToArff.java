@@ -12,7 +12,7 @@ import weka.filters.unsupervised.instance.RemoveDuplicates;
 public class CsvToArff {
 	
 	private static String[] proj = {"Bookkeeper","LIBCLOUD"};
-	private static String path = "/Users/mirko/git/Deliverable2/Deliverable2/release3";
+	private static String path = "/Users/mirko/git/Deliverable2/release3";
 	
 	public static String arffCreation(String path) throws Exception {
 		File projectClasses = new File(path);

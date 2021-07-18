@@ -6,11 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/Deliverable2/lib/java-json.jar"/>
-	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/Deliverable2/lib/org.eclipse.jgit-5.11.1.202105131744-r.jar"/>
-	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/Deliverable2/lib/slf4j-api-1.7.30.jar"/>
-	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/Deliverable2/lib/slf4j-simple-1.7.30.jar"/>
-	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/Deliverable2/lib/weka.jar"/>
-	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/Deliverable2/lib/SMOTE-1.0.3.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/lib/java-json.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/lib/org.eclipse.jgit-5.11.1.202105131744-r.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/lib/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/lib/slf4j-simple-1.7.30.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/lib/SMOTE-1.0.3.jar"/>
+	<classpathentry kind="lib" path="/Users/mirko/git/Deliverable2/lib/weka.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

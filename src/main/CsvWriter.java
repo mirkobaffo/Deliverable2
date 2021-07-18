@@ -17,7 +17,7 @@ import org.json.JSONException;
 public class CsvWriter {
 	
 	static String projName = "BOOKKEEPER";
-	static String projName2 = "RANGER";
+	static String projName2 = "LIBCLOUD";
 	static Integer max = 1;
 	static Integer index;
 	static int releaseCounter = 1;
@@ -227,7 +227,7 @@ public class CsvWriter {
 	
 	
 	public static String csvForWeka(List <Release> releases, int counter) throws IOException {
-		String name = "/Users/mirko/git/Deliverable2/Deliverable2/doc/release" + counter + ".csv";
+		String name = "/Users/mirko/git/Deliverable2/doc/release" + counter + ".csv";
 		try (BufferedWriter br = new BufferedWriter(new FileWriter(name))) {
 			StringBuilder sb = new StringBuilder();
 			//sb.append("Name");
@@ -321,7 +321,7 @@ public class CsvWriter {
 
 	
 	public static String csvFinal(List <Release> releases, int counter) throws IOException {
-		String name = "/Users/mirko/git/Deliverable2/Deliverable2/doc/release" + counter + ".csv";
+		String name = "/Users/mirko/git/Deliverable2/doc/release" + counter + ".csv";
 		try (BufferedWriter br = new BufferedWriter(new FileWriter(name))) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("Release");
@@ -416,7 +416,7 @@ public class CsvWriter {
 		
 		
 		String url = "https://issues.apache.org/jira/rest/api/2/search?jql=project=%22"
-	               + projName2 + "%22AND%22issueType%22=%22Bug%22AND(%22status%22=%22closed%22OR"
+	               + projName + "%22AND%22issueType%22=%22Bug%22AND(%22status%22=%22closed%22OR"
 	               + "%22status%22=%22resolved%22)AND%22resolution%22=%22fixed%22&fields=key,resolutiondate,affectedVersion,versions,created&startAt="
 				+ i.toString() + "&maxResults=" + j.toString();
 		List<Date> createdarray = main.GetJsonFromUrl.DateArray(url, i , j , "created");
@@ -453,7 +453,6 @@ public class CsvWriter {
 		trainingSet = TestWekaEasy.makeTrainingSet(halfReleases);
 		testingSet = TestWekaEasy.makeTestingSet(halfReleases);
 		for(int z = 1; z< testingSet.size()+1; z ++) {
-			
 			wekaList.addAll(TestWekaEasy.wekaAction(testingSet.get(z-1), trainingSet.get(z-1), z, getDefectiveInTraining(halfReleases, z)));
 		}
 		

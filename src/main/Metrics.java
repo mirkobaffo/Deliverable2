@@ -26,7 +26,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Metrics {
-	static String projName2 = "ranger";
+	static String projName = "bookkeeper";
+	static String projName2 = "libcloud";
 	
 	
 	public static int numberOfBugFixedForRelease(Release release, Class c) {
@@ -70,11 +71,11 @@ public class Metrics {
 		//List<RevCommit> commitList = new ArrayList<>();
 		int countDevs;
 		int countAdded;
-		Git git = Git.open(new File("/Users/mirko/git/" + projName2 + "/.git"));
+		Git git = Git.open(new File("/Users/mirko/git/" + projName + "/.git"));
 
 		
 		FileRepositoryBuilder builder = new FileRepositoryBuilder();
-		Repository repository = builder.setGitDir(new File("/Users/mirko/git/" + projName2 + "/.git"))
+		Repository repository = builder.setGitDir(new File("/Users/mirko/git/" + projName + "/.git"))
 		  .readEnvironment() // scan environment GIT_* variables
 		  .findGitDir() // scan up the file system tree
 		  .build();

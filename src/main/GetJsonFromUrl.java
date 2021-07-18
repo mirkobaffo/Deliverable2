@@ -36,7 +36,7 @@ import org.json.JSONException;
 
 public class GetJsonFromUrl {
 static String projName = "Bookkeeper";
-static String projName2 = "ranger";
+static String projName2 = "libcloud";
 static Integer max = 1;
 static Integer index;
 public static HashMap<LocalDateTime, String> releaseNames;

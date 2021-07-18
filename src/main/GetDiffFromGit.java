@@ -34,7 +34,7 @@ import org.json.JSONObject;
 public class GetDiffFromGit {
 	
 	static String projName = "bookkeeper";
-	static String projName2 = "ranger";
+	static String projName2 = "libcloud";
 
 public static JSONArray getPerCommitMetrics(Repository repository, Release release, HashSet<String> countDevelopers) throws IOException, JSONException {
 		
@@ -66,7 +66,7 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 			    for (DiffEntry diff : diffs) {
 			    	//System.out.println("diff: " + diff);
 					linesAdded = 0;
-			    	if(diff.toString().contains(".java") && new File("/Users/mirko/git/" + projName2 + "/" + diff.toString().substring(14).replace("]", "")).exists()) {
+			    	if(diff.toString().contains(".java") && new File("/Users/mirko/git/" + projName + "/" + diff.toString().substring(14).replace("]", "")).exists()) {
 			    		//System.out.println("ho trovato una diff: " + diff.toString().substring(14).replace("]", ""));
 			    		for(Edit edit : df.toFileHeader(diff).toEditList()) {
 				        	linesAdded += edit.getEndB() - edit.getBeginB();       
@@ -97,7 +97,7 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 	public static long countLines(String fileName) {
 
 	      long lines = 0;
-	      try (BufferedReader reader = new BufferedReader(new FileReader("/Users/mirko/git/" + projName2+ "/" + fileName))) {
+	      try (BufferedReader reader = new BufferedReader(new FileReader("/Users/mirko/git/" + projName+ "/" + fileName))) {
 	          while (reader.readLine() != null) lines++;
 	      } catch (IOException e) {
 	          e.printStackTrace();
@@ -162,7 +162,7 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 	public static JSONArray getMetrics(List<Release> releaseList) throws IOException, JSONException, NoHeadException, GitAPIException, ParseException{
 				
 		FileRepositoryBuilder builder = new FileRepositoryBuilder();
-		Repository repository = builder.setGitDir(new File("/Users/mirko/git/" + projName2 + "/.git/"))
+		Repository repository = builder.setGitDir(new File("/Users/mirko/git/" + projName + "/.git/"))
 		  .readEnvironment() // scan environment GIT_* variables
 		  .findGitDir() // scan up the file system tree
 		  .build();
