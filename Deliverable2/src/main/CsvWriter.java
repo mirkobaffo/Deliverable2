@@ -90,6 +90,8 @@ public class CsvWriter {
 		}
 	}
 	
+	// metodo che assegna la commit relativa alla release
+	
 	public static void DateComparator(List<Release> release, List<Commit> commit) {
 		for (int i = 0; i < release.size()/2; i++) {
 			for(int k = 1; k< commit.size(); k++) {		
@@ -121,18 +123,12 @@ public class CsvWriter {
 		for (Release r : releases) {
 			r.setNumOfBuggyClass(0);
 			for (Class c : r.getClasses()) {
-				System.out.println("release: " + r.getInt()+ " classi: " + r.getClasses().size()); 
-
 				c.setBuggy(false);
 				if(c.getTicket()!= null) {
-					for(Ticket t: c.getTicket()) {
-						
-						//System.out.println("sto settando un bug: " + t.getIV() + "release: " + r.getInt());
+					for(Ticket t: c.getTicket()) {						
 						if(t.getIV() <= r.getInt() && t.getFV() > r.getInt()) {
-						//System.out.println("sto veramente settando un bug");
 						c.setBuggy(true);
 						r.setNumOfBuggyClass(r.getNumOfBuggyClass() + 1);
-						System.out.println("sto aumentando nella release: " + r.getInt()+ " di: " + r.getNumOfBuggyClass()); 
 						break;
 						}
 					}
@@ -262,14 +258,9 @@ public class CsvWriter {
 			sb.append("\n");
 			br.write(sb.toString());
 			int size = releases.size();
-			//System.out.println("sto stampando i csv per weka: " + releases.size());
 			for (int i = 0 ; i < size; i++) {
 				for (Class c : releases.get(i).getClasses()) {
-					//System.out.println("sto dentro: " + releases.get(i).getClasses().size());
-					//if(c.getLOC()!=0) {
 						StringBuilder sb2 = new StringBuilder();
-						//sb2.append(c.getName());
-						//sb2.append(",");
 						sb2.append(c.getLOC());
 						sb2.append(",");
 						sb2.append(Metrics.classAge(c));
@@ -436,7 +427,6 @@ public class CsvWriter {
 		List<Ticket> ticket = new ArrayList<>();
 		List<Ticket> ticketConCommit = new ArrayList<>();
 		List <Commit> commit = GetGitInfo.commitList();
-		//System.out.println(commit);
 		List<String> testingSet = new ArrayList<>();
 		List<String> trainingSet = new ArrayList<>();
 		int size = getReleaseInfo.getReleaseList().size();
@@ -445,28 +435,15 @@ public class CsvWriter {
 		ticket = GetJsonFromUrl.setTicket(createdarray,resolutionarray,version,keyArray);
 		DateComparator(releases,commit);
 		for(Ticket t : ticket) {
-			//System.out.println("ticket: " + t.getCreationDate());
 			GetJsonFromUrl.returnAffectedVersion(t, releases);
 		}
 		ticketConCommit = GetGitInfo.setClassVersion(ticket,commit,releases);
 		Proportion.checkIV(ticketConCommit);
-		//for (int k = 0; k < ticketConCommit.size(); k++) {
-			//System.out.println("ticket: " + ticketConCommit.get(k).getId() + "ticket FV: " + ticketConCommit.get(k).getFV() + "ticket IV: " + ticketConCommit.get(k).getIV()+ "Ticket OV: " +ticketConCommit.get(k).getOV());
-		//}	
-		getReleaseInfo.setClassToRelease(releases, commit);
-		//List<Release> halfReleases = releases.subList(7, size-3);
-
-		
+		getReleaseInfo.setClassToRelease(releases, commit);		
 		List<Release> halfReleases = releases.subList(0, size/2);
 		getReleaseInfo.assignCommitListToRelease(halfReleases, commit);
 		computeBuggyness(halfReleases);
 		JSONArray jsonArray = GetDiffFromGit.getMetrics(halfReleases);
-		
-		/*for(Release r : releases.subList(0, size/2)) {
-			for(Class c: r.getClasses()) {
-				System.out.println("Release: " + r.getInt() + " numberOfBugFixedForRelease: " + Metrics.numberOfBugFixedForRelease(r,c) + " classAge: " + Metrics.classAge(c) + " Chg: " + c.getChg() + " maxChg: " + c.getMaxChg() + " avgChg: " + Metrics.getAVGChg(c));
-			}
-		}*/
 		for (Release r: halfReleases) {
 			System.out.println("R: " + r.getInt() + " buggy:" + r.getNumOfBuggyClass());
 			GetDiffFromGit.setMetric(r, jsonArray);

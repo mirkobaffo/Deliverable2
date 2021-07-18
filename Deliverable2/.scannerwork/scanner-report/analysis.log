@@ -1,0 +1,63 @@
+SonarCloud plugins:
+  - CSS Code Quality and Security 1.4.2.2002 (cssfamily)
+  - PL/SQL Code Quality and Security 3.6.1.3873 (plsql)
+  - Scala Code Quality and Security 1.8.3.2219 (sonarscala)
+  - C# Code Quality and Security 8.25.0.33663 (csharp)
+  - Vulnerability Analysis 9.0.0.12669 (security)
+  - Java Code Quality and Security 7.1.0.26670 (java)
+  - HTML Code Quality and Security 3.4.0.2754 (web)
+  - Flex Code Quality and Security 2.6.2.2641 (flex)
+  - XML Code Quality and Security 2.2.0.2973 (xml)
+  - VB.NET Code Quality and Security 8.25.0.33663 (vbnet)
+  - Swift Code Quality and Security 4.3.1.4892 (swift)
+  - CFamily Code Quality and Security 6.23.0.34138 (cpp)
+  - Python Code Quality and Security 3.5.0.8244 (python)
+  - Go Code Quality and Security 1.8.3.2219 (go)
+  - JaCoCo 1.1.1.1157 (jacoco)
+  - Kotlin Code Quality and Security 2.0.1.110 (kotlin)
+  - Mercurial 1.1.2 (scmmercurial)
+  - T-SQL Code Quality and Security 1.5.1.4340 (tsql)
+  - Apex Code Quality and Security 1.8.3.2219 (sonarapex)
+  - JavaScript/TypeScript Code Quality and Security 8.1.0.15788 (javascript)
+  - Ruby Code Quality and Security 1.8.3.2219 (ruby)
+  - Vulnerability Rules for C# 9.0.0.12669 (securitycsharpfrontend)
+  - Vulnerability Rules for Java 9.0.0.12669 (securityjavafrontend)
+  - License for SonarLint 8.0.0.21709 (license)
+  - Vulnerability Rules for JS 9.0.0.12669 (securityjsfrontend)
+  - COBOL Code Quality 4.6.2.4876 (cobol)
+  - Vulnerability Rules for Python 9.0.0.12669 (securitypythonfrontend)
+  - PHP Code Quality and Security 3.17.0.7439 (php)
+  - ABAP Code Quality and Security 3.9.1.3127 (abap)
+  - Vulnerability Rules for PHP 9.0.0.12669 (securityphpfrontend)
+Global server settings:
+  - email.from=noreply@sonarcloud.io
+  - email.fromName=SonarCloud
+  - email.prefix=[SonarCloud]
+  - node_10_end_of_support_date=1620604800000
+  - node_10_grace_period_termination_date=1621814400000
+  - sonar.auth.bitbucket.enabled=true
+  - sonar.auth.microsoft.enabled=true
+  - sonar.core.id=1BD809FA-AWHW8ct9-T_TB3XqouNu
+  - sonar.core.serverBaseURL=https://sonarcloud.io
+  - sonar.core.startTime=2021-07-09T08:14:45+0200
+  - sonar.dbcleaner.weeksBeforeDeletingAllSnapshots=480
+  - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByMonth=4
+  - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByWeek=1
+  - sonar.lf.enableGravatar=true
+  - sonar.lf.logoWidthPx=105
+  - sonar.organizations.anyoneCanCreate=true
+  - sonar.organizations.createPersonalOrg=true
+  - sonar.plsql.file.suffixes=sql,tab,pkb
+  - sonar.tsql.file.suffixes=.tsql
+Project server settings:
+Project scanner properties:
+  - sonar.host.url=https://sonarcloud.io
+  - sonar.organization=mirkobaffo
+  - sonar.projectBaseDir=/Users/mirko/git/Deliverable2/Deliverable2
+  - sonar.projectKey=mirkobaffo_Deliverable2
+  - sonar.scanner.app=ScannerCLI
+  - sonar.scanner.appVersion=4.4.0.2170
+  - sonar.sourceEncoding=UTF-8
+  - sonar.sources=.
+  - sonar.verbose=true
+  - sonar.working.directory=/Users/mirko/git/Deliverable2/Deliverable2/.scannerwork

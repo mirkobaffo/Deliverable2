@@ -110,19 +110,16 @@ public class GetGitInfo {
 	
 	public static List<Ticket> setClassVersion(List <Ticket> ticket, List <Commit> commitList, List<Release> releases) throws IOException{
 		List <Ticket> ticketList = new ArrayList();
-		//System.out.println(ticket.size());
 		for(Ticket t : ticket) {
 			BufferedReader is;  // reader for output of process
 		    String line;
 		    List<String> idList = new ArrayList<>();
 			File dir = new File("/Users/mirko/git/" + projName2 + "/");
 			String ticketId = t.getId();
-	    	//System.out.println("ticket: " + ticketId);
 
 		    final Process p = Runtime.getRuntime().exec("git log --grep=" + ticketId + " --date=iso-strict --name-status --stat HEAD  --date-order --reverse", null, dir);
 		    is = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		    while (!done && ((line = is.readLine()) != null)) {
-		    	//System.out.println("line: " + line);
 
 		    	if (line.startsWith("commit")) {
 		    		String s = line.substring(7);
@@ -132,12 +129,9 @@ public class GetGitInfo {
 		    }
 		    for(String e: idList) {
 		    	for(Commit c: commitList) {
-		    		//System.out.println("E: " + e + "c: " + c);
 		    		if(c.getId().equals(e)) {
-		    			//System.out.println("settiamo la commit al ticket");
 		    			t.setCommit(c);
 		    			GetJsonFromUrl.setFVOV(t, releases);
-		    			//System.out.println("Ticket OV: " + t.getOV() + "ticketFV: " + t.getFV());
 		    			if(t.getOV()!= null && t.getFV() >= t.getOV()) {
 		    				if(!ticketList.contains(t)) {
 		    					ticketList.add(t);
@@ -145,7 +139,6 @@ public class GetGitInfo {
 		    			}
 		    			List <Class> classes = c.getClassList();
 		    			for(Class cl: classes) {
-		    				//System.out.println(cl.getName());
 		    				cl.setSingleTicket(t);
 		    			}
 		    			//setto la fixed version nelle classi della commit

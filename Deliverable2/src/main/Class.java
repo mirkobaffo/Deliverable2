@@ -127,6 +127,7 @@ public class Class {
 		this.date = date;
 	}
 	
+	
 	public void setSingleTicket(Ticket ticket) {
 		if(this.ticket == null) {
 			List<Ticket> ticketList = new ArrayList();

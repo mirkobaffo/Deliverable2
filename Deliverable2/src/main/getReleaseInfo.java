@@ -50,7 +50,6 @@ public class getReleaseInfo {
 		   releases = new ArrayList<LocalDateTime>();
 		         Integer i;
 		         String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName;
-		         //System.out.println(url);
 		         JSONObject json = readJsonFromUrl(url);
 		         List<Release> ReleaseList = new ArrayList<>();
 		         JSONArray versions = json.getJSONArray("versions");
@@ -229,7 +228,6 @@ public class getReleaseInfo {
 	   
 	   
 	   public static boolean containsName(List<Class> list, Class c){
-	   	    //return list.stream().map(Class::getName).filter(name::equals).findFirst().isPresent();
 		   	  boolean q = false;
 		   	  
 		   	  int counter = 0;
@@ -251,7 +249,6 @@ public class getReleaseInfo {
 	   				  c.setSumChg(c.getSumChg() + c.getChg());
 		   		  }
 		   		  counter = counter +1;
-					  //System.out.println(counter);
 		   	  }
 		   	  return q;
 		   }
@@ -260,22 +257,15 @@ public class getReleaseInfo {
 		    	  int firstRef = 0;
 		    	  List<Class> releaseClassList = new ArrayList<>();
 		    	  List<Class> auxList = new ArrayList<>();
-		  		  //System.out.println("commitlist size: " + commitList.size());
-		    	  //List<String> releaseClassListWithoutDuplicates = new ArrayList<>();
 		    	  for (int i = 0; i<releaseList.size()/2; i++) {
 		    		  int lastRef = releaseList.get(i).getCommit().getSequenceNumber();
-		    		  //System.out.println(firstRef);
-		    		  //System.out.println(lastRef);
 		    		  for (Commit commit: commitList) {
-		    			  //System.out.println(item.getId() + item.getClasses());
 		    			  if (commit.getSequenceNumber() > firstRef && commit.getSequenceNumber() <= lastRef && commit.getClassList() != null) {
 		    				  for (Class c: commit.getClassList()) {
 		    						 if (auxList.isEmpty() || !containsName(auxList, c)) {
 		    							 auxList.add(c);
 		    					  }
 		    				  }
-		    				  //releaseClassList.addAll(item.getClasses());
-		    				  //releaseClassListWithoutDuplicates = releaseClassList.stream().distinct().collect(Collectors.toList());
 		    			  }  
 		    		  }
 		    		  firstRef = lastRef;
@@ -284,31 +274,18 @@ public class getReleaseInfo {
 		    		  }
 		    		  releaseList.get(i).setClasses(releaseClassList);
 		    		  releaseClassList = new ArrayList();
-		    		  //releaseClassList = new ArrayList<>();	  
 		    	  }
-		    	 
-		    	  
-		    	  
 		   }
 		   
 		   public static void assignCommitListToRelease(List<Release> releaseList, List<Commit> commitList) throws ParseException, IOException {
 		    	  int firstRef = 0;
 		    	  int lastRef = 0;
 		    	  List<Commit> temp = new ArrayList<>();
-		    	  //List<Class> releaseClassList = new ArrayList<>();
 		    	  for (Release release: releaseList) {
-		    		  //System.out.println("sto inserendo una commit");
 		    		  lastRef = release.getCommit().getSequenceNumber();
-		    		  //System.out.println("release commit sequence: " + release.getCommit().getSequenceNumber() + "la commit è: " + release.getCommit().getId() + " la release è: " + release.getName());
-
 		    		  for(Commit c: commitList) {
-			    		 // System.out.println("commitlist size " + commitList.size());
-			    		  //System.out.println("sequence: " + c.getSequenceNumber() + "first " + firstRef + "last " + lastRef);
-
 		    			  if (c.getSequenceNumber() > firstRef && c.getSequenceNumber() <= lastRef) {
 		    				  temp.add(c);
-				    		  //System.out.println("sto inserendo una commit davvero");
-
 		    			  }  
 		    		  }
 		    		  firstRef = lastRef;
