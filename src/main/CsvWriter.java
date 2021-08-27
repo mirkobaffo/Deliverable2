@@ -22,43 +22,8 @@ public class CsvWriter {
 	static Integer index;
 	static int releaseCounter = 1;
 	
-	public static void CsvWriteArray(List <Date> createdarray, List <Date> resolutionarray, List <String> key, List <String> Idarray, List <Commit> commit) throws IOException {
-		try (BufferedWriter br = new BufferedWriter(new FileWriter("/Users/mirko/Desktop/output.csv"))) {
-			// Write header of the csv file produced in output
-			
-			StringBuilder sb = new StringBuilder();
-			sb.append("creation date: ");
-			sb.append(",");
-			sb.append("Resolution date: ");
-			sb.append(",");
-			sb.append("Name: ");
-			sb.append(",");
-			sb.append("Id: ");
-			sb.append(",");
-			sb.append("Commit: ");
-			sb.append("\n");
-			br.write(sb.toString());
-			int size = createdarray.size();
-			for (int i = 0 ; i < size; i++) {
-				StringBuilder sb2 = new StringBuilder();
-				sb2.append(createdarray.get(i));
-				sb2.append(",");
-				sb2.append(resolutionarray.get(i));
-				sb2.append(",");
-				sb2.append(key.get(i));
-				sb2.append(",");
-				sb2.append(Idarray.get(i));
-				sb2.append(",");
-				sb2.append(commit.get(i).getId());
-				sb2.append("\n");
-				br.write(sb2.toString());
-			}
-		}
-
-	}
 	
-	
-	public static void CsvVersionArray(List <Release> releases) throws IOException {
+	public static void csvVersionArray(List <Release> releases) throws IOException {
 		try (BufferedWriter br = new BufferedWriter(new FileWriter("/Users/mirko/Desktop/Releases.csv"))) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("Number: ");
@@ -92,17 +57,10 @@ public class CsvWriter {
 	
 	// metodo che assegna la commit relativa alla release
 	
-	public static void DateComparator(List<Release> release, List<Commit> commit) {
+	public static void dateComparator(List<Release> release, List<Commit> commit) {
 		for (int i = 0; i < release.size()/2; i++) {
 			for(int k = 1; k< commit.size(); k++) {		
-				//System.out.println("release date:: " + release.get(i).getDate());
-				//System.out.println("commit date: " + commit.get(k).getDate());
-				if(release.get(i).getDate().after(commit.get(k).getDate()))  {
-					//System.out.println("sono dopo");
-					continue;
-				}
-				else {
-					//System.out.println("sto settando la commit");
+				if(!release.get(i).getDate().after(commit.get(k).getDate()))  {
 					release.get(i).setCommit(commit.get(k-1));
 					break;
 				}
@@ -230,8 +188,6 @@ public class CsvWriter {
 		String name = "/Users/mirko/git/Deliverable2/doc/release" + counter + ".csv";
 		try (BufferedWriter br = new BufferedWriter(new FileWriter(name))) {
 			StringBuilder sb = new StringBuilder();
-			//sb.append("Name");
-			//sb.append(",");
 			sb.append("LOC");
 			sb.append(",");
 			sb.append("Age");
@@ -286,7 +242,6 @@ public class CsvWriter {
 						sb2.append(c.getBuggy());
 						sb2.append("\n");
 						br.write(sb2.toString());
-					//}
 				}
 			}	
 		}
@@ -307,12 +262,7 @@ public class CsvWriter {
 	public static int getDefectiveInTraining(List<Release> releases, int z) {
 		int counter = 0;
 		for(int i = 0; i < z; i ++) {
-			System.out.println("buggyclass: " + releases.get(i).getNumOfBuggyClass());
 			counter = counter + releases.get(i).getNumOfBuggyClass();
-			//for(Class c: releases.get(i).getClasses()) {
-				//if(c.getLOC()!=0 && c.getBuggy() == true) {
-				//	counter = counter + 1;
-				//}
 			}
 		
 		
@@ -394,7 +344,7 @@ public class CsvWriter {
 	
 	
 	public static String getCostName(WekaData w) {
-		String s = new String();
+		String s = "";
 		if(w.getCostSensitive() == 0) {
 			s = "no Cost Sensitive";
 		}
@@ -409,7 +359,6 @@ public class CsvWriter {
 	
 	
 	public static void main(String[] args) throws Exception {
-		long inizio = System.currentTimeMillis();
 		Integer i = 0;
 		Integer j = 0;
 		j = i + 1000;
@@ -419,45 +368,36 @@ public class CsvWriter {
 	               + projName + "%22AND%22issueType%22=%22Bug%22AND(%22status%22=%22closed%22OR"
 	               + "%22status%22=%22resolved%22)AND%22resolution%22=%22fixed%22&fields=key,resolutiondate,affectedVersion,versions,created&startAt="
 				+ i.toString() + "&maxResults=" + j.toString();
-		List<Date> createdarray = main.GetJsonFromUrl.DateArray(url, i , j , "created");
-		List<Date> resolutionarray = main.GetJsonFromUrl.DateArray(url, i , j , "resolutiondate");
-		List <String> keyArray = main.GetJsonFromUrl.keyArray(url, i, j, "key");
-		List <String> version = main.getReleaseInfo.VersionArray(url, i ,1000, "name");
-		List<String> id = main.GetJsonFromUrl.IdArray(url, i , j );
-		List<Ticket> ticket = new ArrayList<>();
-		List<Ticket> ticketConCommit = new ArrayList<>();
+		List<Date> createdarray = main.GetJsonFromUrl.dateArray(url, i , j , "created");
+		List<Date> resolutionarray = main.GetJsonFromUrl.dateArray(url, i , j , "resolutiondate");
+		List <String> keyArray = main.GetJsonFromUrl.keyArray(url, i, j);
+		List <String> version = main.GetReleaseInfo.versionArray(url, i ,1000, "name");
 		List <Commit> commit = GetGitInfo.commitList();
-		List<String> testingSet = new ArrayList<>();
-		List<String> trainingSet = new ArrayList<>();
-		int size = getReleaseInfo.getReleaseList().size();
-		List<Release> releases = getReleaseInfo.getReleaseList();//.subList(0, size/2);
-		System.out.println("releases size: " + releases.size());
-		ticket = GetJsonFromUrl.setTicket(createdarray,resolutionarray,version,keyArray);
-		DateComparator(releases,commit);
+		int size = GetReleaseInfo.getReleaseList().size();
+		List<Release> releases = GetReleaseInfo.getReleaseList();
+		List<Ticket> ticket = GetJsonFromUrl.setTicket(createdarray,resolutionarray,version,keyArray);
+		dateComparator(releases,commit);
 		for(Ticket t : ticket) {
 			GetJsonFromUrl.returnAffectedVersion(t, releases);
 		}
-		ticketConCommit = GetGitInfo.setClassVersion(ticket,commit,releases);
+		List<Ticket> ticketConCommit = GetGitInfo.setClassVersion(ticket,commit,releases);
 		Proportion.checkIV(ticketConCommit);
-		getReleaseInfo.setClassToRelease(releases, commit);		
+		GetReleaseInfo.setClassToRelease(releases, commit);		
 		List<Release> halfReleases = releases.subList(0, size/2);
-		getReleaseInfo.assignCommitListToRelease(halfReleases, commit);
+		GetReleaseInfo.assignCommitListToRelease(halfReleases, commit);
 		computeBuggyness(halfReleases);
 		JSONArray jsonArray = GetDiffFromGit.getMetrics(halfReleases);
 		for (Release r: halfReleases) {
-			System.out.println("R: " + r.getInt() + " buggy:" + r.getNumOfBuggyClass());
 			GetDiffFromGit.setMetric(r, jsonArray);
 		}
 		csvFinal(halfReleases, 0);
 		List<WekaData> wekaList = new ArrayList<>();
-		trainingSet = TestWekaEasy.makeTrainingSet(halfReleases);
-		testingSet = TestWekaEasy.makeTestingSet(halfReleases);
+		List<String> trainingSet = TestWekaEasy.makeTrainingSet(halfReleases);
+		List<String> testingSet = TestWekaEasy.makeTestingSet(halfReleases);
 		for(int z = 1; z< testingSet.size()+1; z ++) {
 			wekaList.addAll(TestWekaEasy.wekaAction(testingSet.get(z-1), trainingSet.get(z-1), z, getDefectiveInTraining(halfReleases, z)));
 		}
 		
 		csvByWeka(wekaList, halfReleases);
-		long fine = System.currentTimeMillis();
-		System.out.println((fine-inizio)/1000);	
-	}
+		}
 }

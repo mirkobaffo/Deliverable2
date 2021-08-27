@@ -10,10 +10,10 @@ public class Ticket {
 	private String id;
 	private Commit commit;
 	private int sequenceNumber;
-	private Integer IV;
-	private Integer OV;
-	private Integer FV;
-	private Integer P;
+	private Integer injectedVersion;
+	private Integer openingVersion;
+	private Integer fixedVersion;
+	private Integer p;
 	
 	
 	public Ticket (String name, Date creationDate, Date resolutionDate, String id) {
@@ -57,20 +57,20 @@ public class Ticket {
 	}
 	
 	public Integer getIV() {
-		return IV;
+		return injectedVersion;
 	}
 	
 	public Integer getOV() {
-		return OV;
+		return openingVersion;
 	}
 	
 	public Integer getFV() {
-		return FV;
+		return fixedVersion;
 	}
 	
 	
 	public Integer getP() {
-		return P;
+		return p;
 	}
 	
 
@@ -99,20 +99,20 @@ public class Ticket {
 	}
 	
 	
-	public void setIV(Integer IV) {
-		this.IV = IV;
+	public void setIV(Integer injectedVersion) {
+		this.injectedVersion = injectedVersion;
 	}
 	
-	public void setOV(Integer OV) {
-		this.OV = OV;
+	public void setOV(Integer openingVersion) {
+		this.openingVersion = openingVersion;
 	}
 	
-	public void setFV(Integer FV) {
-		this.FV = FV;
+	public void setFV(Integer fixedVersion) {
+		this.fixedVersion = fixedVersion;
 	}
 	
-	public void setP(Integer P) {
-		this.P = P;
+	public void setP(Integer p) {
+		this.p = p;
 	}
 	
 	public void setSequenceNumber(Integer sequenceNumber) {

@@ -21,27 +21,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class GetJsonFromUrl {
 static String projName = "Bookkeeper";
 static String projName2 = "libcloud";
 static Integer max = 1;
 static Integer index;
-public static HashMap<LocalDateTime, String> releaseNames;
-public static HashMap<LocalDateTime, String> releaseID;
-public static ArrayList<LocalDateTime> releases;
+static HashMap<LocalDateTime, String> releaseNames;
+static HashMap<LocalDateTime, String> releaseID;
+static List<LocalDateTime> releases;
+static String issuesString = "issues";
+static String totalString = "total";
+
+private GetJsonFromUrl() {
+}
+
 
 public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
 	InputStream is = new URL(url).openStream();
@@ -75,12 +68,12 @@ public static Date parseStringToAffectedDate(String string) throws ParseExceptio
 	return new SimpleDateFormat(format).parse(string);
 }
 
-public static List<Date> DateArray(String url, int i, int j, String getter) throws IOException, JSONException, ParseException {
+public static List<Date> dateArray(String url, int i, int j, String getter) throws IOException, JSONException, ParseException {
 
 	JSONObject json = readJsonFromUrl(url);
-	JSONArray issues = json.getJSONArray("issues");
+	JSONArray issues = json.getJSONArray(issuesString);
 	ArrayList<Date> array = new ArrayList<>();
-	max = json.getInt("total");
+	max = json.getInt(totalString);
 	for (; i < max && i < j; i++) {
 		JSONObject field = issues.getJSONObject(i % 1000);
 		String fieldobject = field.getJSONObject("fields").get(getter).toString();
@@ -90,12 +83,12 @@ public static List<Date> DateArray(String url, int i, int j, String getter) thro
 	return array;
 }
 
-public static List<String> keyArray(String url, int i, int j, String getter) throws IOException, JSONException, ParseException {
+public static List<String> keyArray(String url, int i, int j) throws IOException, JSONException, ParseException {
 
 	JSONObject json = readJsonFromUrl(url);
-	JSONArray issues = json.getJSONArray("issues");
+	JSONArray issues = json.getJSONArray(issuesString);
 	ArrayList<String> array = new ArrayList<>();
-	max = json.getInt("total");
+	max = json.getInt(totalString);
 	for (; i < max && i < j; i++) {
 		JSONObject field = issues.getJSONObject(i % 1000);
 		String fieldobject = field.getString("key");
@@ -104,25 +97,6 @@ public static List<String> keyArray(String url, int i, int j, String getter) thr
 	index = i;
 	return array;
 }
-
-
-public static List<String> IdArray(String url, int i, int j) throws IOException, JSONException, ParseException {
-
-	JSONObject json = readJsonFromUrl(url);
-	JSONArray issues = json.getJSONArray("issues");
-	ArrayList<String> array = new ArrayList<>();
-	max = json.getInt("total");
-	for (; i < max && i < j; i++) {
-		JSONObject field = issues.getJSONObject(i % 1000);
-		String fieldobject = field.getString("id");
-		array.add(fieldobject);
-	}
-	index = i;
-	return array;
-}
-
-
-
 
 
 public static List<Ticket> setTicket(List<Date> cDate, List<Date> rDate, List<String> name, List<String> id){
@@ -136,13 +110,12 @@ public static List<Ticket> setTicket(List<Date> cDate, List<Date> rDate, List<St
 
 public static Boolean setFVOV(Ticket ticket, List<Release> releases){
 	for (Release r: releases) {
-		//System.out.println("release int: " + r.getInt() + "releaseDate: " + r.getDate() + "ticketDate: " + ticket.getCreationDate());
 		if(ticket.getCreationDate().before(r.getDate()) && ticket.getOV() == null) {
 			ticket.setOV(r.getInt());
 		}
 		if(ticket.getCommit().getDate().before(r.getDate())) {
 			ticket.setFV(r.getInt());
-			return true;
+			break;
 		}
 		else if (ticket.getFV() == null) {
 			ticket.setFV(releases.size());
@@ -160,53 +133,23 @@ public static void returnAffectedVersion(Ticket ticket, List<Release> releases) 
     JSONObject json = readJsonFromUrl(url);
     JSONObject fields = json.getJSONObject("fields");
     JSONArray versions = fields.getJSONArray("versions");
-    if(versions.length() != 0 ) {
-    	if(versions.getJSONObject(i).has("releaseDate")){
-    		
-    		String date = versions.getJSONObject(i).get("releaseDate").toString();
-    		Date IV = parseStringToAffectedDate(date);
-    		if(IV.before(ticket.getCreationDate())) {			
-    			for(Release r: releases) {
-    				if(IV.before(r.getDate())) {
-    					ticket.setIV(r.getInt());
-    					break;
-    				}
+    if(versions.length() != 0 && versions.getJSONObject(i).has("releaseDate")) {    		
+    	String date = versions.getJSONObject(i).get("releaseDate").toString();
+    	Date iV = parseStringToAffectedDate(date);
+    	if(iV.before(ticket.getCreationDate())) {			
+    		for(Release r: releases) {
+    			if(iV.before(r.getDate())) {
+    				ticket.setIV(r.getInt());
+    				break;
     			}
     		}
-    	
-    		
     	}
-    	
-    }
+    
+    		
+    }	
       		
    }
      
-    
- 
-	
-
-
-
-
-
-
-
-
-
-
-
-
-/*public static void main(String[] args) throws IOException, JSONException, ParseException {
-	Integer i = 0;
-	Integer j = 0;
-	j = i + 1000;
-	String url = "https://issues.apache.org/jira/rest/api/2/search?jql=project=%22" + projName
-			+ "%22AND%22resolution%22=%22fixed%22&fields=key,resolutiondate,versions,created&startAt="
-			+ i.toString() + "&maxResults=" + j.toString();
-	List<Date> createdarray = DateArray(url, i , j , "created");
-	List<Date> resolutionarray = DateArray(url, i , j , "resolutiondate");
-	keyArray(url,i,j,"key");
-} */
 }
 
 

@@ -14,13 +14,13 @@ public class Class {
 	private int maxChg; //massimo numero di file committati insieme a lui nella release
 	private int sumChg; //somma dei valori totali di chg utile per ottenere la media
 	private int recurrence; //quante volte una classe appare in una commit di una release, utile per la media
-	private int Nauth; //numero autori
-	private int NR; //numero di commit che riguardano questa classe
-	private int LOC; //righe di codice
-	private int LOCAdded; //righe di codice aggiunte
-	private int MAXLOCAdded; // massimo numero di righe di codice aggiunte per release
+	private int nAuth; //numero autori
+	private int nR; //numero di commit che riguardano questa classe
+	private int linesOfCode; //righe di codice
+	private int linesOfCodeAdded; //righe di codice aggiunte
+	private int maxLOCAdded; // massimo numero di righe di codice aggiunte per release
 	private int sumLOCAdded; //somma totale righe di codice aggiunte per ottenere la media
-	private float AVGLOCAdded;
+	private float avgLOCAdded;
 	private Release release; 
 	
 	public Class(String name) {
@@ -28,9 +28,9 @@ public class Class {
 		this.maxChg = 0;
 		this.recurrence = 1;
 		this.sumChg = 0;
-		this.MAXLOCAdded = 0;
+		this.maxLOCAdded = 0;
 		this.sumLOCAdded = 0;
-		this.LOC = 0;
+		this.linesOfCode = 0;
 	}
 	
 	public String getName() {
@@ -60,27 +60,27 @@ public class Class {
 	
 	
 	public int getNR() {
-		return this.NR;
+		return this.nR;
 	}
 	
 	
 	public int getNauth() {
-		return this.Nauth;
+		return this.nAuth;
 	}
 	
 	
 	public int getLOC() {
-		return this.LOC;
+		return this.linesOfCode;
 	}
 	
 	
 	public int getMAXLOCAdded() {
-		return this.MAXLOCAdded;
+		return this.maxLOCAdded;
 	}
 	
 	
 	public int getLOCAdded() {
-		return this.LOCAdded;
+		return this.linesOfCodeAdded;
 	}
 	
 	
@@ -106,7 +106,7 @@ public class Class {
 	
 	
 	public float getAVGLOCAdded() {
-		return this.AVGLOCAdded;
+		return this.avgLOCAdded;
 	}
 	
 	
@@ -130,7 +130,7 @@ public class Class {
 	
 	public void setSingleTicket(Ticket ticket) {
 		if(this.ticket == null) {
-			List<Ticket> ticketList = new ArrayList();
+			List<Ticket> ticketList = new ArrayList<>();
 			this.ticket = ticketList;
 			this.ticket.add(ticket);
 		}
@@ -160,28 +160,28 @@ public class Class {
 	}
 	
 	
-	public void setLOC(int LOC) {
-		this.LOC = LOC;
+	public void setLOC(int linesOfCode) {
+		this.linesOfCode = linesOfCode;
 	}
 	
 	
-	public void setNR(int NR) {
-		this.NR = NR;
+	public void setNR(int nR) {
+		this.nR = nR;
 	}
 	
 	
-	public void setNauth(int Nauth) {
-		this.Nauth = Nauth;
+	public void setNauth(int nAuth) {
+		this.nAuth = nAuth;
 	}
 	
 	
-	public void setLOCAdded(int LOCAdded) {
-		this.LOCAdded = LOCAdded;
+	public void setLOCAdded(int linesOfCodeAdded) {
+		this.linesOfCodeAdded = linesOfCodeAdded;
 	}
 	
 	
-	public void setMAXLOCAdded(int MAXLOCAdded) {
-		this.MAXLOCAdded = MAXLOCAdded;
+	public void setMAXLOCAdded(int maxLOCAdded) {
+		this.maxLOCAdded = maxLOCAdded;
 	}
 	
 	
@@ -195,8 +195,8 @@ public class Class {
 	}
 	
 	
-	public void setAVGLOCAdded(float AVGLOCAdded) {
-		this.AVGLOCAdded = AVGLOCAdded;
+	public void setAVGLOCAdded(float avgLOCAdded) {
+		this.avgLOCAdded = avgLOCAdded;
 	}
 	
 	

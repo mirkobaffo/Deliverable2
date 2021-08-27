@@ -1,0 +1,34 @@
+
+Imain.GetJsonFromUrl#parseStringToDate(Ljava/lang/String;)Ljava/util/Date;D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java; ;($"1*Œ
+1D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java= =(-‹
+ˆ
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java= =(.
+formatjava.lang.String"__id*
+yyyy-MM-dd'T'HH:mm:ss.SSSZ‡„
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java> >( 
+%0java.text.SimpleDateFormat"java.text.SimpleDateFormatÉ
+Æ
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java> >($
+%1"6java.text.SimpleDateFormat#<init>(Ljava/lang/String;)V*"
+ 
+%0java.text.SimpleDateFormat*
+
+formatjava.lang.Stringüù
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java> >(2
+%2java.util.Date">java.text.DateFormat#parse(Ljava/lang/String;)Ljava/util/Date;*"
+ 
+%0java.text.SimpleDateFormat*
+
+stringjava.lang.String2parse(Ljava/lang/String;)"^
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java> >(3
+
+%2java.util.Date:
+stringjava.lang.StringB"
+main.GetJsonFromUrl

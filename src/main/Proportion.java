@@ -5,8 +5,12 @@ import java.util.List;
 
 public class Proportion {
 	
+	
+	private Proportion() {
+		
+	}
+	
 	public static void checkIV(List<Ticket> ticketList) {
-		int p;
 		int iV;
 		for (int i = 0; i < ticketList.size(); i++) {
 			if(ticketList.get(i).getCommit() == null) {
@@ -18,10 +22,9 @@ public class Proportion {
 
 					iV = computeInconsistentIV(i, ticketList);
 					ticketList.get(i).setIV(iV);
-					p = ticketList.get(i).getP();
 				} else {
 
-					p = computeP(ticketList.get(i));
+					computeP(ticketList.get(i));
 				}
 				
 			}
@@ -67,7 +70,6 @@ public class Proportion {
 		if (!l.isEmpty()) {
 			for (int i = size-(size/100); i < size; i++) {
 				if(l.get(i) != null)  {
-					//System.out.println("questo è il valore " + i + " della lista: " + l.get(i));
 					sum += l.get(i);
 				}
 				divide++;
@@ -79,12 +81,12 @@ public class Proportion {
 		return sum/divide;
 	}
 	
-	public static int computeIV(int OV, int FV, int p) {
-		int IV = FV - ((FV - OV)*p);
-		if(IV < 0) {
-			IV=1;
+	public static int computeIV(int openingVersion, int fixedVersion, int p) {
+		int injectedVersion = fixedVersion - ((fixedVersion - openingVersion)*p);
+		if(injectedVersion < 0) {
+			injectedVersion=1;
 		}
-		return IV;
+		return injectedVersion;
 	}
 	
 }

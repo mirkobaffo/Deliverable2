@@ -1,0 +1,68 @@
+
+Dmain.Metrics#numberOfBugFixedForRelease(Lmain/Release;Lmain/Class;)I=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java& &(-"6*Æ
+2=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java) )(a
+_
+=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java) )(
+tmain.Ticket"__id*
+""
+}
+=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java) )(
+tmain.Ticket"
+__arrayGet*
+
+%1java.util.List*
+""*
+4
+1*Ï
+4=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java* *(†ù
+=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java* *(
+%2java.lang.Integer"&main.Ticket#getFV()Ljava/lang/Integer;*
+
+tmain.Ticket2getFV()™ß
+=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java* *((
+%3java.lang.Integer"(main.Release#getInt()Ljava/lang/Integer;*
+
+releasemain.Release2getInt()“œ
+=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java* *()
+%4boolean"-java.lang.Integer#equals(Ljava/lang/Object;)Z*
+
+%2java.lang.Integer*
+
+%3java.lang.Integer2equals(Ljava/lang/Object;)*
+2*Í
+5=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java) )(†ù
+=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java) )(
+%1java.util.List"&main.Class#getTicket()Ljava/util/List;*
+
+c
+main.Class2getTicket()*
+2*Ì
+6=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java' '(†ù
+=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java( ((
+%0java.util.List"&main.Class#getTicket()Ljava/util/List;*
+
+c
+main.Class2getTicket()*
+5
+1*ã
+1=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java/	 /("G
+=
+3/Users/mirko/git/Deliverable2/src/main/Metrics.java/ /(
+"":
+releasemain.Release:
+c
+main.ClassB"
+main.Metrics

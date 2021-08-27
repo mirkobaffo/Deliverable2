@@ -1,0 +1,21 @@
+
+__sonar_lambda_0$D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaP  P(X"1*¸
+1D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaPH P(J–“
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaPH P(X
+
+%17int"Jjava.time.LocalDateTime#compareTo(Ljava/time/chrono/ChronoLocalDateTime;)I*
+
+o1java.time.LocalDateTime*
+
+o2java.time.LocalDateTime21compareTo(Ljava/time/chrono/ChronoLocalDateTime;)"T
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaPH P(X
+
+
+%17int:
+o1java.time.LocalDateTime:
+o2java.time.LocalDateTimeB
+java.util.Comparator

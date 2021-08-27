@@ -16,7 +16,7 @@ public class Release {
 	
 	
 	
-	public Release(String id, String name, Date date, Integer number, Commit commit) throws Exception {
+	public Release(String id, String name, Date date, Integer number, Commit commit) {
 	    this.id = id; 
 	    this.name = name;
 	    this.date = date;

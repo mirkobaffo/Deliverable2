@@ -1,0 +1,7 @@
+organization=mirkobaffo
+projectKey=mirkobaffo_Deliverable2
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.22105
+dashboardUrl=https://sonarcloud.io/dashboard?id=mirkobaffo_Deliverable2
+ceTaskId=AXroOt_HD-RTUH-uzSpp
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXroOt_HD-RTUH-uzSpp

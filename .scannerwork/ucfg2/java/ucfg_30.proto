@@ -1,0 +1,54 @@
+
+?main.GetJsonFromUrl#readAll(Ljava/io/Reader;)Ljava/lang/String;D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java2 2("4*©
+2D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java6 6(ÿ’
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java6 6(
+%3java.lang.StringBuilder":java.lang.StringBuilder#append(C)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+""2	append(C)*
+3*‡
+3D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java5 5(åâ
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java5 5(	
+%2int"java.io.Reader#read()I*
+
+rdjava.io.Reader2read()*
+2
+1*˘
+4D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java3 3('Ä~
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java3 3(%
+%0java.lang.StringBuilder"java.lang.StringBuilderì
+ê
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java3 3('
+%1"!java.lang.StringBuilder#<init>()V*
+
+%0java.lang.StringBuilderè
+å
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java3 3((
+sbjava.lang.StringBuilder"__id*
+
+%0java.lang.StringBuilder*
+3*Ú
+1D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java8 8(
+ƒ¡
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java8 8(
+%4java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;*
+
+sbjava.lang.StringBuilder2
+toString()"`
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java8 8(
+
+%4java.lang.String:
+rdjava.io.ReaderB"
+main.GetJsonFromUrl

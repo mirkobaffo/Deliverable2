@@ -32,10 +32,11 @@ import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 import weka.classifiers.evaluation.*;
 import weka.classifiers.lazy.IBk;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -46,9 +47,19 @@ public class TestWekaEasy{
 	
 	static List<Integer> precision = new ArrayList<>();
 	static List<Integer> recall = new ArrayList<>();
-	static List<Integer> Auc = new ArrayList<>();
+	static List<Integer> auc = new ArrayList<>();
 	static List<Integer> kappa = new ArrayList<>();
 	static String name = "";
+	static String noSamplingString = "NoSampling";
+	private static final Logger LOGGER = Logger.getLogger(TestWekaEasy.class.getName());
+
+	
+	
+	private TestWekaEasy() {
+		
+	}
+	
+	
 	
 	private static CostMatrix createCostMatrix(double weightFalsePositive, double weightFalseNegative) {
 	    CostMatrix costMatrix = new CostMatrix(2);
@@ -72,7 +83,7 @@ public class TestWekaEasy{
 			c1.setMinimizeExpectedCost(treshold);
 			eval = new Evaluation(testing,c1.getCostMatrix());
 			eval.evaluateModel(c1, testing);
-			if(treshold) {
+			if(Boolean.TRUE.equals(treshold)) {
 				costSens.setCostSensitive(1);
 			}
 			else {
@@ -82,7 +93,7 @@ public class TestWekaEasy{
 			costSens.setFeatureSelection(true);
 			costSens.setTrainingStep(z);
 			costSens.setClassifier(name);
-			costSens.setSampling("NoSampling");
+			costSens.setSampling(noSamplingString);
 			costSens.setEvaluation(eval);
 			return costSens;
 		 }
@@ -90,11 +101,7 @@ public class TestWekaEasy{
 			 e.printStackTrace();
 			 return costSens;
 		}
-		
-		//System.out.println("AUC CostSensitive = "+eval.areaUnderROC(1));
-		//System.out.println("Kappa CostSensitive = "+eval.kappa());
-		//System.out.println("Recall CostSensitive = "+eval.recall(1));
-		//System.out.println("Precision CostSensitive = "+eval.precision(1));	
+			
 	}
 	
 	
@@ -104,10 +111,8 @@ public class TestWekaEasy{
 	public static List<String> makeTrainingSet(List<Release> releases) throws Exception {
 		List<String> trainingSet = new ArrayList<>();
 		for (int i = 1; i <releases.size(); i++) {
-			String s = new String();
-			s = CsvWriter.csvForWeka(releases.subList(0,i),i);
+			String s = CsvWriter.csvForWeka(releases.subList(0,i),i);
 			String path = CsvToArff.arffCreation(s);
-			System.out.println("path: " + path);
 			trainingSet.add(path);
 		}
 		
@@ -119,8 +124,7 @@ public class TestWekaEasy{
 	public static List<String> makeTestingSet(List<Release> releases) throws Exception {
 		List<String> testingSet = new ArrayList<>();
 		for(int i = 1; i<releases.size(); i++) {
-			String s = new String ();
-			s = CsvWriter.csvForWeka(releases.subList(i, i+1),i+10);
+			String s = CsvWriter.csvForWeka(releases.subList(i, i+1),i+10);
 			String path = CsvToArff.arffCreation(s);
 			testingSet.add(path);
 		}
@@ -138,7 +142,6 @@ public class TestWekaEasy{
 			fc.setClassifier(c);
 			SMOTE smote = new SMOTE();
 			smote.setInputFormat(training);
-			System.out.println("defectiveInTraining: " + defectiveInTraining);
 			int num = 100*(training.numInstances() - 2*defectiveInTraining)/defectiveInTraining;
 			if(num >500) {
 				num = 500;
@@ -155,10 +158,10 @@ public class TestWekaEasy{
 			smoteData.setClassifier(name);
 			smoteData.setSampling("Smote");
 			smoteData.setEvaluation(eval);
-			System.out.println("AUC SMOTE = "+eval.areaUnderROC(1));
-			System.out.println("Kappa SMOTE = "+eval.kappa());
-			System.out.println("Precision SMOTE = "+eval.precision(1)+ "\n");			
-			System.out.println("Recall SMOTE = "+eval.recall(1)+ "\n");
+			LOGGER.log(Level.INFO, "AUC SMOTE = "+eval.areaUnderROC(1));
+			LOGGER.log(Level.INFO, "Kappa SMOTE = "+eval.kappa());
+			LOGGER.log(Level.INFO, "Precision SMOTE = "+eval.precision(1)+ "\n");
+			LOGGER.log(Level.INFO, "Recall SMOTE = "+eval.recall(1)+ "\n");
 			return smoteData;
 		 }
 		 catch (Exception e) {
@@ -177,7 +180,6 @@ public class TestWekaEasy{
 			Resample resample = new Resample();
 			resample.setInputFormat(training);
 			int num = 100*(training.numInstances() - 2*defectiveInTraining)/defectiveInTraining;
-			System.out.println("num: " + num);
 			if(num >500) {
 				num = 500;
 			}
@@ -185,7 +187,6 @@ public class TestWekaEasy{
 			opts = new String[]{ "-B", "0","-S","1", "-Z", percentage};
 			resample.setOptions(opts);
 			fc.setFilter(resample);
-			System.out.println("percentage: " + resample.getSampleSizePercent() + " Z: " + z);
 			fc.buildClassifier(training);
 			Evaluation eval = new Evaluation(testing);	
 			eval.evaluateModel(fc, testing); //sampled
@@ -194,10 +195,10 @@ public class TestWekaEasy{
 			oS.setClassifier(name);
 			oS.setSampling("OverSampling");
 			oS.setEvaluation(eval);
-			System.out.println("AUC oversampled = "+eval.areaUnderROC(1));
-			System.out.println("Kappa oversampled = "+eval.kappa());
-			System.out.println("Precision oversampled = "+eval.precision(1)+ "\n");			
-			System.out.println("Recall oversampled = "+eval.recall(1)+ "\n");
+			LOGGER.log(Level.INFO, "AUC oversampled = "+eval.areaUnderROC(1));
+			LOGGER.log(Level.INFO, "Kappa oversampled = "+eval.kappa());
+			LOGGER.log(Level.INFO, "Precision oversampled = "+eval.precision(1)+ "\n");
+			LOGGER.log(Level.INFO, "Recall oversampled = "+eval.recall(1)+ "\n");
 			return oS;
 		}
 		catch (Exception e) {
@@ -225,10 +226,10 @@ public class TestWekaEasy{
 		uS.setClassifier(name);
 		uS.setSampling("UnderSampling");
 		uS.setEvaluation(eval);
-		System.out.println("AUC undersampled = "+eval.areaUnderROC(1));
-		System.out.println("Kappa undersampled = "+eval.kappa());
-		System.out.println("Precision undersampled= "+eval.precision(1)+ "\n");			
-		System.out.println("Recall undersampled= "+eval.recall(1)+ "\n");
+		LOGGER.log(Level.INFO, "AUC undersampled = "+eval.areaUnderROC(1));
+		LOGGER.log(Level.INFO, "Kappa undersampled = "+eval.kappa());
+		LOGGER.log(Level.INFO, "Precision undersampled = "+eval.precision(1)+ "\n");
+		LOGGER.log(Level.INFO, "Recall undersampled = "+eval.recall(1)+ "\n");
 		return uS;
 		
 	}
@@ -246,7 +247,8 @@ public class TestWekaEasy{
 		filter.setInputFormat(training);
 		Instances filteredTraining = Filter.useFilter(training, filter);
 		int numAttrFiltered = filteredTraining.numAttributes();
-		System.out.println("attributi filtrati: " + numAttrFiltered);
+		String noFilterAtt = "attributi filtrati: " + numAttrFiltered;
+		LOGGER.log(Level.INFO, noFilterAtt);
 		filteredTraining.setClassIndex(numAttrFiltered - 1);
 		Instances testingFiltered = Filter.useFilter(testing, filter);
 		testingFiltered.setClassIndex(numAttrFiltered - 1);
@@ -257,13 +259,13 @@ public class TestWekaEasy{
 	    featureSelection.setFeatureSelection(true);
 	    featureSelection.setTrainingStep(z);
 	    featureSelection.setClassifier(name);
-	    featureSelection.setSampling("NoSampling");
+	    featureSelection.setSampling(noSamplingString);
 	    featureSelection.setEvaluation(evalClass);
 		wekaList.add(featureSelection);
-		System.out.println("AUC filtered = "+evalClass.areaUnderROC(1));
-		System.out.println("Kappa filtered = "+evalClass.kappa());
-		System.out.println("Recall filtered = "+evalClass.recall(1));
-		System.out.println("Precision filtered = "+evalClass.precision(1));
+		LOGGER.log(Level.INFO, "AUC filtered = "+evalClass.areaUnderROC(1));
+		LOGGER.log(Level.INFO, "Kappa filtered = "+evalClass.kappa());
+		LOGGER.log(Level.INFO, "Precision filtered = "+evalClass.precision(1)+ "\n");
+		LOGGER.log(Level.INFO, "Recall filtered = "+evalClass.recall(1)+ "\n");
 	    WekaData oS = overSampling(filteredTraining, testingFiltered, defectiveInTraining, c, z);
 	    WekaData uS = underSampling(filteredTraining, testingFiltered, c, z);
 	    WekaData smote = smoteSampling(filteredTraining, testingFiltered, defectiveInTraining, c, z);
@@ -304,7 +306,6 @@ public class TestWekaEasy{
 	
 	
 	public static List<WekaData> wekaAction(String testingSet, String trainingSet, int z, int defectiveInTraining) throws Exception {
-		//System.out.println("defectiveInTraining: " + defectiveInTraining + " TrainingSet: " + trainingSet);
 		if(defectiveInTraining == 0) {
 			defectiveInTraining = 1;
 		}
@@ -320,12 +321,12 @@ public class TestWekaEasy{
 			return wekaList;
 		}
 		int numAttrNoFilter = training.numAttributes();
-		System.out.println("attributi non filtrati: " + numAttrNoFilter);
+		String noFilterAtt = "attributi non filtrati: " + numAttrNoFilter;
+		LOGGER.log(Level.INFO, noFilterAtt);
 		training.setClassIndex(numAttrNoFilter - 1);
 		testing.setClassIndex(numAttrNoFilter - 1);
 		for(int i=0; i<3; i++) {
 			Classifier classifier = getClassifier(i);
-			//wekaList.addAll(featuresSelection(training, testing, defectiveInTraining, classifier, z, wekaList));
 			featuresSelection(training, testing, defectiveInTraining, classifier, z, wekaList);
 			classifier.buildClassifier(training);
 			Evaluation evalClass = new Evaluation(testing);
@@ -333,14 +334,15 @@ public class TestWekaEasy{
 			WekaData simple = new WekaData();
 			simple.setTrainingStep(z);
 			simple.setClassifier(name);
-			simple.setSampling("NoSampling");
+			simple.setSampling(noSamplingString);
 			simple.setEvaluation(evalClass);
 			wekaList.add(simple);
-			System.out.println("Classifier: " + name);
-			System.out.println("AUC no filter = "+evalClass.areaUnderROC(1));
-			System.out.println("Kappa no filter = "+evalClass.kappa());
-			System.out.println("Recall no filter = "+evalClass.recall(1));
-			System.out.println("Precision no filter = "+evalClass.precision(1));
+			String classifierName = "Classifier: " + name;
+			LOGGER.log(Level.INFO, classifierName);
+			LOGGER.log(Level.INFO, "AUC no filter = "+evalClass.areaUnderROC(1));
+			LOGGER.log(Level.INFO, "Kappa no filter = "+evalClass.kappa());
+			LOGGER.log(Level.INFO, "Precision no filter = "+evalClass.precision(1)+ "\n");
+			LOGGER.log(Level.INFO, "Recall no filter = "+evalClass.recall(1)+ "\n");
 		}
 		return wekaList;
 	}

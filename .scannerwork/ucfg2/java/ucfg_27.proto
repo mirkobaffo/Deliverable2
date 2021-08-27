@@ -1,0 +1,49 @@
+
+'main.Proportion#getP(Ljava/util/List;)I@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaB B("10*Ù
+6@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaI I(‰
+†
+@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaI I(
+%3java.lang.Integer"
+__arrayGet*
+
+ljava.util.List*
+""*
+7
+1*Ü
+7@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaH H(‰
+†
+@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaH H(
+%2java.lang.Integer"
+__arrayGet*
+
+ljava.util.List*
+""*	
+6
+7
+1*ì
+10@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaC C(‡„
+@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaC C(	
+%0int"java.util.List#size()I*
+
+ljava.util.List2size()‘Ž
+@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaF F(
+%1boolean"java.util.List#isEmpty()Z*
+
+ljava.util.List2	isEmpty()*
+7
+1*‘
+1@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaQ	 Q("J
+@
+6/Users/mirko/git/Deliverable2/src/main/Proportion.javaQ Q(
+"":
+ljava.util.ListB"
+main.Proportion

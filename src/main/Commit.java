@@ -11,7 +11,7 @@ public class Commit {
 	private List<Class> classes;
   	private Integer sequenceNumber;
 
-	public Commit(String id, Date date, List<String> classname) throws Exception {
+	public Commit(String id, Date date, List<String> classname)  {
 		    this.id = id; 
 		    this.date = date;
 		    this.classname = classname;

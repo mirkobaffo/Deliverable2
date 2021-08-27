@@ -1,0 +1,141 @@
+
+Mmain.GetJsonFromUrl#setFVOV(Lmain/Ticket;Ljava/util/List;)Ljava/lang/Boolean;D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javao o("2*Õ
+2D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javap p(i
+g
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javap p(
+rmain.Release"__id*
+""é
+ã
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javap p(
+rmain.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""*
+9
+1*©
+3D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javay y(	ìê
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javay y(
+
+%13int"java.util.List#size()I*
+
+releasesjava.util.List2size()¬ø
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javay y( 
+%14void"'main.Ticket#setFV(Ljava/lang/Integer;)V*
+
+ticketmain.Ticket*
+
+
+%13int2setFV(Ljava/lang/Integer;)*
+2*Å
+4D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javax x(≠™
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javax x(
+%12java.lang.Integer"&main.Ticket#getFV()Ljava/lang/Integer;*
+
+ticketmain.Ticket2getFV()*
+2
+3*–
+5D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javau u(	¨©
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javau u(
+%10java.lang.Integer"(main.Release#getInt()Ljava/lang/Integer;*
+
+rmain.Release2getInt()–Õ
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javau u(
+%11void"'main.Ticket#setFV(Ljava/lang/Integer;)V*
+
+ticketmain.Ticket*
+
+%10java.lang.Integer2setFV(Ljava/lang/Integer;)*
+1*û
+6D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javat t(®•
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javat t(
+%6main.Commit"$main.Ticket#getCommit()Lmain/Commit;*
+
+ticketmain.Ticket2getCommit()¶£
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javat t(!
+%7java.util.Date"%main.Commit#getDate()Ljava/util/Date;*
+
+%6main.Commit2	getDate()ß§
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javat) t(4
+%8java.util.Date"&main.Release#getDate()Ljava/util/Date;*
+
+rmain.Release2	getDate()Ã…
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javat t(5
+%9boolean"(java.util.Date#before(Ljava/util/Date;)Z*
+
+%7java.util.Date*
+
+%8java.util.Date2before(Ljava/util/Date;)*
+4
+5*Õ
+7D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javar r(	´®
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javar r(
+%4java.lang.Integer"(main.Release#getInt()Ljava/lang/Integer;*
+
+rmain.Release2getInt()ŒÀ
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javar r(
+
+%5void"'main.Ticket#setOV(Ljava/lang/Integer;)V*
+
+ticketmain.Ticket*
+
+%4java.lang.Integer2setOV(Ljava/lang/Integer;)*
+6*Ä
+8D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javaq5 q(;¨©
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javaq5 q(C
+%3java.lang.Integer"&main.Ticket#getOV()Ljava/lang/Integer;*
+
+ticketmain.Ticket2getOV()*
+6
+7*á
+9D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javaq q(∫∑
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javaq q(
+%0java.util.Date"-main.Ticket#getCreationDate()Ljava/util/Date;*
+
+ticketmain.Ticket2getCreationDate()ß§
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javaq% q(0
+%1java.util.Date"&main.Release#getDate()Ljava/util/Date;*
+
+rmain.Release2	getDate()Ã…
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.javaq q(1
+%2boolean"(java.util.Date#before(Ljava/util/Date;)Z*
+
+%0java.util.Date*
+
+%1java.util.Date2before(Ljava/util/Date;)*
+6
+8*ô
+1D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java| |("N
+D
+:/Users/mirko/git/Deliverable2/src/main/GetJsonFromUrl.java| |(
+"":
+ticketmain.Ticket:
+releasesjava.util.ListB"
+main.GetJsonFromUrl
