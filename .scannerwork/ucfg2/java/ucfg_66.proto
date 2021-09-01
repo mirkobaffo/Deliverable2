@@ -1,16 +1,18 @@
 
-'main.Ticket#getName()Ljava/lang/String;<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java ("1*–
-1<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java 	  (y
+(main.Class#getBuggy()Ljava/lang/Boolean;;
+1/Users/mirko/git/Deliverable2/src/main/Class.java, ,("1*•
+1;
+1/Users/mirko/git/Deliverable2/src/main/Class.java-	 -(y
 w
-<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java 	  (
-%0java.lang.String"__id**
-main.Ticket"
-name"X
-<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java   (
-
-%0java.lang.StringB
-main.Ticket
+;
+1/Users/mirko/git/Deliverable2/src/main/Class.java-	 -(
+%0java.lang.Boolean"__id**
+
+main.Class"
+buggy"X
+;
+1/Users/mirko/git/Deliverable2/src/main/Class.java- -(
+
+%0java.lang.BooleanB
+
+main.Class

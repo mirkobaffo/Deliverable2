@@ -76,8 +76,12 @@ public class GetGitInfo {
 	    		classNameList = new ArrayList<>();	
 	    	}
 	    }
-	    
-	    if (!commitList.isEmpty()) {
+	    return commitListFiller(commitList);
+	}
+	
+	
+	public static List<Commit> commitListFiller(List<Commit> commitList){
+		if (!commitList.isEmpty()) {
 	    	for (Commit commit: commitList) {
 	    		List<Class> cList = new ArrayList<>();
 	    		if (commit.getClassName() != null) {
@@ -96,7 +100,6 @@ public class GetGitInfo {
 	    }
 	    
 	    return commitList;
-
 	}
 	
 	
@@ -119,30 +122,39 @@ public class GetGitInfo {
 		    	}
 		    	
 		    }
-		    for(String e: idList) {
-		    	for(Commit c: commitList) {
-		    		if(c.getId().equals(e)) {
-		    			t.setCommit(c);
-		    			GetJsonFromUrl.setFVOV(t, releases);
-		    			if(t.getOV()!= null && t.getFV() >= t.getOV() && !ticketList.contains(t)) {
-		    					ticketList.add(t);
-		    			}
-		    			List <Class> classes = c.getClassList();
-		    			for(Class cl: classes) {
-		    				cl.setSingleTicket(t);
-		    			}
-		    			//setto la fixed version nelle classi della commit
-		    		}
-		    	}
-		    }
+		    ticketList = ticketListFiller(idList, commitList, t, ticketList, releases);
+		   
 		}
 	    return ticketList;
+	    
+	}
+	    
+	    
+	    public static List<Ticket> ticketListFiller(List<String> idList, List<Commit>commitList, Ticket t, List<Ticket> ticketList, List<Release> releases ){
+	    	 for(String e: idList) {
+			    	for(Commit c: commitList) {
+			    		if(c.getId().equals(e)) {
+			    			t.setCommit(c);
+			    			GetJsonFromUrl.setFVOV(t, releases);
+			    			if(t.getOV()!= null && t.getFV() >= t.getOV() && !ticketList.contains(t)) {
+			    					ticketList.add(t);
+			    			}
+			    			List <Class> classes = c.getClassList();
+			    			for(Class cl: classes) {
+			    				cl.setSingleTicket(t);
+			    			}
+			    			//setto la fixed version nelle classi della commit
+			    		}
+			    	}
+			    }
+	    	 return ticketList;
+	    }
 	}
 	
 	
 	
 	
 	
-}
+
 
 //--pretty=format:%H --grep " + param + "--date=iso-strict --name-status  --stat HEAD --abbrev-commit --date-order

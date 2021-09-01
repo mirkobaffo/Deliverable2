@@ -32,6 +32,9 @@ import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 import weka.classifiers.evaluation.*;
 import weka.classifiers.lazy.IBk;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +62,70 @@ public class TestWekaEasy{
 		
 	}
 	
+	
+	public static String csvForWeka(List <Release> releases, int counter) throws IOException {
+		String name = "/Users/mirko/git/Deliverable2/doc/release" + counter + ".csv";
+		try (BufferedWriter br = new BufferedWriter(new FileWriter(name))) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("LOC");
+			sb.append(",");
+			sb.append("Age");
+			sb.append(",");
+			sb.append("CHG");
+			sb.append(",");
+			sb.append("MAX_CHG");
+			sb.append(",");
+			sb.append("AVG_CHG");
+			sb.append(",");
+			sb.append("Bug Fixed");
+			sb.append(",");
+			sb.append("NAuth");
+			sb.append(",");
+			sb.append("Number of Commit");
+			sb.append(",");
+			sb.append("LOC Added");
+			sb.append(",");
+			sb.append("AVG_LOC Added");
+			sb.append(",");
+			sb.append("MAX_LOC Added");
+			sb.append(",");
+			sb.append("Buggy");
+			sb.append("\n");
+			br.write(sb.toString());
+			int size = releases.size();
+			for (int i = 0 ; i < size; i++) {
+				for (Class c : releases.get(i).getClasses()) {
+						StringBuilder sb2 = new StringBuilder();
+						sb2.append(c.getLOC());
+						sb2.append(",");
+						sb2.append(Metrics.classAge(c));
+						sb2.append(",");
+						sb2.append(c.getChg());
+						sb2.append(",");
+						sb2.append(c.getMaxChg());
+						sb2.append(",");
+						sb2.append(Metrics.getAVGChg(c));
+						sb2.append(",");
+						sb2.append(Metrics.numberOfBugFixedForRelease(releases.get(i), c));
+						sb2.append(",");
+						sb2.append(c.getNauth());
+						sb2.append(",");
+						sb2.append(c.getNR());
+						sb2.append(",");
+						sb2.append(c.getLOCAdded());
+						sb2.append(",");
+						sb2.append(c.getMAXLOCAdded());
+						sb2.append(",");
+						sb2.append(c.getAVGLOCAdded());
+						sb2.append(",");
+						sb2.append(c.getBuggy());
+						sb2.append("\n");
+						br.write(sb2.toString());
+				}
+			}	
+		}
+		return name;
+	}
 	
 	
 	private static CostMatrix createCostMatrix(double weightFalsePositive, double weightFalseNegative) {
@@ -108,11 +175,17 @@ public class TestWekaEasy{
 	
 	//I metodi makeTrainingSet e makeTesting set implementano il Walk Forward
 	
-	public static List<String> makeTrainingSet(List<Release> releases) throws Exception {
+	public static List<String> makeTrainingSet(List<Release> releases) {
 		List<String> trainingSet = new ArrayList<>();
+		String path = "";
 		for (int i = 1; i <releases.size(); i++) {
-			String s = CsvWriter.csvForWeka(releases.subList(0,i),i);
-			String path = CsvToArff.arffCreation(s);
+			String s;
+			try {
+				s = csvForWeka(releases.subList(0,i),i);
+				path = CsvToArff.arffCreation(s);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}			
 			trainingSet.add(path);
 		}
 		
@@ -121,11 +194,17 @@ public class TestWekaEasy{
 	}
 	
 	
-	public static List<String> makeTestingSet(List<Release> releases) throws Exception {
+	public static List<String> makeTestingSet(List<Release> releases) {
 		List<String> testingSet = new ArrayList<>();
+		String path = "";
 		for(int i = 1; i<releases.size(); i++) {
-			String s = CsvWriter.csvForWeka(releases.subList(i, i+1),i+10);
-			String path = CsvToArff.arffCreation(s);
+			String s;
+			try {
+				s = csvForWeka(releases.subList(i, i+1),i+10);
+				path = CsvToArff.arffCreation(s);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
 			testingSet.add(path);
 		}
 		return testingSet;
@@ -171,13 +250,15 @@ public class TestWekaEasy{
 	}
 	
 	
-	public static WekaData overSampling(Instances training, Instances testing, Integer defectiveInTraining, Classifier c, int z) throws Exception {
+	public static WekaData overSampling(Instances training, Instances testing, Integer defectiveInTraining, Classifier c, int z)  {
 		FilteredClassifier fc = new FilteredClassifier(); 
+		Resample resample = new Resample();
+		Evaluation eval = null;
 		WekaData oS = new WekaData();
 		try {	
 			String[] opts;
 			fc.setClassifier(c);
-			Resample resample = new Resample();
+			resample = new Resample();
 			resample.setInputFormat(training);
 			int num = 100*(training.numInstances() - 2*defectiveInTraining)/defectiveInTraining;
 			if(num >500) {
@@ -188,7 +269,7 @@ public class TestWekaEasy{
 			resample.setOptions(opts);
 			fc.setFilter(resample);
 			fc.buildClassifier(training);
-			Evaluation eval = new Evaluation(testing);	
+			eval = new Evaluation(testing);	
 			eval.evaluateModel(fc, testing); //sampled
 			oS.setFeatureSelection(true);
 			oS.setTrainingStep(z);
@@ -208,18 +289,25 @@ public class TestWekaEasy{
 	}
 		
 	
-	public static WekaData underSampling(Instances training, Instances testing, Classifier c, int z) throws Exception {
+	public static WekaData underSampling(Instances training, Instances testing, Classifier c, int z) {
 		Resample resample = new Resample();
-		resample.setInputFormat(training);
-		FilteredClassifier fc = new FilteredClassifier();
-		fc.setClassifier(c);		
-		SpreadSubsample  spreadSubsample = new SpreadSubsample();
-		String[] opts = new String[]{ "-M", "1.0"};
-		spreadSubsample.setOptions(opts);
-		fc.setFilter(spreadSubsample);
-		fc.buildClassifier(training);
-		Evaluation eval = new Evaluation(testing);	
-		eval.evaluateModel(fc, testing); //sampled
+		FilteredClassifier fc = null;
+		SpreadSubsample spreadSubsample = null;
+		Evaluation eval = null;
+		try {
+			resample.setInputFormat(training);	
+			fc = new FilteredClassifier();
+			fc.setClassifier(c);		
+			spreadSubsample = new SpreadSubsample();
+			String[] opts = new String[]{ "-M", "1.0"};
+			spreadSubsample.setOptions(opts);
+			fc.setFilter(spreadSubsample);
+			fc.buildClassifier(training);
+			eval = new Evaluation(testing);	
+			eval.evaluateModel(fc, testing); //sampled
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		WekaData uS = new WekaData();
 		uS.setFeatureSelection(true);
 		uS.setTrainingStep(z);
@@ -235,7 +323,7 @@ public class TestWekaEasy{
 	}
 	
 	
-	public static List<WekaData> featuresSelection(Instances training, Instances testing, int defectiveInTraining, Classifier c, int z, List<WekaData> wekaList) throws Exception {
+	public static List<WekaData> featuresSelection(Instances training, Instances testing, int defectiveInTraining, Classifier c, int z, List<WekaData> wekaList) {
 		AttributeSelection filter = new AttributeSelection();
 		CfsSubsetEval eval = new CfsSubsetEval();
 		BestFirst search = new BestFirst();
@@ -243,18 +331,26 @@ public class TestWekaEasy{
 		//set the filter to use the evaluator and search algorithm
 		filter.setEvaluator(eval);
 		filter.setSearch(search);
+		Evaluation evalClass = null;
+		Instances filteredTraining = null;
+		Instances testingFiltered = null;
 		//specify the dataset
-		filter.setInputFormat(training);
-		Instances filteredTraining = Filter.useFilter(training, filter);
-		int numAttrFiltered = filteredTraining.numAttributes();
-		String noFilterAtt = "attributi filtrati: " + numAttrFiltered;
-		LOGGER.log(Level.INFO, noFilterAtt);
-		filteredTraining.setClassIndex(numAttrFiltered - 1);
-		Instances testingFiltered = Filter.useFilter(testing, filter);
-		testingFiltered.setClassIndex(numAttrFiltered - 1);
-		c.buildClassifier(filteredTraining);
-		Evaluation evalClass = new Evaluation(testing);
-	    evalClass.evaluateModel(c, testingFiltered);
+		try {
+			filter.setInputFormat(training);
+			filteredTraining = Filter.useFilter(training, filter);
+			int numAttrFiltered = filteredTraining.numAttributes();
+			String noFilterAtt = "attributi filtrati: " + numAttrFiltered;
+			LOGGER.log(Level.INFO, noFilterAtt);
+			filteredTraining.setClassIndex(numAttrFiltered - 1);
+			testingFiltered = Filter.useFilter(testing, filter);
+			testingFiltered.setClassIndex(numAttrFiltered - 1);
+			c.buildClassifier(filteredTraining);
+			evalClass = new Evaluation(testing);
+		    evalClass.evaluateModel(c, testingFiltered);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	    WekaData featureSelection = new WekaData();
 	    featureSelection.setFeatureSelection(true);
 	    featureSelection.setTrainingStep(z);
@@ -305,16 +401,27 @@ public class TestWekaEasy{
 	}
 	
 	
-	public static List<WekaData> wekaAction(String testingSet, String trainingSet, int z, int defectiveInTraining) throws Exception {
+	public static List<WekaData> wekaAction(String testingSet, String trainingSet, int z, int defectiveInTraining) {
 		if(defectiveInTraining == 0) {
 			defectiveInTraining = 1;
+			
 		}
+		Evaluation evalClass = null;
+		Instances training = null;
+		DataSource source2 = null;
+		Instances testing = null;
 		List<WekaData> wekaList = new ArrayList<>();
 		//load datasets
-		DataSource source1 = new DataSource(trainingSet);
-		Instances training = source1.getDataSet();
-		DataSource source2 = new DataSource(testingSet);
-		Instances testing = source2.getDataSet();
+		DataSource source1;
+		try {
+			source1 = new DataSource(trainingSet);
+			training = source1.getDataSet();
+			source2 = new DataSource(testingSet);
+			testing = source2.getDataSet();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		if(!training.attribute(0).isNumeric()) {
 			WekaData fake = new WekaData();
 			wekaList.add(fake);
@@ -328,9 +435,13 @@ public class TestWekaEasy{
 		for(int i=0; i<3; i++) {
 			Classifier classifier = getClassifier(i);
 			featuresSelection(training, testing, defectiveInTraining, classifier, z, wekaList);
-			classifier.buildClassifier(training);
-			Evaluation evalClass = new Evaluation(testing);
-			evalClass.evaluateModel(classifier, testing); 
+			try {
+				classifier.buildClassifier(training);
+				evalClass = new Evaluation(testing);
+				evalClass.evaluateModel(classifier, testing); 
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			WekaData simple = new WekaData();
 			simple.setTrainingStep(z);
 			simple.setClassifier(name);

@@ -1,10 +1,53 @@
 
-main.Class#getNauth()I;
-1/Users/mirko/git/Deliverable2/src/main/Class.javaC C("1*á
-1;
-1/Users/mirko/git/Deliverable2/src/main/Class.javaD	 D("E
-;
-1/Users/mirko/git/Deliverable2/src/main/Class.javaD D(
-""B
-
-main.Class
+?main.GetReleaseInfo#readAll(Ljava/io/Reader;)Ljava/lang/String;D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java} }(!"4*≠
+2F
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaÅ Å(⁄◊
+F
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaÅ Å(
+%3java.lang.StringBuilder":java.lang.StringBuilder#append(C)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+""2	append(C)*
+3*‰
+3F
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaÄ Ä(éã
+F
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaÄ Ä(	
+%2int"java.io.Reader#read()I*
+
+rdjava.io.Reader2read()*
+2
+1*˘
+4D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java~ ~(.Ä~
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java~ ~(,
+%0java.lang.StringBuilder"java.lang.StringBuilderì
+ê
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java~ ~(.
+%1"!java.lang.StringBuilder#<init>()V*
+
+%0java.lang.StringBuilderè
+å
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java~ ~(/
+sbjava.lang.StringBuilder"__id*
+
+%0java.lang.StringBuilder*
+3*¯
+1F
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaÉ É(∆√
+F
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaÉ É(
+%4java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;*
+
+sbjava.lang.StringBuilder2
+toString()"b
+F
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaÉ É(
+
+%4java.lang.String:
+rdjava.io.ReaderB"
+main.GetReleaseInfo

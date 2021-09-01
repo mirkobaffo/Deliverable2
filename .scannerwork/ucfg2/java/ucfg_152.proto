@@ -1,0 +1,28 @@
+
+9main.CsvWriter#getDefectiveInTraining(Ljava/util/List;I)I?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javav v()"3"1*õ
+3?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javay y(ä
+á
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javay y(&
+%0main.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""øº
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javay y(;
+%1java.lang.Integer"4main.Release#getNumOfBuggyClass()Ljava/lang/Integer;*
+
+%0main.Release2getNumOfBuggyClass()*
+3
+1*è
+1?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.java}	 }("I
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.java} }(
+"":
+releasesjava.util.List:
+""B"
+main.CsvWriter

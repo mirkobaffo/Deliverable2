@@ -1,183 +1,16 @@
 
-?main.GetReleaseInfo#containsName(Ljava/util/List;Lmain/Class;)ZF
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¡ ¡(&"2*Ë
-2F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¥ ¥(i
-g
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¥ ¥(
-e
-main.Class"__id*
-""Š
-‡
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¥ ¥(
-e
-main.Class"
-__arrayGet*
+'main.Ticket#getName()Ljava/lang/String;<
+2/Users/mirko/git/Deliverable2/src/main/Ticket.java ("1*–
+1<
+2/Users/mirko/git/Deliverable2/src/main/Ticket.java 	  (y
+w
+<
+2/Users/mirko/git/Deliverable2/src/main/Ticket.java 	  (
+%0java.lang.String"__id**
+main.Ticket"
+name"X
+<
+2/Users/mirko/git/Deliverable2/src/main/Ticket.java   (
 
-listjava.util.List*
-""*
-7
-1*€	
-4F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java²
- ²(Š‡
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java² ²( 
-
-%12int"main.Class#getChg()I*
-
-c
-main.Class2getChg()¡ž
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java²
- ²(!
-%13void"main.Class#setMaxChg(I)V*
-
-c
-main.Class*
-
-
-%12int2setMaxChg(I)˜•
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java³ ³(+
-
-%14int"main.Class#getRecurrence()I*
-
-c
-main.Class2getRecurrence()£ 
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java³
- ³(0
-%15void"main.Class#setRecurrence(I)V*
-
-c
-main.Class*
-""2setRecurrence(I)
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java´ ´(#
-
-%16int"main.Class#getSumChg()I*
-
-c
-main.Class2getSumChg()Š‡
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java´& ´(0
-
-%17int"main.Class#getChg()I*
-
-c
-main.Class2getChg()›˜
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java´
- ´(1
-%18void"main.Class#setSumChg(I)V*
-
-c
-main.Class*
-""2setSumChg(I)*
-2*
-5F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java« «(Š‡
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java« «(!
-
-%10int"main.Class#getChg()I*
-
-c
-main.Class2getChg()¡ž
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java« «("
-%11void"main.Class#setMaxChg(I)V*
-
-e
-main.Class*
-
-
-%10int2setMaxChg(I)*
-2*ë
-6F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java§ §(—”
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¨ ¨(+	
-%3int"main.Class#getRecurrence()I*
-
-e
-main.Class2getRecurrence()¢Ÿ
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¨
- ¨(0
-
-%4void"main.Class#setRecurrence(I)V*
-
-e
-main.Class*
-""2setRecurrence(I)Œ
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java© ©(#	
-%5int"main.Class#getSumChg()I*
-
-e
-main.Class2getSumChg()‰†
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java©& ©(0	
-%6int"main.Class#getChg()I*
-
-c
-main.Class2getChg()š—
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java©
- ©(1
-
-%7void"main.Class#setSumChg(I)V*
-
-e
-main.Class*
-""2setSumChg(I)Œ
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaª ª(	
-%8int"main.Class#getMaxChg()I*
-
-e
-main.Class2getMaxChg()‰†
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaª ª('	
-%9int"main.Class#getChg()I*
-
-c
-main.Class2getChg()*
-2
-5*†
-7F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¦ ¦(©¦
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¦ ¦(
-%0java.lang.String"&main.Class#getName()Ljava/lang/String;*
-
-e
-main.Class2	getName()©¦
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¦  ¦(+
-%1java.lang.String"&main.Class#getName()Ljava/lang/String;*
-
-c
-main.Class2	getName()ØÕ
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¦ ¦(,
-%2boolean",java.lang.String#equals(Ljava/lang/Object;)Z*
-
-%0java.lang.String*
-
-%1java.lang.String2equals(Ljava/lang/Object;)*
-4
-6*
-1F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¸ ¸("P
-F
-:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.java¸ ¸(
-"":
-listjava.util.List:
-c
-main.ClassB"
-main.GetReleaseInfo
+%0java.lang.StringB
+main.Ticket

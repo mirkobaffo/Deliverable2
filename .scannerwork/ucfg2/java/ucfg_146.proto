@@ -1,47 +1,1047 @@
 
-Cmain.CsvWriter#getPercentageDefectiveInTraining(Ljava/util/List;I)IA
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javaü ü(3"3"1*ê
-3A
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.java€ €(Œ
-‰
-A
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.java€ €(&
-%0main.Release"
+:main.CsvMaker#csvByWeka(Ljava/util/List;Ljava/util/List;)V>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java ("119*§
+68>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java> >(#Ú×
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java> >(#
+%52java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+
+
+%51int2	append(I)*
+67*ç
+69>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java> >(š—
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java> >("
+
+%51int" main.WekaData#getTrainingStep()I*
+
+wmain.WekaData2getTrainingStep()*
+68*Â
+70>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java= =(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java= =(
+%50java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+69*§
+71>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java< <(#Ú×
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java< <(#
+%49java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+
+
+%48int2	append(I)*
+70*õ
+72>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java; ;(,‹
+ˆ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java; ;(,
+sb2java.lang.StringBuilder"__id* 
+
+%46java.lang.StringBuilderš—
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java< <("
+
+%48int" main.WekaData#getTrainingStep()I*
+
+wmain.WekaData2getTrainingStep()*
+71*Ù
+73>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java; ;(+{y
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java; ;()
+%46java.lang.StringBuilder"java.lang.StringBuilder
+Œ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java; ;(+
+%47"!java.lang.StringBuilder#<init>()V* 
+
+%46java.lang.StringBuilder*
+72*ñ
+76>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java8 8(¡ž
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java8 8(
+%45"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+73
+1*
+78>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java6 6(ÑÎ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java6 6(
+%44void")java.io.Writer#write(Ljava/lang/String;)V*
+
+brjava.io.BufferedWriter*
+
+%43java.lang.String2write(Ljava/lang/String;)*
+1*Œ
+79>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java6 6(¿¼
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java6 6(
+%43java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;*
+
+sbjava.lang.StringBuilder2
+toString()*
+78*Â
+100>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java! !(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java! !(
+%22java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+99*Ò
+101>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java   (ƒ€
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java   ( 
+%21java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+FeatureSelection2append(Ljava/lang/String;)*
+100*Ã
+102>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%20java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+101*Ë
+103>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (üù
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%19java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+	Balancing2append(Ljava/lang/String;)*
+102*Ã
+104>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%18java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+103*Ì
+105>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (ýú
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%17java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+
+Classifier2append(Ljava/lang/String;)*
+104*Ã
+106>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%16java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+105*Õ
+107>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (†ƒ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (#
+%15java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+%DefectiveInTesting2append(Ljava/lang/String;)*
+106*Â
+80>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java5 5(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java5 5(
+%42java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+\n2append(Ljava/lang/String;)*
+79*Ã
+108>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%14java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+107*Å
+81>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java4 4(øõ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java4 4(
+%41java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*	
+Kappa2append(Ljava/lang/String;)*
+80*Ö
+109>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (‡„
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java ($
+%13java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+%DefectiveInTraining2append(Ljava/lang/String;)*
+108*Á
+82>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java3 3(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java3 3(
+%40java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+81*Ã
+83>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java2 2(öó
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java2 2(
+%39java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+AUC2append(Ljava/lang/String;)*
+82*Á
+84>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java1 1(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java1 1(
+%38java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+83*É
+85>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java0 0(üù
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java0 0(
+%37java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+	Precision2append(Ljava/lang/String;)*
+84*Á
+86>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java/ /(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java/ /(
+%36java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+85*Æ
+87>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java. .(ùö
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java. .(
+%35java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+
+Recall2append(Ljava/lang/String;)*
+86*Á
+88>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java- -(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java- -(
+%34java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+87*Â
+89>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java, ,(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java, ,(
+%33java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+FN2append(Ljava/lang/String;)*
+88*Ã
+110>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%12java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+109*Ë
+111>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (üù
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%11java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+	%training2append(Ljava/lang/String;)*
+110*Ã
+112>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%10java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+111*Ñ
+113>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (‚ÿ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java ( 
+%9java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+#trainingRelease2append(Ljava/lang/String;)*
+112*Â
+114>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (óð
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%8java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+113*Ô
+115>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (*‰
+†
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (*
+sbjava.lang.StringBuilder"__id*
+
+%5java.lang.StringBuilderùö
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (
+%7java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*	
+Dataset2append(Ljava/lang/String;)*
+114*â
+116>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (C‡
+„
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (C
+brjava.io.BufferedWriter"__id*
+
+%3java.io.BufferedWriterzx
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java ('
+%5java.lang.StringBuilder"java.lang.StringBuilder
+Š
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java ()
+%6"!java.lang.StringBuilder#<init>()V*
+
+%5java.lang.StringBuilder*
+115*€
+117>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (Cxv
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (-
+%3java.io.BufferedWriter"java.io.BufferedWriter·
+´
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (C
+%4"0java.io.BufferedWriter#<init>(Ljava/io/Writer;)V*
+
+%3java.io.BufferedWriter*
+
+%1java.io.FileWriter*
+116*Á
+90>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java+ +(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java+ +(
+%32java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+89*ò
+118>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java= (Apn
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java2 (<
+%1java.io.FileWriter"java.io.FileWriter±
+®
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java. (B
+%2".java.io.FileWriter#<init>(Ljava/lang/String;)V*
+
+%1java.io.FileWriter*
+
+namejava.lang.String*
+117*Â
+91>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java* *(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java* *(
+%31java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+TN2append(Ljava/lang/String;)*
+90*à
+119>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (0“
+
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (9
+%0java.lang.String"__concat*" 
+/Users/mirko/Desktop/weka_data*
+.csv|
+z
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java (:
+namejava.lang.String"__id*
+
+%0java.lang.String*
+118*Á
+92>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java) )(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java) )(
+%30java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+91*Â
+93>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java( ((õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java( ((
+%29java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+FP2append(Ljava/lang/String;)*
+92*Á
+94>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java' '(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java' '(
+%28java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+93*Â
+95>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java& &(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java& &(
+%27java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+TP2append(Ljava/lang/String;)*
+94*Á
+96>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java% %(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java% %(
+%26java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+95*Ë
+97>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java$ $(þû
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java$ $(
+%25java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+Sensitivity2append(Ljava/lang/String;)*
+96*Á
+98>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java# #(ôñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java# #(
+%24java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+97*Î
+99>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java" "(þ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java" "(
+%23java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+
+sbjava.lang.StringBuilder*
+Cost Sensitive2append(Ljava/lang/String;)*
+98*î
+11>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java\ \(¢Ÿ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java\ \(
+%103"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+9*Ã
+12>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java[ [(öó
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java[ [(
+%102java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+11*«
+13>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaZ Z((ÞÛ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaZ Z((
+%101"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2append(Ljava/lang/Object;)*
+12*ï
+15>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaZ Z(¢Ÿ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaZ Z(
+%100"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+13*Â
+16>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaY Y(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaY Y(
+%99java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+15*ª
+17>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaX X(%ÝÚ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaX X(%
+%98"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2append(Ljava/lang/Object;)*
+16*î
+19>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaX X(¡ž
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaX X(
+%97"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+17*\
+0 "U
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javad d(
+implicit return*»
+1>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java7 7(d
+b
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java7 7(
+wmain.WekaData"__id*
+""†
+ƒ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java7 7(
+wmain.WekaData"
+__arrayGet*
+
+wListjava.util.List*
+""*
+76
+0*ž
+2>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java` `(ÓÐ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java` `(
+%110void")java.io.Writer#write(Ljava/lang/String;)V*
+
+brjava.io.BufferedWriter*
+
+%109java.lang.String2write(Ljava/lang/String;)*
+1*Œ
+3>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java` `(Á¾
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java` `(
+%109java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;* 
+
+sb2java.lang.StringBuilder2
+toString()*
+2*Â
+4>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java_ _(÷ô
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java_ _(
+%108java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+\n2append(Ljava/lang/String;)*
+3*©
+5>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java^ ^(#ÞÛ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java^ ^(#
+%107"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2append(Ljava/lang/Object;)*
+4*í
+7>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java^ ^(¢Ÿ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java^ ^(
+%106"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+5*Á
+8>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java] ](öó
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java] ](
+%105java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+7*©
+9>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java\ \(+ÞÛ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java\ \(+
+%104"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2append(Ljava/lang/Object;)*
+8*Â
+20>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaW W(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaW W(
+%96java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+19*ª
+21>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaV V(0ÝÚ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaV V(0
+%95"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2append(Ljava/lang/Object;)*
+20*î
+23>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaV V(¡ž
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaV V(
+%94"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+21*Â
+24>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaU U(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaU U(
+%93java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+23*ª
+25>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaT T(0ÝÚ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaT T(0
+%92"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2append(Ljava/lang/Object;)*
+24*î
+27>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaT T(¡ž
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaT T(
+%91"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+25*Â
+28>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaS S(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaS S(
+%90java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+27*ª
+29>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaR R(0ÝÚ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaR R(0
+%89"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2append(Ljava/lang/Object;)*
+28*î
+31>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaR R(¡ž
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaR R(
+%88"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+29*Â
+32>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaQ Q(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaQ Q(
+%87java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+31*ª
+33>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaP P(/ÝÚ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaP P(/
+%86"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2append(Ljava/lang/Object;)*
+32*î
+35>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaP P(¡ž
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaP P(
+%85"4main.WekaData#getEval()Lweka/classifiers/Evaluation;*
+
+wmain.WekaData2	getEval()*
+33*Â
+36>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaO O(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaO O(
+%84java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+35*§
+37>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaN N(Ú×
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaN N(
+%83java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+
+
+%82int2	append(I)*
+36*ß
+38>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaN N(’
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaN N(
+
+%82int"main.WekaData#getTreshold()I*
+
+wmain.WekaData2getTreshold()*
+37*Â
+39>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaM M(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaM M(
+%81java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+38*Ö
+40>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaL L((‰†
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaL L((
+%80java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+
+%79java.lang.String2append(Ljava/lang/String;)*
+39*’
+41>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaL L(Å
+Â
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaL L('
+%79java.lang.String"=main.CsvWriter#getCostName(Lmain/WekaData;)Ljava/lang/String;*"
+main.CsvWriter*
+
+wmain.WekaData*
+40*Â
+42>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaK K(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaK K(
+%78java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+41*×
+43>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaJ J('Š‡
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaJ J('
+%77java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+
+%76java.lang.Boolean2append(Ljava/lang/Object;)*
+42*
+44>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaJ J(Â¿
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaJ J(&
+%76java.lang.Boolean"6main.WekaData#getFeatureSelection()Ljava/lang/Boolean;*
+
+wmain.WekaData2getFeatureSelection()*
+43*Â
+45>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaI I(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaI I(
+%75java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+44*Ö
+46>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaH H(‰†
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaH H(
+%74java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+
+%73java.lang.String2append(Ljava/lang/String;)*
+45*ý
+47>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaH H(°­
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaH H(
+%73java.lang.String"-main.WekaData#getSampling()Ljava/lang/String;*
+
+wmain.WekaData2getSampling()*
+46*Â
+48>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaG G(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaG G(
+%72java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+47*Ö
+49>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaF F(!‰†
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaF F(!
+%71java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+
+%70java.lang.String2append(Ljava/lang/String;)*
+48*
+50>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaF F(´±
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaF F( 
+%70java.lang.String"/main.WekaData#getClassifier()Ljava/lang/String;*
+
+wmain.WekaData2getClassifier()*
+49*Â
+51>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaE E(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaE E(
+%69java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+50*£
+52?
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaD D(ÕÒ
+?
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaD D(‚
+%68java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2	append(I)*
+51*×
+53?
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaDL D(‰†
+?
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaDL D(
+
+%67int"java.util.List#size()I*
+
+%66java.util.List2size()*
+52*÷
+54>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaDL D(zª§
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaDL D(z
+%66java.util.List")main.Release#getClasses()Ljava/util/List;*
+
+%65main.Release2getClasses()*
+53*Ý
+55>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaDL D(m
+
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaDL D(m
+%65main.Release"
 __arrayGet*
 
-releasesjava.util.List*
-""Á¾
-A
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.java€ €(;
-%1java.lang.Integer"4main.Release#getNumOfBuggyClass()Ljava/lang/Integer;*
+releasesjava.util.List*
+
+
+%64int*
+54*ç
+56>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaDG D(Jš—
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaDY D(l
+
+%64int" main.WekaData#getTrainingStep()I*
 
-%0main.Release2getNumOfBuggyClass()Œ
-‰
-A
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.java% (4
-%2main.Release"
+wmain.WekaData2getTrainingStep()*
+55*
+57>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaD D(FÀ½
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaD D(F
+%63java.lang.Integer"4main.Release#getNumOfBuggyClass()Ljava/lang/Integer;*
+
+%62main.Release2getNumOfBuggyClass()*
+56*Ý
+58>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaD D(1
+
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaD D(1
+%62main.Release"
 __arrayGet*
 
-releasesjava.util.List*
-""«¨
-A
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.java% (A
-%3java.util.List")main.Release#getClasses()Ljava/util/List;*
+releasesjava.util.List*
+
+
+%61int*
+57*ç
+59>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaD D(š—
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaD D(0
+
+%61int" main.WekaData#getTrainingStep()I*
 
-%2main.Release2getClasses()‰†
-A
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.java% (H	
-%4int"java.util.List#size()I*
-
-%3java.util.List2size()*
-3
-1*“
-1A
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javaƒ
- ƒ("K
-A
-5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javaƒ ƒ(&
-"":
-releasesjava.util.List:
-""B"
-main.CsvWriter
+wmain.WekaData2getTrainingStep()*
+58*Â
+60>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaC C(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaC C(
+%60java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+59*§
+61>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaB B(YÚ×
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaB B(Y
+%59java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+
+
+%58int2	append(I)*
+60*¡
+62>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaB B(XÔ
+Ñ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaB B(X
+
+%58int"Cmain.CsvWriter#getPercentageDefectiveInTraining(Ljava/util/List;I)I*"
+main.CsvWriter*
+
+releasesjava.util.List*
+
+
+%57int*
+61*ç
+63>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaB B(š—
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaBD B(W
+
+%57int" main.WekaData#getTrainingStep()I*
+
+wmain.WekaData2getTrainingStep()*
+62*Â
+64>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaA A(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.javaA A(
+%56java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+63*¡
+65>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java@& @()ÔÑ
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java@ @(-
+%55java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+""2	append(I)*
+64*ç
+66>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java@ @(š—
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java@ @($
+
+%54int" main.WekaData#getTrainingStep()I*
+
+wmain.WekaData2getTrainingStep()*
+65*Â
+67>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java? ?(õò
+>
+4/Users/mirko/git/Deliverable2/src/main/CsvMaker.java? ?(
+%53java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;* 
+
+sb2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+66:
+wListjava.util.List:
+releasesjava.util.ListB"
+main.CsvMaker

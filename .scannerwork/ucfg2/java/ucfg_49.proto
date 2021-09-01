@@ -1,16 +1,16 @@
 
-%main.Commit#getId()Ljava/lang/String;<
-2/Users/mirko/git/Deliverable2/src/main/Commit.java ("1*”
-1<
-2/Users/mirko/git/Deliverable2/src/main/Commit.java	 (w
-u
-<
-2/Users/mirko/git/Deliverable2/src/main/Commit.java	 (
-%0java.lang.String"__id**
-main.Commit"
-id"X
-<
-2/Users/mirko/git/Deliverable2/src/main/Commit.java (
-
-%0java.lang.StringB
-main.Commit
+4main.Release#getNumOfBuggyClass()Ljava/lang/Integer;=
+3/Users/mirko/git/Deliverable2/src/main/Release.java? ?(""1*©
+1=
+3/Users/mirko/git/Deliverable2/src/main/Release.java@	 @(ˆ
+…
+=
+3/Users/mirko/git/Deliverable2/src/main/Release.java@	 @(
+%0java.lang.Integer"__id*%*#
+main.Release"
+numOfBuggyClass"Z
+=
+3/Users/mirko/git/Deliverable2/src/main/Release.java@ @(
+
+%0java.lang.IntegerB
+main.Release

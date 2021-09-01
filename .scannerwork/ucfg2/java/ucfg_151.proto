@@ -1,0 +1,47 @@
+
+Cmain.CsvWriter#getPercentageDefectiveInTraining(Ljava/util/List;I)I?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javal l(3"3"1*ﬁ
+3?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javap p(ä
+á
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javap p(&
+%0main.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""øº
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javap p(;
+%1java.lang.Integer"4main.Release#getNumOfBuggyClass()Ljava/lang/Integer;*
+
+%0main.Release2getNumOfBuggyClass()ä
+á
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javaq% q(4
+%2main.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""©¶
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javaq% q(A
+%3java.util.List")main.Release#getClasses()Ljava/util/List;*
+
+%2main.Release2getClasses()áÑ
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javaq% q(H	
+%4int"java.util.List#size()I*
+
+%3java.util.List2size()*
+3
+1*è
+1?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javas
+ s("I
+?
+5/Users/mirko/git/Deliverable2/src/main/CsvWriter.javas s(&
+"":
+releasesjava.util.List:
+""B"
+main.CsvWriter

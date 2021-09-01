@@ -1,16 +1,18 @@
 
--main.Ticket#getCreationDate()Ljava/util/Date;<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java$ $("1*š
-1<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java%	 %(
-}
-<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java%	 %(
-%0java.util.Date"__id*!*
-main.Ticket"
-creationDate"V
-<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java% %(
+&main.Class#getTicket()Ljava/util/List;;
+1/Users/mirko/git/Deliverable2/src/main/Class.java0 0("1*
+1;
+1/Users/mirko/git/Deliverable2/src/main/Class.java1	 1(w
+u
+;
+1/Users/mirko/git/Deliverable2/src/main/Class.java1	 1(
+%0java.util.List"__id**
+
+main.Class"
+ticket"U
+;
+1/Users/mirko/git/Deliverable2/src/main/Class.java1 1(
 
-%0java.util.DateB
-main.Ticket
+%0java.util.ListB
+
+main.Class

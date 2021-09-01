@@ -4,10 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoHeadException;
@@ -15,6 +18,8 @@ import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.diff.DiffFormatter;
 import org.eclipse.jgit.diff.Edit;
 import org.eclipse.jgit.diff.RawTextComparator;
+import org.eclipse.jgit.errors.CorruptObjectException;
+import org.eclipse.jgit.errors.MissingObjectException;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.lib.Ref;
@@ -35,28 +40,62 @@ public class GetDiffFromGit {
 	
 	static String projName = "bookkeeper/";
 	static String projName2 = "libcloud/";
-	static String pathName = "/Users/mirko/git/";
+	static URI path;
 	static String releaseString = "Release";
 	static String autori = "autori";
 	static String nAuthString = "NAuth";
 	static String fileNameString = "FileName";
 	static String linesOfCodeAddedString = "LOC_added";
+	static String users = "/Users";
+	static String mirko = "/mirko";
+	static String git = "/git/";
 
 	static String nRString = "NR";
 	
+	URI uri = null;
+	  
+   
 	
 private GetDiffFromGit(){
 	
 }
 	
+
+public static boolean countChecker (Set<String> countDevelopers, RevCommit rev) {
+	return countDevelopers.isEmpty() || !countDevelopers.contains(rev.getAuthorIdent().getEmailAddress().toString());
+}
 	
 
-public static JSONArray getPerCommitMetrics(Repository repository, Release release, HashSet<String> countDevelopers) throws IOException, JSONException {
+public static int linesAddedCycler(DiffEntry diff, DiffFormatter df) {
+	int linesAdded = 0;
+	try {
+		for(Edit edit : df.toFileHeader(diff).toEditList()) {
+			linesAdded += edit.getEndB() - edit.getBeginB();       
+		}
+	} catch (CorruptObjectException e) {
+		e.printStackTrace();
+	} catch (MissingObjectException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	return linesAdded;
+}
+
+
+public static JSONArray getPerCommitMetrics(Repository repository, Release release, Set<String> countDevelopers) throws IOException, JSONException {
 		
 	
 		int countRev = 0;
 		int linesAdded;
-		
+		String pathName = "";
+		try {
+		path =  new URI(users + mirko + git);
+		pathName = path.getPath();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		JSONObject jsonDataset = new JSONObject();
 		JSONArray jsonArray = new JSONArray();		
 		
@@ -68,24 +107,23 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 			    df.setDiffComparator(RawTextComparator.DEFAULT);
 			    df.setDetectRenames(true);
 			    RevCommit rev = castToRevCommit(repository, commit);
-
-			    if (countDevelopers.isEmpty() || !countDevelopers.contains(rev.getAuthorIdent().getEmailAddress().toString())) {
+			    if(countChecker(countDevelopers, rev)) {
 			    	countDevelopers.add(rev.getAuthorIdent().getEmailAddress().toString());
 			    }
 			    
 		        countRev++;
 
 		        List<DiffEntry> diffs = getDiffs(repository, rev);
-			    
-			    for (DiffEntry diff : diffs) {
-					linesAdded = 0;
+		        for (DiffEntry diff : diffs) {
+					
+				    
+
 			    	if(diff.toString().contains(".java") && new File(pathName + projName + diff.toString().substring(14).replace("]", "")).exists()) {
-			    		for(Edit edit : df.toFileHeader(diff).toEditList()) {
-				        	linesAdded += edit.getEndB() - edit.getBeginB();       
-				        }
+			    		linesAdded = linesAddedCycler(diff, df);
+			    		
 				        jsonDataset.put(fileNameString, diff.toString().substring(14).replace("]", ""));
 				        jsonDataset.put(releaseString, release.getInt());
-				        jsonDataset.put("LOC", countLines(diff.toString().substring(14).replace("]", "")));
+				        jsonDataset.put("LOC", countLines(diff.toString().substring(14).replace("]", ""),pathName));
 				        jsonDataset.put(nAuthString, countDevelopers.size());
 				        jsonDataset.put(autori, countDevelopers);
 				        jsonDataset.put(nRString, countRev);
@@ -97,19 +135,18 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 	        	}
 				        	
 			} catch (IOException e1) {
-			    throw new RuntimeException(e1);
+				e1.printStackTrace();
 			}
 		}
 		return jsonArray;
 	}
 
 	
-	public static long countLines(String fileName) {
-
+	public static long countLines(String fileName, String pathName) {
 	      long lines = 0;
 	      try (BufferedReader reader = new BufferedReader(new FileReader(pathName + projName+ "/" + fileName))) {
-	    	  String line = reader.readLine();
-	          while ((line = reader.readLine()) != null) 
+	    	  
+	          while ((reader.readLine()) != null) 
 	        	  lines++;
 	      } catch (IOException e) {
 	          e.printStackTrace();
@@ -148,10 +185,8 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
  }
 	
 	public static boolean exists(JSONArray releaseArray, JSONObject obj) throws JSONException {
-			if (getElement(releaseArray, obj) != -1) {
-				return true;
-			}
-			return false;
+			return (getElement(releaseArray, obj) != -1);
+			
 	}
 	
 	public static int getElement(JSONArray releaseArray, JSONObject obj) throws JSONException {
@@ -167,14 +202,21 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 
 	
 	public static JSONArray getMetrics(List<Release> releaseList) throws IOException, JSONException, NoHeadException, GitAPIException, ParseException{
-				
+		String pathName = "";
+		try {
+			path =  new URI(users + mirko + git);
+			pathName = path.getPath();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		FileRepositoryBuilder builder = new FileRepositoryBuilder();
 		Repository repository = builder.setGitDir(new File(pathName + projName + "/.git/"))
 		  .readEnvironment() // scan environment GIT_* variables
 		  .findGitDir() // scan up the file system tree
 		  .build();
 
-		HashSet<String> countDevelopers = null;
+		Set<String> countDevelopers = null;
 		JSONArray commitJsonArray = new JSONArray();
         
         for(Release r: releaseList) {

@@ -16,11 +16,9 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
-
 import java.util.Map;
 import java.util.List;
 import java.util.Collections;
@@ -44,6 +42,8 @@ public class GetReleaseInfo {
 	  static String versionString = "versions";
 	  static String projName ="BOOKKEEPER";
 	  static String projName2 = "LIBCLOUD";
+	  static List<Class> auxList = new ArrayList<>();
+
 	  
 	  
 	  private GetReleaseInfo() {
@@ -114,14 +114,11 @@ public class GetReleaseInfo {
 		   }
 
 	   public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
-	      InputStream is = new URL(url).openStream();
-	      try {
+	      
+	      try(InputStream is = new URL(url).openStream();) {
 	         BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
 	         String jsonText = readAll(rd);
 	         return new JSONObject(jsonText);
-	       }
-	      finally {
-	         is.close();
 	       }
 	   }
 	   
@@ -184,22 +181,25 @@ public class GetReleaseInfo {
 		   	  }
 		   	  return q;
 		   }
+	   
+	   	   public static void auxListFiller(List<Commit> commitList, int firstRef, int lastRef){
+	   		for (Commit commit: commitList) {
+  			  if (commit.getSequenceNumber() > firstRef && commit.getSequenceNumber() <= lastRef && commit.getClassList() != null) {
+  				  for (Class c: commit.getClassList()) {
+  						 if (auxList.isEmpty() || !containsName(auxList, c)) {
+  							 auxList.add(c);
+  					  }
+  				  }
+  			  }  
+	   		}
+	   	  }
 			   
 		   public static void setClassToRelease(List<Release> releaseList, List<Commit> commitList) {
 		    	  int firstRef = 0;
 		    	  List<Class> releaseClassList = new ArrayList<>();
-		    	  List<Class> auxList = new ArrayList<>();
 		    	  for (int i = 0; i<releaseList.size()/2; i++) {
 		    		  int lastRef = releaseList.get(i).getCommit().getSequenceNumber();
-		    		  for (Commit commit: commitList) {
-		    			  if (commit.getSequenceNumber() > firstRef && commit.getSequenceNumber() <= lastRef && commit.getClassList() != null) {
-		    				  for (Class c: commit.getClassList()) {
-		    						 if (auxList.isEmpty() || !containsName(auxList, c)) {
-		    							 auxList.add(c);
-		    					  }
-		    				  }
-		    			  }  
-		    		  }
+		    		  auxListFiller(commitList, firstRef, lastRef);
 		    		  firstRef = lastRef;
 		    		  for (Class e: auxList) {
 		    			  releaseClassList.add(e);

@@ -1,16 +1,10 @@
 
-&main.Ticket#getIV()Ljava/lang/Integer;<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java; ;("1*¥
-1<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java<	 <(†
-ƒ
-<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java<	 <(
-%0java.lang.Integer"__id*$*"
-main.Ticket"
-injectedVersion"Y
-<
-2/Users/mirko/git/Deliverable2/src/main/Ticket.java< <(
-
-%0java.lang.IntegerB
-main.Ticket
+main.Class#getLOC()I;
+1/Users/mirko/git/Deliverable2/src/main/Class.javaH H("1*‡
+1;
+1/Users/mirko/git/Deliverable2/src/main/Class.javaI	 I("E
+;
+1/Users/mirko/git/Deliverable2/src/main/Class.javaI I(
+""B
+
+main.Class

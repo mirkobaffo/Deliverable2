@@ -1,18 +1,21 @@
 
-&main.Class#getTicket()Ljava/util/List;;
-1/Users/mirko/git/Deliverable2/src/main/Class.java0 0("1*ê
-1;
-1/Users/mirko/git/Deliverable2/src/main/Class.java1	 1(w
-u
-;
-1/Users/mirko/git/Deliverable2/src/main/Class.java1	 1(
-%0java.util.List"__id**
+__sonar_lambda_0$D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaQ  Q(X"1*∏
+1D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaQH Q(Jñì
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaQH Q(X
 
-main.Class"
-ticket"U
-;
-1/Users/mirko/git/Deliverable2/src/main/Class.java1 1(
-
-%0java.util.ListB
+%17int"Jjava.time.LocalDateTime#compareTo(Ljava/time/chrono/ChronoLocalDateTime;)I*
+
+o1java.time.LocalDateTime*
+
+o2java.time.LocalDateTime21compareTo(Ljava/time/chrono/ChronoLocalDateTime;)"T
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaQH Q(X
 
-main.Class
+
+%17int:
+o1java.time.LocalDateTime:
+o2java.time.LocalDateTimeB
+java.util.Comparator

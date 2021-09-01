@@ -16,7 +16,7 @@ public class CsvToArff {
 		
 	}
 	
-	public static String arffCreation(String path) throws MyOwnExceptions  {
+	public static String arffCreation(String path) throws IOException  {
 		File projectClasses = new File(path);
 		Instances data = null;
 		String newPath = "";
@@ -40,7 +40,6 @@ public class CsvToArff {
 				saver.setFile(new File(newPath));
 				saver.writeBatch();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
