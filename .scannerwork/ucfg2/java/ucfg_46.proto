@@ -1,16 +1,884 @@
 
-%main.Release#getCommit()Lmain/Commit;=
-3/Users/mirko/git/Deliverable2/src/main/Release.java1 1("1*’
-1=
-3/Users/mirko/git/Deliverable2/src/main/Release.java2	 2(x
-v
-=
-3/Users/mirko/git/Deliverable2/src/main/Release.java2	 2(
-%0main.Commit"__id**
-main.Release"
-commit"T
-=
-3/Users/mirko/git/Deliverable2/src/main/Release.java2 2(
-
-%0main.CommitB
-main.Release
+7main.Main#csvFinal(Ljava/util/List;I)Ljava/lang/String;<
+0/Users/mirko/git/Deliverable2/src/main/Main.java€ €("89*È
+68<
+0/Users/mirko/git/Deliverable2/src/main/Main.java• •(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java• •(
+%25java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+67*É
+24<
+0/Users/mirko/git/Deliverable2/src/main/Main.java´ ´(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java´ ´(
+%68java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+23*Ì
+69<
+0/Users/mirko/git/Deliverable2/src/main/Main.java” ”(þ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java” ”( 
+%24java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*	
+NAuth2append(Ljava/lang/String;)*
+68*®
+25<
+0/Users/mirko/git/Deliverable2/src/main/Main.java³ ³(Rãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java³ ³(R
+%67java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%66int2	append(I)*
+24*š
+26<
+0/Users/mirko/git/Deliverable2/src/main/Main.java³O ³(PÏ
+Ì
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java³ ³(Q
+
+%66int"Dmain.Metrics#numberOfBugFixedForRelease(Lmain/Release;Lmain/Class;)I*"
+main.Metrics*
+
+%65main.Release*
+
+c
+main.Class*
+25*Ó
+27<
+0/Users/mirko/git/Deliverable2/src/main/Main.java³ ³(ˆ
+…
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java³> ³(M
+%65main.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""*
+26*É
+28<
+0/Users/mirko/git/Deliverable2/src/main/Main.java² ²(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java² ²(
+%64java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+27*®
+29<
+0/Users/mirko/git/Deliverable2/src/main/Main.java± ±(0ãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java± ±(0
+%63java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%62int2	append(I)*
+28*È
+70<
+0/Users/mirko/git/Deliverable2/src/main/Main.java“ “(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java“ “(
+%23java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+69*Ð
+71<
+0/Users/mirko/git/Deliverable2/src/main/Main.java’ ’(…‚
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java’ ’($
+%22java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+	Bug Fixed2append(Ljava/lang/String;)*
+70*È
+72<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‘ ‘(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‘ ‘(
+%21java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+71*Î
+73<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (ƒ€
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java ("
+%20java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*	
+AVG_CHG2append(Ljava/lang/String;)*
+72*È
+74<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (
+%19java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+73*ä
+30<
+0/Users/mirko/git/Deliverable2/src/main/Main.java± ±(™
+–
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java± ±(/
+
+%62int"%main.Metrics#getAVGChg(Lmain/Class;)I*"
+main.Metrics*
+
+c
+main.Class*
+29*Î
+75<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaŽ Ž(ƒ€
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaŽ Ž("
+%18java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*	
+MAX_CHG2append(Ljava/lang/String;)*
+74*É
+31<
+0/Users/mirko/git/Deliverable2/src/main/Main.java° °(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java° °(
+%61java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+30*È
+76<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (
+%17java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+75*®
+32<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¯ ¯()ãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¯ ¯()
+%60java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%59int2	append(I)*
+31*Ê
+77<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaŒ Œ(ÿü
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaŒ Œ(
+%16java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+CHG2append(Ljava/lang/String;)*
+76*Ñ
+33<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¯ ¯(†ƒ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¯ ¯((
+
+%59int"main.Class#getMaxChg()I*
+
+c
+main.Class2getMaxChg()*
+32*È
+78<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‹ ‹(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‹ ‹(
+%15java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+77*É
+34<
+0/Users/mirko/git/Deliverable2/src/main/Main.java® ®(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java® ®(
+%58java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+33*Ê
+79<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaŠ Š(ÿü
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaŠ Š(
+%14java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+Age2append(Ljava/lang/String;)*
+78*®
+35<
+0/Users/mirko/git/Deliverable2/src/main/Main.java­ ­(&ãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java­ ­(&
+%57java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%56int2	append(I)*
+34*É
+36<
+0/Users/mirko/git/Deliverable2/src/main/Main.java­ ­(}
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java­ ­(%
+
+%56int"main.Class#getChg()I*
+
+c
+main.Class2getChg()*
+35*É
+37<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¬ ¬(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¬ ¬(
+%55java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+36*¯
+38<
+0/Users/mirko/git/Deliverable2/src/main/Main.java« «(/äá
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java« «(/
+%54java.lang.StringBuilder":java.lang.StringBuilder#append(J)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+%53long2	append(J)*
+37*ä
+39<
+0/Users/mirko/git/Deliverable2/src/main/Main.java« «(™
+–
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java« «(.
+%53long"$main.Metrics#classAge(Lmain/Class;)J*"
+main.Metrics*
+
+c
+main.Class*
+38*È
+80<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‰ ‰(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‰ ‰(
+%13java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+79*Ê
+81<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaˆ ˆ(ÿü
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaˆ ˆ(
+%12java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+LOC2append(Ljava/lang/String;)*
+80*È
+82<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‡ ‡(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‡ ‡(
+%11java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+81*Ð
+83<
+0/Users/mirko/git/Deliverable2/src/main/Main.java† †(…‚
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java† †($
+%10java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+	className2append(Ljava/lang/String;)*
+82*Ç
+84<
+0/Users/mirko/git/Deliverable2/src/main/Main.java… …(üù
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java… …(
+%9java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+83*É
+40<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaª ª(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaª ª(
+%52java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+39*â
+85<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaƒ ƒ(5’
+
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaƒ ƒ(5(
+stringBuilderjava.lang.StringBuilder"__id*
+
+%6java.lang.StringBuilder‚ÿ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java„ „("
+%8java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*	
+Release2append(Ljava/lang/String;)*
+84*®
+41<
+0/Users/mirko/git/Deliverable2/src/main/Main.java© ©(&ãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java© ©(&
+%51java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%50int2	append(I)*
+40*Ø
+86<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‚ ‚(C…
+‚
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‚ ‚(C
+brjava.io.BufferedWriter"__id*
+
+%4java.io.BufferedWriterxv
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaƒ% ƒ(2
+%6java.lang.StringBuilder"java.lang.StringBuilder‹
+ˆ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaƒ! ƒ(4
+%7"!java.lang.StringBuilder#<init>()V*
+
+%6java.lang.StringBuilder*
+85*É
+42<
+0/Users/mirko/git/Deliverable2/src/main/Main.java© ©(}
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java© ©(%
+
+%50int"main.Class#getLOC()I*
+
+c
+main.Class2getLOC()*
+41*ø
+87<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‚ ‚(Cvt
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‚ ‚(-
+%4java.io.BufferedWriter"java.io.BufferedWriterµ
+²
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‚ ‚(C
+%5"0java.io.BufferedWriter#<init>(Ljava/io/Writer;)V*
+
+%4java.io.BufferedWriter*
+
+%2java.io.FileWriter*
+86*É
+43<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¨ ¨(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¨ ¨(
+%49java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+42*ê
+88<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‚= ‚(Anl
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‚2 ‚(<
+%2java.io.FileWriter"java.io.FileWriter¯
+¬
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java‚. ‚(B
+%3".java.io.FileWriter#<init>(Ljava/lang/String;)V*
+
+%2java.io.FileWriter*
+
+namejava.lang.String*
+87*Ý
+44<
+0/Users/mirko/git/Deliverable2/src/main/Main.java§ §('’
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java§ §('
+%48java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+%47java.lang.String2append(Ljava/lang/String;)*
+43*ë
+89<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (;š
+—
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (E
+%0java.lang.String"__concat*-+
+)/Users/mirko/git/Deliverable2/doc/release*
+""‡
+„
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (N
+%1java.lang.String"__concat*
+
+%0java.lang.String*
+.csvz
+x
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (O
+namejava.lang.String"__id*
+
+%1java.lang.String*
+88*ë
+45<
+0/Users/mirko/git/Deliverable2/src/main/Main.java§ §( 
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java§ §(&
+%47java.lang.String"&main.Class#getName()Ljava/lang/String;*
+
+c
+main.Class2	getName()*
+44*É
+46<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¦ ¦(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¦ ¦(
+%46java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+45*Þ
+47<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¥ ¥(4“
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¥ ¥(4
+%45java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+%44java.lang.Integer2append(Ljava/lang/Object;)*
+46*ñ
+48<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¥ ¥(3¦£
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¥ ¥(3
+%44java.lang.Integer"(main.Release#getInt()Ljava/lang/Integer;*
+
+%43main.Release2getInt()*
+47*ê
+49<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¤ ¤(8”
+‘
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¤ ¤(8)
+stringBuilder2java.lang.StringBuilder"__id* 
+
+%41java.lang.StringBuilderˆ
+…
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¥ ¥(*
+%43main.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""*
+48*Ó
+50<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¤$ ¤(7yw
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¤( ¤(5
+%41java.lang.StringBuilder"java.lang.StringBuilder
+Š
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¤$ ¤(7
+%42"!java.lang.StringBuilder#<init>()V* 
+
+%41java.lang.StringBuilder*
+49*ò
+51<
+0/Users/mirko/git/Deliverable2/src/main/Main.java£ £(/¨¥
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java£ £(/
+%40java.util.List")main.Release#getClasses()Ljava/util/List;*
+
+%39main.Release2getClasses()*
+3*Ó
+52<
+0/Users/mirko/git/Deliverable2/src/main/Main.java£ £(ˆ
+…
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java£ £("
+%39main.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""*
+51*­
+10<
+0/Users/mirko/git/Deliverable2/src/main/Main.java½ ½(.ãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java½ ½(.
+%82java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%81int2	append(I)*
+9*Ù
+55<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¡ ¡(‹ˆ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¡ ¡(
+
+%38int"java.util.List#size()I*
+
+releasesjava.util.List2size()*
+52
+1*Û
+11<
+0/Users/mirko/git/Deliverable2/src/main/Main.java½ ½(
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java½ ½(-
+
+%81int"main.Class#getMAXLOCAdded()I*
+
+c
+main.Class2getMAXLOCAdded()*
+10*š
+56<
+0/Users/mirko/git/Deliverable2/src/main/Main.java   (%ÏÌ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java   (%
+%37void")java.io.Writer#write(Ljava/lang/String;)V*
+
+brjava.io.BufferedWriter*
+
+%36java.lang.String2write(Ljava/lang/String;)*
+55*É
+12<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¼ ¼(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¼ ¼(
+%80java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+11*“
+57<
+0/Users/mirko/git/Deliverable2/src/main/Main.java   (ÈÅ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java   ($
+%36java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;**
+(
+stringBuilderjava.lang.StringBuilder2
+toString()*
+56*°
+13<
+0/Users/mirko/git/Deliverable2/src/main/Main.java» »(.åâ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java» »(.
+%79java.lang.StringBuilder":java.lang.StringBuilder#append(F)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+%78float2	append(F)*
+12*É
+58<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaŸ Ÿ(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaŸ Ÿ(
+%35java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+\n2append(Ljava/lang/String;)*
+57*Ý
+14<
+0/Users/mirko/git/Deliverable2/src/main/Main.java» »(’
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java» »(-
+%78float"main.Class#getAVGLOCAdded()F*
+
+c
+main.Class2getAVGLOCAdded()*
+13*Ì
+59<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaž ž(þ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaž ž( 
+%34java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*	
+Buggy2append(Ljava/lang/String;)*
+58*É
+15<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaº º(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaº º(
+%77java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+14*®
+16<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¹ ¹(+ãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¹ ¹(+
+%76java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%75int2	append(I)*
+15*Õ
+17<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¹ ¹(Š‡
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¹ ¹(*
+
+%75int"main.Class#getLOCAdded()I*
+
+c
+main.Class2getLOCAdded()*
+16*É
+18<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¸ ¸(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¸ ¸(
+%74java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+17*®
+19<
+0/Users/mirko/git/Deliverable2/src/main/Main.java· ·(%ãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java· ·(%
+%73java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%72int2	append(I)*
+18*
+1<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaÅ	 Å("Z
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaÅ Å(
+
+namejava.lang.String*¯
+3<
+0/Users/mirko/git/Deliverable2/src/main/Main.java£	 £(_
+]
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java£	 £(
+c
+main.Class"__id*
+""~
+|
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java£	 £(
+c
+main.Class"
+__arrayGet*
+
+%40java.util.List*
+""*
+50
+52
+1*˜
+4<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaÁ Á((ÏÌ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaÁ Á((
+%88void")java.io.Writer#write(Ljava/lang/String;)V*
+
+brjava.io.BufferedWriter*
+
+%87java.lang.String2write(Ljava/lang/String;)*
+3*’
+5<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaÁ Á(ÉÆ
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaÁ Á('
+%87java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;*+
+)
+stringBuilder2java.lang.StringBuilder2
+toString()*
+4*È
+6<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaÀ À(ÿü
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaÀ À( 
+%86java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+\n2append(Ljava/lang/String;)*
+5*Ü
+7<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¿ ¿((“
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¿ ¿((
+%85java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/Object;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+%84java.lang.Boolean2append(Ljava/lang/Object;)*
+6*í
+8<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¿ ¿(¤¡
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¿ ¿('
+%84java.lang.Boolean"(main.Class#getBuggy()Ljava/lang/Boolean;*
+
+c
+main.Class2
+getBuggy()*
+7*Ç
+9<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¾ ¾(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¾ ¾(
+%83java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+8*È
+60<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java (
+%33java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+59*Ô
+61<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaœ œ(‰†
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaœ œ((
+%32java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+MAX_LOC Added2append(Ljava/lang/String;)*
+60*È
+62<
+0/Users/mirko/git/Deliverable2/src/main/Main.java› ›(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java› ›(
+%31java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+61*Ô
+63<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaš š(‰†
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaš š((
+%30java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+AVG_LOC Added2append(Ljava/lang/String;)*
+62*È
+64<
+0/Users/mirko/git/Deliverable2/src/main/Main.java™ ™(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java™ ™(
+%29java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+63*Ç
+20<
+0/Users/mirko/git/Deliverable2/src/main/Main.java· ·(}{
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java· ·($
+
+%72int"main.Class#getNR()I*
+
+c
+main.Class2getNR()*
+19*Ð
+65<
+0/Users/mirko/git/Deliverable2/src/main/Main.java˜ ˜(…‚
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java˜ ˜($
+%28java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+	LOC Added2append(Ljava/lang/String;)*
+64*É
+21<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¶ ¶(þû
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java¶ ¶(
+%71java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+20*È
+66<
+0/Users/mirko/git/Deliverable2/src/main/Main.java— —(ýú
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java— —(
+%27java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+,2append(Ljava/lang/String;)*
+65*®
+22<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaµ µ((ãà
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaµ µ((
+%70java.lang.StringBuilder":java.lang.StringBuilder#append(I)Ljava/lang/StringBuilder;*+
+)
+stringBuilder2java.lang.StringBuilder*
+
+
+%69int2	append(I)*
+21*×
+67<
+0/Users/mirko/git/Deliverable2/src/main/Main.java– –(Œ‰
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.java– –(+
+%26java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;**
+(
+stringBuilderjava.lang.StringBuilder*
+Number of Commit2append(Ljava/lang/String;)*
+66*Ï
+23<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaµ µ(„
+<
+0/Users/mirko/git/Deliverable2/src/main/Main.javaµ µ('
+
+%69int"main.Class#getNauth()I*
+
+c
+main.Class2
+getNauth()*
+22:
+releasesjava.util.List:
+""B"
+	main.Main

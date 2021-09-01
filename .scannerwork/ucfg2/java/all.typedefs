@@ -1079,13 +1079,53 @@ LofInstant(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneId;)}j
 withYear(I)<java.time.ZonedDateTime#withYear(I)Ljava/time/ZonedDateTime;O
 withSecond(I)>java.time.ZonedDateTime#withSecond(I)Ljava/time/ZonedDateTime;W
 withDayOfMonth(I)Bjava.time.ZonedDateTime#withDayOfMonth(I)Ljava/time/ZonedDateTime;O
-minusWeeks(J)>java.time.ZonedDateTime#minusWeeks(J)Ljava/time/ZonedDateTime;Ä
+minusWeeks(J)>java.time.ZonedDateTime#minusWeeks(J)Ljava/time/ZonedDateTime;õ
+	main.Mainjava.lang.Objecto
+0dateComparator(Ljava/util/List;Ljava/util/List;);main.Main#dateComparator(Ljava/util/List;Ljava/util/List;)VS
+"computeBuggyness(Ljava/util/List;)-main.Main#computeBuggyness(Ljava/util/List;)V
+<init>()main.Main#<init>()VV
+csvFinal(Ljava/util/List;I)7main.Main#csvFinal(Ljava/util/List;I)Ljava/lang/String;A
+main([Ljava/lang/String;)$main.Main#main([Ljava/lang/String;)Vs
+2computeBuggynessCheck(Lmain/Ticket;Lmain/Release;)=main.Main#computeBuggynessCheck(Lmain/Ticket;Lmain/Release;)ZX
+getCostName(Lmain/WekaData;)8main.Main#getCostName(Lmain/WekaData;)Ljava/lang/String;a
+)getDefectiveInTraining(Ljava/util/List;I)4main.Main#getDefectiveInTraining(Ljava/util/List;I)IQ
+!csvVersionArray(Ljava/util/List;),main.Main#csvVersionArray(Ljava/util/List;)Vu
+3getPercentageDefectiveInTraining(Ljava/util/List;I)>main.Main#getPercentageDefectiveInTraining(Ljava/util/List;I)I⁄
+
+main.GetReleaseInfojava.lang.Objectù
+BaddRelease(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Wmain.GetReleaseInfo#addRelease(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V\
+readAll(Ljava/io/Reader;)?main.GetReleaseInfo#readAll(Ljava/io/Reader;)Ljava/lang/String;)
+<init>()main.GetReleaseInfo#<init>()Vs
+#readJsonFromUrl(Ljava/lang/String;)Lmain.GetReleaseInfo#readJsonFromUrl(Ljava/lang/String;)Lorg/json/JSONObject;÷
+XcustomRelease(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)zmain.GetReleaseInfo#customRelease(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmain/Release;m
+*containsName(Ljava/util/List;Lmain/Class;)?main.GetReleaseInfo#containsName(Ljava/util/List;Lmain/Class;)Zê
+4versionArray(Ljava/lang/String;IILjava/lang/String;)Xmain.GetReleaseInfo#versionArray(Ljava/lang/String;IILjava/lang/String;)Ljava/util/List;H
+getReleaseList()4main.GetReleaseInfo#getReleaseList()Ljava/util/List;è
+;assignCommitListToRelease(Ljava/util/List;Ljava/util/List;)Pmain.GetReleaseInfo#assignCommitListToRelease(Ljava/util/List;Ljava/util/List;)V[
+!auxListFiller(Ljava/util/List;II)6main.GetReleaseInfo#auxListFiller(Ljava/util/List;II)V
+3setClassToRelease(Ljava/util/List;Ljava/util/List;)Hmain.GetReleaseInfo#setClassToRelease(Ljava/util/List;Ljava/util/List;)VÄ
 main.GetGitInfojava.lang.Object%
 <init>()main.GetGitInfo#<init>()Vh
 "commitListFiller(Ljava/util/List;)Bmain.GetGitInfo#commitListFiller(Ljava/util/List;)Ljava/util/List;<
 commitList(),main.GetGitInfo#commitList()Ljava/util/List;‚
 _ticketListFiller(Ljava/util/List;Ljava/util/List;Lmain/Ticket;Ljava/util/List;Ljava/util/List;)main.GetGitInfo#ticketListFiller(Ljava/util/List;Ljava/util/List;Lmain/Ticket;Ljava/util/List;Ljava/util/List;)Ljava/util/List;¶
-AsetClassVersion(Ljava/util/List;Ljava/util/List;Ljava/util/List;)amain.GetGitInfo#setClassVersion(Ljava/util/List;Ljava/util/List;Ljava/util/List;)Ljava/util/List;´
+AsetClassVersion(Ljava/util/List;Ljava/util/List;Ljava/util/List;)amain.GetGitInfo#setClassVersion(Ljava/util/List;Ljava/util/List;Ljava/util/List;)Ljava/util/List;µ
+main.Proportionjava.lang.ObjectA
+getP(Ljava/util/List;)'main.Proportion#getP(Ljava/util/List;)Ie
+(computeInconsistentIV(ILjava/util/List;)9main.Proportion#computeInconsistentIV(ILjava/util/List;)I%
+<init>()main.Proportion#<init>()VC
+computeP(Lmain/Ticket;)(main.Proportion#computeP(Lmain/Ticket;)I1
+computeIV(III)main.Proportion#computeIV(III)IG
+checkIV(Ljava/util/List;)*main.Proportion#checkIV(Ljava/util/List;)VÂ
+main.GetDiffFromGitjava.lang.Object)
+<init>()main.GetDiffFromGit#<init>()VW
+computeAvgAdded(Lmain/Release;)4main.GetDiffFromGit#computeAvgAdded(Lmain/Release;)VW
+computeMaxAdded(Lmain/Release;)4main.GetDiffFromGit#computeMaxAdded(Lmain/Release;)Vy
+0countLines(Ljava/lang/String;Ljava/lang/String;)Emain.GetDiffFromGit#countLines(Ljava/lang/String;Ljava/lang/String;)Jd
+getMetrics(Ljava/util/List;)Dmain.GetDiffFromGit#getMetrics(Ljava/util/List;)Lorg/json/JSONArray;±
+main.CsvMakerjava.lang.Object#
+<init>()main.CsvMaker#<init>()Vi
++csvByWeka(Ljava/util/List;Ljava/util/List;):main.CsvMaker#csvByWeka(Ljava/util/List;Ljava/util/List;)V´
 java.io.Filejava.lang.Comparablejava.lang.Objectjava.io.Serializable&
 
 isHidden()java.io.File#isHidden()ZF
@@ -1343,20 +1383,7 @@ valueOf(J)-java.lang.String#valueOf(J)Ljava/lang/String;2
 checkIndex(II) java.lang.String#checkIndex(II)VX
 !<init>(Ljava/lang/StringBuilder;)3java.lang.String#<init>(Ljava/lang/StringBuilder;)V%
 value()java.lang.String#value()[B`
-%regionMatches(ZILjava/lang/String;II)7java.lang.String#regionMatches(ZILjava/lang/String;II)Z—
-
-main.GetReleaseInfojava.lang.Objectù
-BaddRelease(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Wmain.GetReleaseInfo#addRelease(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V\
-readAll(Ljava/io/Reader;)?main.GetReleaseInfo#readAll(Ljava/io/Reader;)Ljava/lang/String;)
-<init>()main.GetReleaseInfo#<init>()Vj
-#readJsonFromUrl(Ljava/lang/String;)Cmain.GetReleaseInfo#readJsonFromUrl(Ljava/lang/String;)LJSONObject;÷
-XcustomRelease(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)zmain.GetReleaseInfo#customRelease(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmain/Release;m
-*containsName(Ljava/util/List;Lmain/Class;)?main.GetReleaseInfo#containsName(Ljava/util/List;Lmain/Class;)Zê
-4versionArray(Ljava/lang/String;IILjava/lang/String;)Xmain.GetReleaseInfo#versionArray(Ljava/lang/String;IILjava/lang/String;)Ljava/util/List;H
-getReleaseList()4main.GetReleaseInfo#getReleaseList()Ljava/util/List;è
-;assignCommitListToRelease(Ljava/util/List;Ljava/util/List;)Pmain.GetReleaseInfo#assignCommitListToRelease(Ljava/util/List;Ljava/util/List;)V[
-!auxListFiller(Ljava/util/List;II)6main.GetReleaseInfo#auxListFiller(Ljava/util/List;II)V
-3setClassToRelease(Ljava/util/List;Ljava/util/List;)Hmain.GetReleaseInfo#setClassToRelease(Ljava/util/List;Ljava/util/List;)VŒ1
+%regionMatches(ZILjava/lang/String;II)7java.lang.String#regionMatches(ZILjava/lang/String;II)ZŒ1
 java.util.Mapjava.lang.ObjectÜ
 1putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Qjava.util.Map#putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;§
 @computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)`java.util.Map#computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;À
@@ -1650,37 +1677,10 @@ NiteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)
 "synchronizedList(Ljava/util/List;)Hjava.util.Collections#synchronizedList(Ljava/util/List;)Ljava/util/List;á
 6disjoint(Ljava/util/Collection;Ljava/util/Collection;)Mjava.util.Collections#disjoint(Ljava/util/Collection;Ljava/util/Collection;)Zk
 (fill(Ljava/util/List;Ljava/lang/Object;)?java.util.Collections#fill(Ljava/util/List;Ljava/lang/Object;)Vü
-8checkedSortedSet(Ljava/util/SortedSet;Ljava/lang/Class;)cjava.util.Collections#checkedSortedSet(Ljava/util/SortedSet;Ljava/lang/Class;)Ljava/util/SortedSet;µ
-main.Proportionjava.lang.ObjectA
-getP(Ljava/util/List;)'main.Proportion#getP(Ljava/util/List;)Ie
-(computeInconsistentIV(ILjava/util/List;)9main.Proportion#computeInconsistentIV(ILjava/util/List;)I%
-<init>()main.Proportion#<init>()VC
-computeP(Lmain/Ticket;)(main.Proportion#computeP(Lmain/Ticket;)I1
-computeIV(III)main.Proportion#computeIV(III)IG
-checkIV(Ljava/util/List;)*main.Proportion#checkIV(Ljava/util/List;)V‹
-main.GetDiffFromGitjava.lang.Object)
-<init>()main.GetDiffFromGit#<init>()VW
-computeAvgAdded(Lmain/Release;)4main.GetDiffFromGit#computeAvgAdded(Lmain/Release;)VW
-computeMaxAdded(Lmain/Release;)4main.GetDiffFromGit#computeMaxAdded(Lmain/Release;)Vy
-0countLines(Ljava/lang/String;Ljava/lang/String;)Emain.GetDiffFromGit#countLines(Ljava/lang/String;Ljava/lang/String;)J[
-getMetrics(Ljava/util/List;);main.GetDiffFromGit#getMetrics(Ljava/util/List;)LJSONArray;ö
+8checkedSortedSet(Ljava/util/SortedSet;Ljava/lang/Class;)cjava.util.Collections#checkedSortedSet(Ljava/util/SortedSet;Ljava/lang/Class;)Ljava/util/SortedSet;ö
 java.io.FileReaderjava.io.InputStreamReaderD
 <init>(Ljava/io/File;)*java.io.FileReader#<init>(Ljava/io/File;)VL
 <init>(Ljava/lang/String;).java.io.FileReader#<init>(Ljava/lang/String;)Vx
 0<init>(Ljava/io/File;Ljava/nio/charset/Charset;)Djava.io.FileReader#<init>(Ljava/io/File;Ljava/nio/charset/Charset;)VÄ
 4<init>(Ljava/lang/String;Ljava/nio/charset/Charset;)Hjava.io.FileReader#<init>(Ljava/lang/String;Ljava/nio/charset/Charset;)VX
- <init>(Ljava/io/FileDescriptor;)4java.io.FileReader#<init>(Ljava/io/FileDescriptor;)V±
-main.CsvMakerjava.lang.Object#
-<init>()main.CsvMaker#<init>()Vi
-+csvByWeka(Ljava/util/List;Ljava/util/List;):main.CsvMaker#csvByWeka(Ljava/util/List;Ljava/util/List;)V“
-main.CsvWriterjava.lang.Objectt
-0dateComparator(Ljava/util/List;Ljava/util/List;)@main.CsvWriter#dateComparator(Ljava/util/List;Ljava/util/List;)VX
-"computeBuggyness(Ljava/util/List;)2main.CsvWriter#computeBuggyness(Ljava/util/List;)V$
-<init>()main.CsvWriter#<init>()V[
-csvFinal(Ljava/util/List;I)<main.CsvWriter#csvFinal(Ljava/util/List;I)Ljava/lang/String;F
-main([Ljava/lang/String;))main.CsvWriter#main([Ljava/lang/String;)Vx
-2computeBuggynessCheck(Lmain/Ticket;Lmain/Release;)Bmain.CsvWriter#computeBuggynessCheck(Lmain/Ticket;Lmain/Release;)Z]
-getCostName(Lmain/WekaData;)=main.CsvWriter#getCostName(Lmain/WekaData;)Ljava/lang/String;f
-)getDefectiveInTraining(Ljava/util/List;I)9main.CsvWriter#getDefectiveInTraining(Ljava/util/List;I)IV
-!csvVersionArray(Ljava/util/List;)1main.CsvWriter#csvVersionArray(Ljava/util/List;)Vz
-3getPercentageDefectiveInTraining(Ljava/util/List;I)Cmain.CsvWriter#getPercentageDefectiveInTraining(Ljava/util/List;I)I
+ <init>(Ljava/io/FileDescriptor;)4java.io.FileReader#<init>(Ljava/io/FileDescriptor;)V

@@ -1,16 +1,40 @@
 
-&main.Release#getId()Ljava/lang/String;=
-3/Users/mirko/git/Deliverable2/src/main/Release.java   ("1*ò
-1=
-3/Users/mirko/git/Deliverable2/src/main/Release.java!	 !(y
-w
-=
-3/Users/mirko/git/Deliverable2/src/main/Release.java!	 !(
-%0java.lang.String"__id**
-main.Release"
-id"Y
-=
-3/Users/mirko/git/Deliverable2/src/main/Release.java! !(
-
-%0java.lang.StringB
-main.Release
+=main.Main#computeBuggynessCheck(Lmain/Ticket;Lmain/Release;)Z:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaN N(,"3*à
+2:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaO% O(&ùö
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaO% O(.
+%2java.lang.Integer"&main.Ticket#getFV()Ljava/lang/Integer;*
+
+tmain.Ticket2getFV()°û
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaO1 O(;
+%3java.lang.Integer"(main.Release#getInt()Ljava/lang/Integer;*
+
+rmain.Release2getInt()*
+1*ã
+3:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaO
+ O(ùö
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaO
+ O(
+%0java.lang.Integer"&main.Ticket#getIV()Ljava/lang/Integer;*
+
+tmain.Ticket2getIV()°û
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaO O(!
+%1java.lang.Integer"(main.Release#getInt()Ljava/lang/Integer;*
+
+rmain.Release2getInt()*
+2
+1*Ö
+1:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaO O(="D
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javaO O(=
+"":
+tmain.Ticket:
+rmain.ReleaseB"
+	main.Main

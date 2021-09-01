@@ -433,13 +433,9 @@ public class TestWekaEasy{
 			for(int i=0; i<3; i++) {
 				Classifier classifier = getClassifier(i);
 				featuresSelection(training, testing, defectiveInTraining, classifier, z, wekaList);
-				try {
-					classifier.buildClassifier(training);
-					evalClass = new Evaluation(testing);
-					evalClass.evaluateModel(classifier, testing); 
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				classifier.buildClassifier(training);
+				evalClass = new Evaluation(testing);
+				evalClass.evaluateModel(classifier, testing); 
 				WekaData simple = new WekaData();
 				simple.setTrainingStep(z);
 				simple.setClassifier(name);

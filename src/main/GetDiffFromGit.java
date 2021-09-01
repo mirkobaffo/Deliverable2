@@ -145,8 +145,8 @@ public static JSONArray getPerCommitMetrics(Repository repository, Release relea
 	public static long countLines(String fileName, String pathName) {
 	      long lines = 0;
 	      try (BufferedReader reader = new BufferedReader(new FileReader(pathName + projName+ "/" + fileName))) {
-	    	  
-	          while ((reader.readLine()) != null) 
+	    	  String check = reader.readLine();
+	          while (check != null) 
 	        	  lines++;
 	      } catch (IOException e) {
 	          e.printStackTrace();

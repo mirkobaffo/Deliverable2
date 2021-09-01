@@ -1,10 +1,18 @@
 
-main.Class#getLOCAdded()I;
-1/Users/mirko/git/Deliverable2/src/main/Class.javaR R("1*‡
+$main.Class#getDate()Ljava/util/Date;;
+1/Users/mirko/git/Deliverable2/src/main/Class.java( (("1*Ž
 1;
-1/Users/mirko/git/Deliverable2/src/main/Class.javaS	 S("E
+1/Users/mirko/git/Deliverable2/src/main/Class.java)	 )(u
+s
 ;
-1/Users/mirko/git/Deliverable2/src/main/Class.javaS S(
-""B
+1/Users/mirko/git/Deliverable2/src/main/Class.java)	 )(
+%0java.util.Date"__id**
+
+main.Class"
+date"U
+;
+1/Users/mirko/git/Deliverable2/src/main/Class.java) )(
+
+%0java.util.DateB
 
 main.Class

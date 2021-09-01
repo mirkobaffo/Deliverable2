@@ -1,40 +1,92 @@
 
-(main.Proportion#computeP(Lmain/Ticket;)I@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java# #("5*ö
-5@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java$ $(¨¥
-@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java$ $(
-%0java.lang.Integer"&main.Ticket#getFV()Ljava/lang/Integer;*
-
-ticketmain.Ticket2getFV()¨¥
-@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java$ $(+
-%1java.lang.Integer"&main.Ticket#getIV()Ljava/lang/Integer;*
-
-ticketmain.Ticket2getIV()¨¥
-@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java% %(
-%2java.lang.Integer"&main.Ticket#getFV()Ljava/lang/Integer;*
-
-ticketmain.Ticket2getFV()¨¥
-@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java%  %(.
-%3java.lang.Integer"&main.Ticket#getOV()Ljava/lang/Integer;*
-
-ticketmain.Ticket2getOV()*
-1*É
-1@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java- -(µ²
-@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java- -(
+zmain.GetReleaseInfo#customRelease(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmain/Release;D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaj j('"1*Ú
+1D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javak k('jh
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javak k(%
+%0main.Release"main.Release|
+z
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javak k('
+%1"main.Release#<init>()V*
+
+%0main.Release}
+{
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javak k((
+releasemain.Release"__id*
+
+%0main.ReleaseÜ
+Ù
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javal l()
 
-%4void"&main.Ticket#setP(Ljava/lang/Integer;)V*
-
-ticketmain.Ticket*
-""2setP(Ljava/lang/Integer;)"J
-@
-6/Users/mirko/git/Deliverable2/src/main/Proportion.java. .(
-"":
-ticketmain.TicketB"
-main.Proportion
+%2void":main.Release#setNumber(Lmain/Release;Ljava/lang/Integer;)V*"
+main.Release*
+
+releasemain.Release*
+
+indexjava.lang.Integer×
+Ô
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javam m(&
+
+%3void"7main.Release#setName(Lmain/Release;Ljava/lang/String;)V*"
+main.Release*
+
+releasemain.Release*
+
+namejava.lang.StringÓ
+Ð
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javan n(!
+
+%4void"5main.Release#setId(Lmain/Release;Ljava/lang/String;)V*"
+main.Release*
+
+releasemain.Release*
+
+idjava.lang.String‡„
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javao o(/ 
+%5java.text.SimpleDateFormat"java.text.SimpleDateFormatÃ
+À
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javao o(E
+%6"6java.text.SimpleDateFormat#<init>(Ljava/lang/String;)V*"
+ 
+%5java.text.SimpleDateFormat*
+yyyy-MM-dd'T'HH:mmýú
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javao o(T
+%7java.util.Date">java.text.DateFormat#parse(Ljava/lang/String;)Ljava/util/Date;*"
+ 
+%5java.text.SimpleDateFormat*
+
+strDatejava.lang.String2parse(Ljava/lang/String;)†
+ƒ
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javao o(U
+releaseDatejava.util.Date"__id*
+
+%7java.util.DateÚ
+×
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javap p(-
+
+%8void"5main.Release#setDate(Lmain/Release;Ljava/util/Date;)V*"
+main.Release*
+
+releasemain.Release*
+
+releaseDatejava.util.Date"a
+D
+:/Users/mirko/git/Deliverable2/src/main/GetReleaseInfo.javaq q(
+
+releasemain.Release:
+indexjava.lang.Integer:
+strDatejava.lang.String:
+namejava.lang.String:
+idjava.lang.StringB"
+main.GetReleaseInfo

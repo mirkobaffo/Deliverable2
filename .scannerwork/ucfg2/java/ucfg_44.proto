@@ -1,16 +1,47 @@
 
-&main.Release#getDate()Ljava/util/Date;=
-3/Users/mirko/git/Deliverable2/src/main/Release.java) )("1*ñ
-1=
-3/Users/mirko/git/Deliverable2/src/main/Release.java*	 *(y
-w
-=
-3/Users/mirko/git/Deliverable2/src/main/Release.java*	 *(
-%0java.util.Date"__id**
-main.Release"
-date"W
-=
-3/Users/mirko/git/Deliverable2/src/main/Release.java* *(
+>main.Main#getPercentageDefectiveInTraining(Ljava/util/List;I)I:
+0/Users/mirko/git/Deliverable2/src/main/Main.javak k(3"3"1*ø
+3:
+0/Users/mirko/git/Deliverable2/src/main/Main.javao o(Ö
+Ç
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javao o(&
+%0main.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""∫∑
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javao o(;
+%1java.lang.Integer"4main.Release#getNumOfBuggyClass()Ljava/lang/Integer;*
+
+%0main.Release2getNumOfBuggyClass()Ö
+Ç
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javap% p(4
+%2main.Release"
+__arrayGet*
+
+releasesjava.util.List*
+""§°
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javap% p(A
+%3java.util.List")main.Release#getClasses()Ljava/util/List;*
+
+%2main.Release2getClasses()Å
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javap% p(H	
+%4int"java.util.List#size()I*
 
-%0java.util.DateB
-main.Release
+%3java.util.List2size()*
+3
+1*Ö
+1:
+0/Users/mirko/git/Deliverable2/src/main/Main.javar
+ r("D
+:
+0/Users/mirko/git/Deliverable2/src/main/Main.javar r(&
+"":
+releasesjava.util.List:
+""B"
+	main.Main
